@@ -14,3 +14,11 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+// Moving order
+#define FIRST_MOVE  0
+#define SECOND_MOVE 1
+
+// Side
+#define THIS_SIDE  0
+#define COUNTER_SIDE 1

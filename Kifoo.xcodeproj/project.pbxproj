@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1512EE141865A21E00A9BA0B /* KFSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE131865A21E00A9BA0B /* KFSquareButton.m */; };
+		1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE161865C5A900A9BA0B /* KFPiece.m */; };
+		1512EE1A1865D2EE00A9BA0B /* KFKaku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE191865D2EE00A9BA0B /* KFKaku.m */; };
+		1512EE1D1865D7ED00A9BA0B /* KFFu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE1C1865D7ED00A9BA0B /* KFFu.m */; };
 		15FE2EC7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EC9184AFBAC00D00F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */; };
 		15FE2ECB184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
@@ -68,6 +72,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1512EE121865A21E00A9BA0B /* KFSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFSquareButton.h; path = View/KFSquareButton.h; sourceTree = "<group>"; };
+		1512EE131865A21E00A9BA0B /* KFSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFSquareButton.m; path = View/KFSquareButton.m; sourceTree = "<group>"; };
+		1512EE151865C5A900A9BA0B /* KFPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFPiece.h; path = Model/KFPiece.h; sourceTree = "<group>"; };
+		1512EE161865C5A900A9BA0B /* KFPiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFPiece.m; path = Model/KFPiece.m; sourceTree = "<group>"; };
+		1512EE181865D2EE00A9BA0B /* KFKaku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKaku.h; path = Model/KFKaku.h; sourceTree = "<group>"; };
+		1512EE191865D2EE00A9BA0B /* KFKaku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKaku.m; path = Model/KFKaku.m; sourceTree = "<group>"; };
+		1512EE1B1865D7ED00A9BA0B /* KFFu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFFu.h; path = Model/KFFu.h; sourceTree = "<group>"; };
+		1512EE1C1865D7ED00A9BA0B /* KFFu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFFu.m; path = Model/KFFu.m; sourceTree = "<group>"; };
 		15FE2EC3184AFBAC00D00F92 /* Kifoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kifoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EC6184AFBAC00D00F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -241,6 +253,8 @@
 		15FE2EFC184AFBFE00D00F92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1512EE121865A21E00A9BA0B /* KFSquareButton.h */,
+				1512EE131865A21E00A9BA0B /* KFSquareButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -248,6 +262,12 @@
 		15FE2EFD184AFC0300D00F92 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1512EE151865C5A900A9BA0B /* KFPiece.h */,
+				1512EE161865C5A900A9BA0B /* KFPiece.m */,
+				1512EE181865D2EE00A9BA0B /* KFKaku.h */,
+				1512EE191865D2EE00A9BA0B /* KFKaku.m */,
+				1512EE1B1865D7ED00A9BA0B /* KFFu.h */,
+				1512EE1C1865D7ED00A9BA0B /* KFFu.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -436,11 +456,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1512EE1A1865D2EE00A9BA0B /* KFKaku.m in Sources */,
 				15FE2F01184AFD3900D00F92 /* KFTitleViewController.m in Sources */,
 				15FE2F06184B011A00D00F92 /* KFBoardViewController.m in Sources */,
+				1512EE1D1865D7ED00A9BA0B /* KFFu.m in Sources */,
 				15FE2EDD184AFBAC00D00F92 /* KFViewController.m in Sources */,
 				15FE2ED3184AFBAC00D00F92 /* main.m in Sources */,
 				15FE2ED7184AFBAC00D00F92 /* KFAppDelegate.m in Sources */,
+				1512EE141865A21E00A9BA0B /* KFSquareButton.m in Sources */,
+				1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +667,7 @@
 				15FE2EF7184AFBAC00D00F92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15FE2EF8184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "KifooTests" */ = {
 			isa = XCConfigurationList;
@@ -651,6 +676,7 @@
 				15FE2EFA184AFBAC00D00F92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

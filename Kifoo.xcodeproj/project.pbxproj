@@ -13,7 +13,6 @@
 		15FE2ED1184AFBAC00D00F92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2ECF184AFBAC00D00F92 /* InfoPlist.strings */; };
 		15FE2ED3184AFBAC00D00F92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2ED2184AFBAC00D00F92 /* main.m */; };
 		15FE2ED7184AFBAC00D00F92 /* KFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */; };
-		15FE2EDA184AFBAC00D00F92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2ED8184AFBAC00D00F92 /* Main.storyboard */; };
 		15FE2EDD184AFBAC00D00F92 /* KFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2EDC184AFBAC00D00F92 /* KFViewController.m */; };
 		15FE2EDF184AFBAC00D00F92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2EDE184AFBAC00D00F92 /* Images.xcassets */; };
 		15FE2EE6184AFBAC00D00F92 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EE5184AFBAC00D00F92 /* XCTest.framework */; };
@@ -21,6 +20,41 @@
 		15FE2EE8184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
 		15FE2EF0184AFBAC00D00F92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2EEE184AFBAC00D00F92 /* InfoPlist.strings */; };
 		15FE2EF2184AFBAC00D00F92 /* KifooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2EF1184AFBAC00D00F92 /* KifooTests.m */; };
+		15FE2F01184AFD3900D00F92 /* KFTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2EFF184AFD3900D00F92 /* KFTitleViewController.m */; };
+		15FE2F02184AFD3900D00F92 /* KFTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F00184AFD3900D00F92 /* KFTitleViewController.xib */; };
+		15FE2F06184B011A00D00F92 /* KFBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2F04184B011A00D00F92 /* KFBoardViewController.m */; };
+		15FE2F07184B011A00D00F92 /* KFBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F05184B011A00D00F92 /* KFBoardViewController.xib */; };
+		15FE2F0A184B02BA00D00F92 /* japanese-chess-b02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F09184B02BA00D00F92 /* japanese-chess-b02.jpg */; };
+		15FE2F2B184B088E00D00F92 /* g_fu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F0D184B088E00D00F92 /* g_fu.png */; };
+		15FE2F2C184B088E00D00F92 /* g_gin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F0E184B088E00D00F92 /* g_gin.png */; };
+		15FE2F2D184B088E00D00F92 /* g_gyoku.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F0F184B088E00D00F92 /* g_gyoku.png */; };
+		15FE2F2F184B088E00D00F92 /* g_kaku.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F11184B088E00D00F92 /* g_kaku.png */; };
+		15FE2F30184B088E00D00F92 /* g_kei.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F12184B088E00D00F92 /* g_kei.png */; };
+		15FE2F31184B088E00D00F92 /* g_kin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F13184B088E00D00F92 /* g_kin.png */; };
+		15FE2F32184B088E00D00F92 /* g_kyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F14184B088E00D00F92 /* g_kyo.png */; };
+		15FE2F33184B088E00D00F92 /* g_narigin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F15184B088E00D00F92 /* g_narigin.png */; };
+		15FE2F34184B088E00D00F92 /* g_narikei.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F16184B088E00D00F92 /* g_narikei.png */; };
+		15FE2F35184B088E00D00F92 /* g_narikyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F17184B088E00D00F92 /* g_narikyo.png */; };
+		15FE2F36184B088E00D00F92 /* g_ou.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F18184B088E00D00F92 /* g_ou.png */; };
+		15FE2F37184B088E00D00F92 /* g_ryu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F19184B088E00D00F92 /* g_ryu.png */; };
+		15FE2F38184B088E00D00F92 /* g_to.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F1A184B088E00D00F92 /* g_to.png */; };
+		15FE2F39184B088E00D00F92 /* g_uma.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F1B184B088E00D00F92 /* g_uma.png */; };
+		15FE2F3A184B088E00D00F92 /* s_fu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F1C184B088E00D00F92 /* s_fu.png */; };
+		15FE2F3B184B088E00D00F92 /* s_gin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F1D184B088E00D00F92 /* s_gin.png */; };
+		15FE2F3C184B088E00D00F92 /* s_gyoku.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F1E184B088E00D00F92 /* s_gyoku.png */; };
+		15FE2F3D184B088E00D00F92 /* s_hisha.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F1F184B088E00D00F92 /* s_hisha.png */; };
+		15FE2F3E184B088E00D00F92 /* s_kaku.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F20184B088E00D00F92 /* s_kaku.png */; };
+		15FE2F3F184B088E00D00F92 /* s_kei.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F21184B088E00D00F92 /* s_kei.png */; };
+		15FE2F40184B088E00D00F92 /* s_kin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F22184B088E00D00F92 /* s_kin.png */; };
+		15FE2F41184B088E00D00F92 /* s_kyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F23184B088E00D00F92 /* s_kyo.png */; };
+		15FE2F42184B088E00D00F92 /* s_narigin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F24184B088E00D00F92 /* s_narigin.png */; };
+		15FE2F43184B088E00D00F92 /* s_narikei.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F25184B088E00D00F92 /* s_narikei.png */; };
+		15FE2F44184B088E00D00F92 /* s_narikyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F26184B088E00D00F92 /* s_narikyo.png */; };
+		15FE2F45184B088E00D00F92 /* s_ou.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F27184B088E00D00F92 /* s_ou.png */; };
+		15FE2F46184B088E00D00F92 /* s_ryu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F28184B088E00D00F92 /* s_ryu.png */; };
+		15FE2F47184B088E00D00F92 /* s_to.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F29184B088E00D00F92 /* s_to.png */; };
+		15FE2F48184B088E00D00F92 /* s_uma.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F2A184B088E00D00F92 /* s_uma.png */; };
+		15FE2F4A184B209600D00F92 /* g_hisha.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F49184B209600D00F92 /* g_hisha.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +78,6 @@
 		15FE2ED4184AFBAC00D00F92 /* Kifoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kifoo-Prefix.pch"; sourceTree = "<group>"; };
 		15FE2ED5184AFBAC00D00F92 /* KFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFAppDelegate.h; sourceTree = "<group>"; };
 		15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFAppDelegate.m; sourceTree = "<group>"; };
-		15FE2ED9184AFBAC00D00F92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15FE2EDB184AFBAC00D00F92 /* KFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFViewController.h; sourceTree = "<group>"; };
 		15FE2EDC184AFBAC00D00F92 /* KFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFViewController.m; sourceTree = "<group>"; };
 		15FE2EDE184AFBAC00D00F92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -53,6 +86,43 @@
 		15FE2EED184AFBAC00D00F92 /* KifooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KifooTests-Info.plist"; sourceTree = "<group>"; };
 		15FE2EEF184AFBAC00D00F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15FE2EF1184AFBAC00D00F92 /* KifooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KifooTests.m; sourceTree = "<group>"; };
+		15FE2EFE184AFD3900D00F92 /* KFTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFTitleViewController.h; path = controller/KFTitleViewController.h; sourceTree = "<group>"; };
+		15FE2EFF184AFD3900D00F92 /* KFTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFTitleViewController.m; path = controller/KFTitleViewController.m; sourceTree = "<group>"; };
+		15FE2F00184AFD3900D00F92 /* KFTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KFTitleViewController.xib; path = controller/KFTitleViewController.xib; sourceTree = "<group>"; };
+		15FE2F03184B011A00D00F92 /* KFBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFBoardViewController.h; path = controller/KFBoardViewController.h; sourceTree = "<group>"; };
+		15FE2F04184B011A00D00F92 /* KFBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFBoardViewController.m; path = controller/KFBoardViewController.m; sourceTree = "<group>"; };
+		15FE2F05184B011A00D00F92 /* KFBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KFBoardViewController.xib; path = controller/KFBoardViewController.xib; sourceTree = "<group>"; };
+		15FE2F09184B02BA00D00F92 /* japanese-chess-b02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "japanese-chess-b02.jpg"; path = "Resources/Image/japanese-chess-b02.jpg"; sourceTree = "<group>"; };
+		15FE2F0D184B088E00D00F92 /* g_fu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_fu.png; path = Resources/Image/Piece/60x64/g_fu.png; sourceTree = "<group>"; };
+		15FE2F0E184B088E00D00F92 /* g_gin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_gin.png; path = Resources/Image/Piece/60x64/g_gin.png; sourceTree = "<group>"; };
+		15FE2F0F184B088E00D00F92 /* g_gyoku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_gyoku.png; path = Resources/Image/Piece/60x64/g_gyoku.png; sourceTree = "<group>"; };
+		15FE2F11184B088E00D00F92 /* g_kaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_kaku.png; path = Resources/Image/Piece/60x64/g_kaku.png; sourceTree = "<group>"; };
+		15FE2F12184B088E00D00F92 /* g_kei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_kei.png; path = Resources/Image/Piece/60x64/g_kei.png; sourceTree = "<group>"; };
+		15FE2F13184B088E00D00F92 /* g_kin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_kin.png; path = Resources/Image/Piece/60x64/g_kin.png; sourceTree = "<group>"; };
+		15FE2F14184B088E00D00F92 /* g_kyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_kyo.png; path = Resources/Image/Piece/60x64/g_kyo.png; sourceTree = "<group>"; };
+		15FE2F15184B088E00D00F92 /* g_narigin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_narigin.png; path = Resources/Image/Piece/60x64/g_narigin.png; sourceTree = "<group>"; };
+		15FE2F16184B088E00D00F92 /* g_narikei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_narikei.png; path = Resources/Image/Piece/60x64/g_narikei.png; sourceTree = "<group>"; };
+		15FE2F17184B088E00D00F92 /* g_narikyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_narikyo.png; path = Resources/Image/Piece/60x64/g_narikyo.png; sourceTree = "<group>"; };
+		15FE2F18184B088E00D00F92 /* g_ou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_ou.png; path = Resources/Image/Piece/60x64/g_ou.png; sourceTree = "<group>"; };
+		15FE2F19184B088E00D00F92 /* g_ryu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_ryu.png; path = Resources/Image/Piece/60x64/g_ryu.png; sourceTree = "<group>"; };
+		15FE2F1A184B088E00D00F92 /* g_to.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_to.png; path = Resources/Image/Piece/60x64/g_to.png; sourceTree = "<group>"; };
+		15FE2F1B184B088E00D00F92 /* g_uma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_uma.png; path = Resources/Image/Piece/60x64/g_uma.png; sourceTree = "<group>"; };
+		15FE2F1C184B088E00D00F92 /* s_fu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_fu.png; path = Resources/Image/Piece/60x64/s_fu.png; sourceTree = "<group>"; };
+		15FE2F1D184B088E00D00F92 /* s_gin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_gin.png; path = Resources/Image/Piece/60x64/s_gin.png; sourceTree = "<group>"; };
+		15FE2F1E184B088E00D00F92 /* s_gyoku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_gyoku.png; path = Resources/Image/Piece/60x64/s_gyoku.png; sourceTree = "<group>"; };
+		15FE2F1F184B088E00D00F92 /* s_hisha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_hisha.png; path = Resources/Image/Piece/60x64/s_hisha.png; sourceTree = "<group>"; };
+		15FE2F20184B088E00D00F92 /* s_kaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_kaku.png; path = Resources/Image/Piece/60x64/s_kaku.png; sourceTree = "<group>"; };
+		15FE2F21184B088E00D00F92 /* s_kei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_kei.png; path = Resources/Image/Piece/60x64/s_kei.png; sourceTree = "<group>"; };
+		15FE2F22184B088E00D00F92 /* s_kin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_kin.png; path = Resources/Image/Piece/60x64/s_kin.png; sourceTree = "<group>"; };
+		15FE2F23184B088E00D00F92 /* s_kyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_kyo.png; path = Resources/Image/Piece/60x64/s_kyo.png; sourceTree = "<group>"; };
+		15FE2F24184B088E00D00F92 /* s_narigin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_narigin.png; path = Resources/Image/Piece/60x64/s_narigin.png; sourceTree = "<group>"; };
+		15FE2F25184B088E00D00F92 /* s_narikei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_narikei.png; path = Resources/Image/Piece/60x64/s_narikei.png; sourceTree = "<group>"; };
+		15FE2F26184B088E00D00F92 /* s_narikyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_narikyo.png; path = Resources/Image/Piece/60x64/s_narikyo.png; sourceTree = "<group>"; };
+		15FE2F27184B088E00D00F92 /* s_ou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_ou.png; path = Resources/Image/Piece/60x64/s_ou.png; sourceTree = "<group>"; };
+		15FE2F28184B088E00D00F92 /* s_ryu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_ryu.png; path = Resources/Image/Piece/60x64/s_ryu.png; sourceTree = "<group>"; };
+		15FE2F29184B088E00D00F92 /* s_to.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_to.png; path = Resources/Image/Piece/60x64/s_to.png; sourceTree = "<group>"; };
+		15FE2F2A184B088E00D00F92 /* s_uma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = s_uma.png; path = Resources/Image/Piece/60x64/s_uma.png; sourceTree = "<group>"; };
+		15FE2F49184B209600D00F92 /* g_hisha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g_hisha.png; path = Resources/Image/Piece/60x64/g_hisha.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +183,14 @@
 			isa = PBXGroup;
 			children = (
 				15FE2ED5184AFBAC00D00F92 /* KFAppDelegate.h */,
-				15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */,
-				15FE2ED8184AFBAC00D00F92 /* Main.storyboard */,
 				15FE2EDB184AFBAC00D00F92 /* KFViewController.h */,
+				15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */,
 				15FE2EDC184AFBAC00D00F92 /* KFViewController.m */,
 				15FE2EDE184AFBAC00D00F92 /* Images.xcassets */,
+				15FE2EFB184AFBF800D00F92 /* Controller */,
+				15FE2EFD184AFC0300D00F92 /* Model */,
+				15FE2EFC184AFBFE00D00F92 /* View */,
+				15FE2F08184B028300D00F92 /* Resources */,
 				15FE2ECD184AFBAC00D00F92 /* Supporting Files */,
 			);
 			path = Kifoo;
@@ -150,6 +223,87 @@
 				15FE2EEE184AFBAC00D00F92 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15FE2EFB184AFBF800D00F92 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				15FE2EFE184AFD3900D00F92 /* KFTitleViewController.h */,
+				15FE2EFF184AFD3900D00F92 /* KFTitleViewController.m */,
+				15FE2F00184AFD3900D00F92 /* KFTitleViewController.xib */,
+				15FE2F03184B011A00D00F92 /* KFBoardViewController.h */,
+				15FE2F04184B011A00D00F92 /* KFBoardViewController.m */,
+				15FE2F05184B011A00D00F92 /* KFBoardViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		15FE2EFC184AFBFE00D00F92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		15FE2EFD184AFC0300D00F92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		15FE2F08184B028300D00F92 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15FE2F0C184B05F900D00F92 /* Board */,
+				15FE2F0B184B05D500D00F92 /* Piece */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		15FE2F0B184B05D500D00F92 /* Piece */ = {
+			isa = PBXGroup;
+			children = (
+				15FE2F0D184B088E00D00F92 /* g_fu.png */,
+				15FE2F0E184B088E00D00F92 /* g_gin.png */,
+				15FE2F0F184B088E00D00F92 /* g_gyoku.png */,
+				15FE2F49184B209600D00F92 /* g_hisha.png */,
+				15FE2F11184B088E00D00F92 /* g_kaku.png */,
+				15FE2F12184B088E00D00F92 /* g_kei.png */,
+				15FE2F13184B088E00D00F92 /* g_kin.png */,
+				15FE2F14184B088E00D00F92 /* g_kyo.png */,
+				15FE2F15184B088E00D00F92 /* g_narigin.png */,
+				15FE2F16184B088E00D00F92 /* g_narikei.png */,
+				15FE2F17184B088E00D00F92 /* g_narikyo.png */,
+				15FE2F18184B088E00D00F92 /* g_ou.png */,
+				15FE2F19184B088E00D00F92 /* g_ryu.png */,
+				15FE2F1A184B088E00D00F92 /* g_to.png */,
+				15FE2F1B184B088E00D00F92 /* g_uma.png */,
+				15FE2F1C184B088E00D00F92 /* s_fu.png */,
+				15FE2F1D184B088E00D00F92 /* s_gin.png */,
+				15FE2F1E184B088E00D00F92 /* s_gyoku.png */,
+				15FE2F1F184B088E00D00F92 /* s_hisha.png */,
+				15FE2F20184B088E00D00F92 /* s_kaku.png */,
+				15FE2F21184B088E00D00F92 /* s_kei.png */,
+				15FE2F22184B088E00D00F92 /* s_kin.png */,
+				15FE2F23184B088E00D00F92 /* s_kyo.png */,
+				15FE2F24184B088E00D00F92 /* s_narigin.png */,
+				15FE2F25184B088E00D00F92 /* s_narikei.png */,
+				15FE2F26184B088E00D00F92 /* s_narikyo.png */,
+				15FE2F27184B088E00D00F92 /* s_ou.png */,
+				15FE2F28184B088E00D00F92 /* s_ryu.png */,
+				15FE2F29184B088E00D00F92 /* s_to.png */,
+				15FE2F2A184B088E00D00F92 /* s_uma.png */,
+			);
+			name = Piece;
+			sourceTree = "<group>";
+		};
+		15FE2F0C184B05F900D00F92 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				15FE2F09184B02BA00D00F92 /* japanese-chess-b02.jpg */,
+			);
+			name = Board;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +383,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15FE2F02184AFD3900D00F92 /* KFTitleViewController.xib in Resources */,
+				15FE2F44184B088E00D00F92 /* s_narikyo.png in Resources */,
 				15FE2EDF184AFBAC00D00F92 /* Images.xcassets in Resources */,
+				15FE2F35184B088E00D00F92 /* g_narikyo.png in Resources */,
+				15FE2F4A184B209600D00F92 /* g_hisha.png in Resources */,
+				15FE2F3B184B088E00D00F92 /* s_gin.png in Resources */,
+				15FE2F48184B088E00D00F92 /* s_uma.png in Resources */,
+				15FE2F3D184B088E00D00F92 /* s_hisha.png in Resources */,
+				15FE2F2B184B088E00D00F92 /* g_fu.png in Resources */,
+				15FE2F3F184B088E00D00F92 /* s_kei.png in Resources */,
+				15FE2F3E184B088E00D00F92 /* s_kaku.png in Resources */,
+				15FE2F43184B088E00D00F92 /* s_narikei.png in Resources */,
+				15FE2F46184B088E00D00F92 /* s_ryu.png in Resources */,
+				15FE2F3C184B088E00D00F92 /* s_gyoku.png in Resources */,
+				15FE2F32184B088E00D00F92 /* g_kyo.png in Resources */,
+				15FE2F31184B088E00D00F92 /* g_kin.png in Resources */,
+				15FE2F2D184B088E00D00F92 /* g_gyoku.png in Resources */,
+				15FE2F42184B088E00D00F92 /* s_narigin.png in Resources */,
+				15FE2F34184B088E00D00F92 /* g_narikei.png in Resources */,
+				15FE2F47184B088E00D00F92 /* s_to.png in Resources */,
+				15FE2F45184B088E00D00F92 /* s_ou.png in Resources */,
+				15FE2F39184B088E00D00F92 /* g_uma.png in Resources */,
+				15FE2F2F184B088E00D00F92 /* g_kaku.png in Resources */,
+				15FE2F3A184B088E00D00F92 /* s_fu.png in Resources */,
+				15FE2F41184B088E00D00F92 /* s_kyo.png in Resources */,
+				15FE2F40184B088E00D00F92 /* s_kin.png in Resources */,
+				15FE2F37184B088E00D00F92 /* g_ryu.png in Resources */,
+				15FE2F36184B088E00D00F92 /* g_ou.png in Resources */,
+				15FE2F38184B088E00D00F92 /* g_to.png in Resources */,
+				15FE2F2C184B088E00D00F92 /* g_gin.png in Resources */,
+				15FE2F07184B011A00D00F92 /* KFBoardViewController.xib in Resources */,
+				15FE2F30184B088E00D00F92 /* g_kei.png in Resources */,
 				15FE2ED1184AFBAC00D00F92 /* InfoPlist.strings in Resources */,
-				15FE2EDA184AFBAC00D00F92 /* Main.storyboard in Resources */,
+				15FE2F33184B088E00D00F92 /* g_narigin.png in Resources */,
+				15FE2F0A184B02BA00D00F92 /* japanese-chess-b02.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +436,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15FE2F01184AFD3900D00F92 /* KFTitleViewController.m in Sources */,
+				15FE2F06184B011A00D00F92 /* KFBoardViewController.m in Sources */,
 				15FE2EDD184AFBAC00D00F92 /* KFViewController.m in Sources */,
 				15FE2ED3184AFBAC00D00F92 /* main.m in Sources */,
 				15FE2ED7184AFBAC00D00F92 /* KFAppDelegate.m in Sources */,
@@ -281,14 +469,6 @@
 				15FE2ED0184AFBAC00D00F92 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		15FE2ED8184AFBAC00D00F92 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				15FE2ED9184AFBAC00D00F92 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		15FE2EEE184AFBAC00D00F92 /* InfoPlist.strings */ = {
@@ -382,6 +562,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
 				INFOPLIST_FILE = "Kifoo/Kifoo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -395,6 +576,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
 				INFOPLIST_FILE = "Kifoo/Kifoo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

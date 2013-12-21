@@ -7,12 +7,25 @@
 //
 
 #import "KFAppDelegate.h"
+#import "KFTitleViewController.h"
+#import "KFBoardViewController.h"
 
 @implementation KFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    /*
+    self.titleViewController = [[KFTitleViewController alloc] init];
+    self.window.rootViewController = self.titleViewController;
+     */
+    self.boardViewController = [[KFBoardViewController alloc] init];
+    self.window.rootViewController = self.boardViewController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

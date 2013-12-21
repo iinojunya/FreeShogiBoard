@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class KFTitleViewController;
+@class KFBoardViewController;
+
 @interface KFAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+//@property (strong, nonatomic) KFTitleViewController *titleViewController;
+@property (strong, nonatomic) KFBoardViewController *boardViewController;
 
 @end

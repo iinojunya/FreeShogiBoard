@@ -12,14 +12,17 @@
 @class KFPiece;
 
 @interface KFBoardViewController : UIViewController
-//@property (weak, nonatomic) IBOutlet UIImageView *square58;
-//@property (weak, nonatomic) IBOutlet UIImageView *square59;
 
-//@property (weak, nonatomic) IBOutlet UIButton *button57;
-//@property (weak, nonatomic) IBOutlet UIButton *button56;
+@property (strong, nonatomic) KFSquareButton *selectedSquare;
+@property (strong, nonatomic) KFPiece *selectedPiece;
+@property (strong, nonatomic) NSMutableDictionary *thisSideCapturedPieces;
+@property (strong, nonatomic) NSMutableDictionary *counterSideCapturedPieces;
 
-//- (IBAction)button57tapped:(id)sender;
-//- (IBAction)button56tapped:(id)sender;
+@property BOOL isPieceSelected;
+
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet UIView *thisSideStandView;
+@property (weak, nonatomic) IBOutlet UIView *counterSideStandView;
 
 @property (weak, nonatomic) IBOutlet KFSquareButton *square11;
 @property (weak, nonatomic) IBOutlet KFSquareButton *square12;
@@ -103,10 +106,8 @@
 @property (weak, nonatomic) IBOutlet KFSquareButton *square98;
 @property (weak, nonatomic) IBOutlet KFSquareButton *square99;
 
-@property (strong, nonatomic) KFSquareButton *selectedSquare;
-@property (strong, nonatomic) KFPiece *selectedPieace;
 
-@property BOOL isPieceSelected;
+- (IBAction)resetButtonTapped:(id)sender;
 
 - (IBAction)square11tapped:(id)sender;
 - (IBAction)square12tapped:(id)sender;

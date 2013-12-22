@@ -11,6 +11,12 @@
 		1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE161865C5A900A9BA0B /* KFPiece.m */; };
 		1512EE1A1865D2EE00A9BA0B /* KFKaku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE191865D2EE00A9BA0B /* KFKaku.m */; };
 		1512EE1D1865D7ED00A9BA0B /* KFFu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE1C1865D7ED00A9BA0B /* KFFu.m */; };
+		1512EE2018668F4500A9BA0B /* KFKyosya.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE1F18668F4500A9BA0B /* KFKyosya.m */; };
+		1512EE23186690C300A9BA0B /* KFKeima.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE22186690C300A9BA0B /* KFKeima.m */; };
+		1512EE26186690F300A9BA0B /* KFGin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE25186690F300A9BA0B /* KFGin.m */; };
+		1512EE291866912F00A9BA0B /* KFKin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE281866912F00A9BA0B /* KFKin.m */; };
+		1512EE2C1866915600A9BA0B /* KFGyoku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE2B1866915600A9BA0B /* KFGyoku.m */; };
+		1512EE2F1866918000A9BA0B /* KFHisha.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE2E1866918000A9BA0B /* KFHisha.m */; };
 		15FE2EC7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EC9184AFBAC00D00F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */; };
 		15FE2ECB184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
@@ -80,6 +86,18 @@
 		1512EE191865D2EE00A9BA0B /* KFKaku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKaku.m; path = Model/KFKaku.m; sourceTree = "<group>"; };
 		1512EE1B1865D7ED00A9BA0B /* KFFu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFFu.h; path = Model/KFFu.h; sourceTree = "<group>"; };
 		1512EE1C1865D7ED00A9BA0B /* KFFu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFFu.m; path = Model/KFFu.m; sourceTree = "<group>"; };
+		1512EE1E18668F4500A9BA0B /* KFKyosya.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKyosya.h; path = Model/KFKyosya.h; sourceTree = "<group>"; };
+		1512EE1F18668F4500A9BA0B /* KFKyosya.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKyosya.m; path = Model/KFKyosya.m; sourceTree = "<group>"; };
+		1512EE21186690C300A9BA0B /* KFKeima.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKeima.h; path = Model/KFKeima.h; sourceTree = "<group>"; };
+		1512EE22186690C300A9BA0B /* KFKeima.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKeima.m; path = Model/KFKeima.m; sourceTree = "<group>"; };
+		1512EE24186690F300A9BA0B /* KFGin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFGin.h; path = Model/KFGin.h; sourceTree = "<group>"; };
+		1512EE25186690F300A9BA0B /* KFGin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFGin.m; path = Model/KFGin.m; sourceTree = "<group>"; };
+		1512EE271866912F00A9BA0B /* KFKin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKin.h; path = Model/KFKin.h; sourceTree = "<group>"; };
+		1512EE281866912F00A9BA0B /* KFKin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKin.m; path = Model/KFKin.m; sourceTree = "<group>"; };
+		1512EE2A1866915600A9BA0B /* KFGyoku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFGyoku.h; path = Model/KFGyoku.h; sourceTree = "<group>"; };
+		1512EE2B1866915600A9BA0B /* KFGyoku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFGyoku.m; path = Model/KFGyoku.m; sourceTree = "<group>"; };
+		1512EE2D1866918000A9BA0B /* KFHisha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFHisha.h; path = Model/KFHisha.h; sourceTree = "<group>"; };
+		1512EE2E1866918000A9BA0B /* KFHisha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFHisha.m; path = Model/KFHisha.m; sourceTree = "<group>"; };
 		15FE2EC3184AFBAC00D00F92 /* Kifoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kifoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EC6184AFBAC00D00F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -194,16 +212,16 @@
 		15FE2ECC184AFBAC00D00F92 /* Kifoo */ = {
 			isa = PBXGroup;
 			children = (
-				15FE2ED5184AFBAC00D00F92 /* KFAppDelegate.h */,
-				15FE2EDB184AFBAC00D00F92 /* KFViewController.h */,
-				15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */,
-				15FE2EDC184AFBAC00D00F92 /* KFViewController.m */,
-				15FE2EDE184AFBAC00D00F92 /* Images.xcassets */,
 				15FE2EFB184AFBF800D00F92 /* Controller */,
+				15FE2EDE184AFBAC00D00F92 /* Images.xcassets */,
+				15FE2ED5184AFBAC00D00F92 /* KFAppDelegate.h */,
+				15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */,
+				15FE2EDB184AFBAC00D00F92 /* KFViewController.h */,
+				15FE2EDC184AFBAC00D00F92 /* KFViewController.m */,
 				15FE2EFD184AFC0300D00F92 /* Model */,
-				15FE2EFC184AFBFE00D00F92 /* View */,
 				15FE2F08184B028300D00F92 /* Resources */,
 				15FE2ECD184AFBAC00D00F92 /* Supporting Files */,
+				15FE2EFC184AFBFE00D00F92 /* View */,
 			);
 			path = Kifoo;
 			sourceTree = "<group>";
@@ -262,12 +280,24 @@
 		15FE2EFD184AFC0300D00F92 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1512EE151865C5A900A9BA0B /* KFPiece.h */,
-				1512EE161865C5A900A9BA0B /* KFPiece.m */,
-				1512EE181865D2EE00A9BA0B /* KFKaku.h */,
-				1512EE191865D2EE00A9BA0B /* KFKaku.m */,
 				1512EE1B1865D7ED00A9BA0B /* KFFu.h */,
 				1512EE1C1865D7ED00A9BA0B /* KFFu.m */,
+				1512EE24186690F300A9BA0B /* KFGin.h */,
+				1512EE25186690F300A9BA0B /* KFGin.m */,
+				1512EE2A1866915600A9BA0B /* KFGyoku.h */,
+				1512EE2B1866915600A9BA0B /* KFGyoku.m */,
+				1512EE2D1866918000A9BA0B /* KFHisha.h */,
+				1512EE2E1866918000A9BA0B /* KFHisha.m */,
+				1512EE181865D2EE00A9BA0B /* KFKaku.h */,
+				1512EE191865D2EE00A9BA0B /* KFKaku.m */,
+				1512EE21186690C300A9BA0B /* KFKeima.h */,
+				1512EE22186690C300A9BA0B /* KFKeima.m */,
+				1512EE271866912F00A9BA0B /* KFKin.h */,
+				1512EE281866912F00A9BA0B /* KFKin.m */,
+				1512EE1E18668F4500A9BA0B /* KFKyosya.h */,
+				1512EE1F18668F4500A9BA0B /* KFKyosya.m */,
+				1512EE151865C5A900A9BA0B /* KFPiece.h */,
+				1512EE161865C5A900A9BA0B /* KFPiece.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -460,9 +490,15 @@
 				15FE2F01184AFD3900D00F92 /* KFTitleViewController.m in Sources */,
 				15FE2F06184B011A00D00F92 /* KFBoardViewController.m in Sources */,
 				1512EE1D1865D7ED00A9BA0B /* KFFu.m in Sources */,
+				1512EE291866912F00A9BA0B /* KFKin.m in Sources */,
+				1512EE2018668F4500A9BA0B /* KFKyosya.m in Sources */,
 				15FE2EDD184AFBAC00D00F92 /* KFViewController.m in Sources */,
 				15FE2ED3184AFBAC00D00F92 /* main.m in Sources */,
 				15FE2ED7184AFBAC00D00F92 /* KFAppDelegate.m in Sources */,
+				1512EE2F1866918000A9BA0B /* KFHisha.m in Sources */,
+				1512EE23186690C300A9BA0B /* KFKeima.m in Sources */,
+				1512EE2C1866915600A9BA0B /* KFGyoku.m in Sources */,
+				1512EE26186690F300A9BA0B /* KFGin.m in Sources */,
 				1512EE141865A21E00A9BA0B /* KFSquareButton.m in Sources */,
 				1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */,
 			);

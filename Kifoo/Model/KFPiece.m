@@ -25,4 +25,9 @@
     return nil;
 }
 
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    // Override this method in sub class
+    return nil;
+}
+
 @end

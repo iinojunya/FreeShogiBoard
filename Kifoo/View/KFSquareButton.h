@@ -15,10 +15,10 @@
 @property (strong, nonatomic) KFPiece *locatedPiece;
 
 // Self or Counter side
-@property NSInteger *side;
+//@property NSInteger *side;
 
 // Sente or Gote
-@property NSInteger *order;
+//@property NSInteger *order;
 
 
 

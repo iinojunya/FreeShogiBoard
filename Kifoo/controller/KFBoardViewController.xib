@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KFBoardViewController">
             <connections>
+                <outlet property="counterSideStandView" destination="lQy-FR-F46" id="0zz-Wy-Tyo"/>
+                <outlet property="resetButton" destination="U5C-DH-5Dp" id="Jpj-SO-iv7"/>
                 <outlet property="square11" destination="TQk-Sh-UgV" id="zdL-R1-Ss0"/>
                 <outlet property="square12" destination="89j-5U-KPV" id="gM7-zI-Jir"/>
                 <outlet property="square13" destination="AMd-WF-fd3" id="MLJ-a8-fvC"/>
@@ -88,6 +90,7 @@
                 <outlet property="square97" destination="vFM-pn-BQv" id="OAm-Dj-2fA"/>
                 <outlet property="square98" destination="18E-6O-PkY" id="zdP-zb-fjb"/>
                 <outlet property="square99" destination="abr-Yy-fd8" id="O9d-Dc-VoZ"/>
+                <outlet property="thisSideStandView" destination="so8-OA-htR" id="e6y-dx-eGW"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -100,10 +103,32 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-DH-5Dp">
+                            <rect key="frame" x="239" y="26" width="79" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="リセット">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="TC6-ab-KuG"/>
+                            </connections>
+                        </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="japanese-chess-b02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dnT-Vs-W8I">
                             <rect key="frame" x="0.0" y="109" width="320" height="350"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="so8-OA-htR" userLabel="This side stand View">
+                            <rect key="frame" x="80" y="459" width="240" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQy-FR-F46" userLabel="Counter side standView">
+                            <rect key="frame" x="0.0" y="69" width="240" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQk-Sh-UgV" userLabel="Button - 11" customClass="KFSquareButton">
                             <rect key="frame" x="272" y="125" width="32" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -417,7 +442,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bk-1E-enA" userLabel="Button - 41" customClass="KFSquareButton">
                             <rect key="frame" x="177" y="125" width="32" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button" image="g_kin.png">
+                            <state key="normal" image="g_kin.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -915,10 +940,9 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

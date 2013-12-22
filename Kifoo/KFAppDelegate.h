@@ -14,7 +14,7 @@
 @interface KFAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-//@property (strong, nonatomic) KFTitleViewController *titleViewController;
+@property (strong, nonatomic) KFTitleViewController *titleViewController;
 @property (strong, nonatomic) KFBoardViewController *boardViewController;
 
 @end

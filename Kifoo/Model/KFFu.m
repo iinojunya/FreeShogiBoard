@@ -11,18 +11,35 @@
 
 //@implementation KFFu<KFPieceDelegate>
 
-
+ 
 @implementation KFFu
+
+- (id)initWithSide:(NSInteger)side {
+    self = [super initWithSide:side];
+    
+    if (self) {
+        
+    }
+
+    return self;
+}
 
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
-        NSLog(@"######### THIS SIDE!!");
         return @"s_fu.png";
     } else if (self.side == COUNTER_SIDE) {
-        NSLog(@"######### COUNTER SIDE!!");
         return @"g_fu.png";
     } else {
-        NSLog(@"######### Not Defined!?");
+        return nil;
+    }
+}
+
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_fu.png";
+    } else if (side == COUNTER_SIDE) {
+        return @"g_fu.png";
+    } else {
         return nil;
     }
 }

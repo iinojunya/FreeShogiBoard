@@ -29,6 +29,7 @@ enum {
 //@property (weak, nonatomic) id<KFPieceDelegate> delegate;
 
 - (NSString *)getImageName;
+- (NSString *)getImageNameWithSide:(NSInteger)side;
 
 - (id)initWithSide:(NSInteger)side;
 

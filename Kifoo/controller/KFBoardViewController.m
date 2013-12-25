@@ -40,15 +40,6 @@
     [self initializeBoard];
 }
 
-/*
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-*/
-
-
 # pragma mark - Private method
 - (void)addCapturedPiece:(KFPiece *)piece side:(NSInteger)side {
     NSInteger capturedPieceCount;
@@ -81,7 +72,6 @@
     //ボタンをひとつずつ配置に付ける
     int count = 0;
     if (side == THIS_SIDE) {
-//        for (KFSquareButton *button in self.thisSideCapturedPieceButtons) {
         for (KFSquareButton *button in [self.thisSideCapturedPieceButtons allValues]) {
             button.frame = CGRectMake(4 + 32 * count, 4, 32, 35);
             count++;
@@ -106,55 +96,21 @@
         if ([self.thisSideCapturedPieces count] == 0) {
             NSLog(@"ひとつ目の持ち駒。");
             // ボタンリストに追加
-//            [self.thisSideCapturedPieceButtons addObject:capturedPieceButton];
             NSLog(@"元々のボタンの数は:%ld", [self.thisSideCapturedPieceButtons count]);
             [self.thisSideCapturedPieceButtons setObject:capturedPieceButton forKey:piece.pieceId];
             NSLog(@"ボタンの数が増えました:%ld, id : %@", [self.thisSideCapturedPieceButtons count], piece.pieceId);
 
-            //TODO:位置調整
-//            capturedPieceButton.frame = CGRectMake(4, 4, 32, 35);
-            //ボタンをひとつずつ配置に付ける
-            /*
-//            int count = 0;
-            NSInteger count = 0;
-            for (KFSquareButton *button in [self.thisSideCapturedPieceButtons allValues]) {
-                button.frame = CGRectMake(4 + 32 * count, 4, 32, 35);
-            }
-            */
             [self locateCapturedPieceButtons:self.selectedPiece.side];
-            
-            
         } else if ([self.thisSideCapturedPieces objectForKey:piece.pieceId] != nil) {
             NSLog(@"同じ持ち駒を追加！");
         } else {
             NSLog(@"異なる持ち駒を追加！");
             
             // ボタンリストに追加
-//            [self.thisSideCapturedPieceButtons addObject:capturedPieceButton];
             NSLog(@"元々のボタンの数は:%ld, ", [self.thisSideCapturedPieceButtons count]);
             [self.thisSideCapturedPieceButtons setObject:capturedPieceButton forKey:piece.pieceId];
             NSLog(@"ボタンの数が増えました:%ld, id : %@", [self.thisSideCapturedPieceButtons count], piece.pieceId);
-            
-            //既にある異種の持ち駒の数×offsetの位置に配置
-            /*
-            NSInteger capturedPiecesValueCount = [[self.thisSideCapturedPieces allKeys] count];
-            NSInteger x = 4 + 32 * capturedPiecesValueCount;
-            
-            capturedPieceButton.frame = CGRectMake(x, 4, 32, 35);
-             */
-            
-            //ボタンをひとつずつ配置に付ける
-            /*
-//            int count = 0;
-            NSInteger count = 0;
-//            NSInteger count = [self.thisSideCapturedPieceButtons count];
-            NSLog(@"count : %ld", count);
-            
-            for (KFSquareButton *button in [self.thisSideCapturedPieceButtons allValues]) {
-                button.frame = CGRectMake(4 + 32 * count, 4, 32, 35);
-                count++;
-            }
-             */
+
             [self locateCapturedPieceButtons:self.selectedPiece.side];
         }
         
@@ -187,7 +143,6 @@
         return;
     }
     
-    
     // タップされたボタンに持ち駒がない場合は何もしない
     if (selectedSquare.locatedPiece == nil) {
         return;
@@ -195,7 +150,6 @@
     
     self.selectedSquare = selectedSquare;
     self.selectedPiece = selectedSquare.locatedPiece;
-    
 
     
     // 選択されたマスの背景色を変える
@@ -214,7 +168,6 @@
         
         if (self.isLocatedPieceSelected) { //盤上の駒を動かした場合
             if (targetSquare.locatedPiece) { //移動先に駒がある場合
-//                /*
                 //自分の駒を選択した場合は選択状態をキャンセルする
                 if (self.selectedPiece == targetSquare.locatedPiece) {
                     self.isLocatedPieceSelected = NO;
@@ -225,7 +178,6 @@
 
                     return;
                 }
-//                 */
                 
                 // 移動先に駒があれば駒を取る
                 [self capture:targetSquare.locatedPiece];
@@ -241,30 +193,22 @@
             //TODO:駒を打った場合は持ち駒をデータから消去する
             //数を１引いて１個以上残っていれば数字を表示、0になればボタンごと削除
             if (self.selectedPiece.side == THIS_SIDE) {
-                /*
-                for (NSString *key in [self.thisSideCapturedPieces allKeys]) {
-                }
-                 */
                 NSInteger capturedPieceCount = [[self.thisSideCapturedPieces objectForKey:[self.selectedPiece pieceId]] integerValue];
                 if (--capturedPieceCount > 0) {
                     [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount--] forKey:[self.selectedPiece pieceId]];
                 } else {
                     [self.thisSideCapturedPieces removeObjectForKey:[self.selectedPiece pieceId]];
 
-                    //TODO:ボタンを消して残っているボタンの位置をずらす
+                    //ボタンを消す
+                    [[self.thisSideCapturedPieceButtons objectForKey:self.selectedPiece.pieceId] removeFromSuperview];
                     [self.thisSideCapturedPieceButtons removeObjectForKey:[self.selectedPiece pieceId]];
                     
                     // ボタンを再配置
                     [self locateCapturedPieceButtons:self.selectedPiece.side];
-                    
-                    
                 }
-                
             } else {
                 //TODO:CounterSide
-                
             }
-            
             
             self.isCapturedPieceSelected = NO;
         }
@@ -309,14 +253,8 @@
     self.counterSideCapturedPieces = [NSMutableDictionary dictionary];
 
     // Captured pieces button (持ち駒ボタン)
-    /*
-    self.thisSideCapturedPieceButtons = [NSMutableArray array];
-    self.counterSideCapturedPieceButtons = [NSMutableArray array];
-     */
     self.thisSideCapturedPieceButtons = [NSMutableDictionary dictionary];
     self.counterSideCapturedPieceButtons = [NSMutableDictionary dictionary];
-    
-    
     
     // Stand (駒台)
     for (UIView *view in [self.thisSideStandView subviews]) {
@@ -753,5 +691,12 @@
     [self selectSquare:sender];
 }
 
+/*
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+*/
 
 @end

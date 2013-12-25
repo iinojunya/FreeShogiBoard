@@ -16,9 +16,41 @@
 #endif
 
 // Moving order
-#define FIRST_MOVE  0
-#define SECOND_MOVE 1
+#define FIRST_MOVE  0   //先手
+#define SECOND_MOVE 1   //後手
 
 // Side
-#define THIS_SIDE  0
-#define COUNTER_SIDE 1
+#define THIS_SIDE  0    //手前側
+#define COUNTER_SIDE 1  //奥側
+
+// Piece ID
+/*
+#define PIECE_ID_GYOKU      0
+#define PIECE_ID_KIN        1
+#define PIECE_ID_GIN        2
+#define PIECE_ID_KEI        3
+#define PIECE_ID_KYO        4
+#define PIECE_ID_KAKU       5
+#define PIECE_ID_HISHA      6
+#define PIECE_ID_FU         7
+#define PIECE_ID_NARIGIN    8
+#define PIECE_ID_NARIKEI    9
+#define PIECE_ID_NARIKYO    10
+#define PIECE_ID_UMA        11
+#define PIECE_ID_RYU        12
+#define PIECE_ID_TO         13
+*/
+#define PIECE_ID_GYOKU      @"0"
+#define PIECE_ID_KIN        @"1"
+#define PIECE_ID_GIN        @"2"
+#define PIECE_ID_KEI        @"3"
+#define PIECE_ID_KYO        @"4"
+#define PIECE_ID_KAKU       @"5"
+#define PIECE_ID_HISHA      @"6"
+#define PIECE_ID_FU         @"7"
+#define PIECE_ID_NARIGIN    @"8"
+#define PIECE_ID_NARIKEI    @"9"
+#define PIECE_ID_NARIKYO    @"10"
+#define PIECE_ID_UMA        @"11"
+#define PIECE_ID_RYU        @"12"
+#define PIECE_ID_TO         @"13"

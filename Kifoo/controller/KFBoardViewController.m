@@ -38,19 +38,6 @@
     [super viewDidLoad];
     
     [self initializeBoard];
-
-    /*
-    self.square77.locatedPiece = [[KFFu alloc] initWithSide:THIS_SIDE];
-//    self.square77.locatedPiece = [[KFFu alloc] initWithSide:THIS_SIDE];
-    self.square88.locatedPiece = [[KFKaku alloc] initWithSide:THIS_SIDE];
-    
-//    self.square77.locatedPiece.delegate = [[KFFu alloc] initWithSide:THIS_SIDE];
-//    self.square88.locatedPiece.delegate = [[KFKaku alloc] initWithSide:THIS_SIDE];
-
-    self.square76.locatedPiece.side = THIS_SIDE;
-
-    self.isPieceSelected = NO;
-     */
 }
 
 /*
@@ -63,54 +50,163 @@
 
 
 # pragma mark - Private method
+//- (void)addCapturedPieces:(NSMutableDictionary *)capturedPieces piece:(KFPiece *)piece {
+- (void)addCapturedPiece:(KFPiece *)piece side:(NSInteger)side {
+//    NSInteger capturedPieceCount = [[self.thisSideCapturedPieces objectForKey:piece.pieceId] integerValue];
+//    NSInteger capturedPieceCount = [[capturedPieces objectForKey:piece.pieceId] integerValue];
+    NSInteger capturedPieceCount;
+    if (side == THIS_SIDE) {
+        capturedPieceCount = [[self.thisSideCapturedPieces objectForKey:piece.pieceId] integerValue];
+    } else {
+        capturedPieceCount = [[self.counterSideCapturedPieces objectForKey:piece.pieceId] integerValue];
+    }
+    
+    if (capturedPieceCount > 0) {
+        capturedPieceCount++;
+    } else {
+        capturedPieceCount = 1;
+    }
+    
+    if (side == THIS_SIDE) {
+        NSLog(@"手前の持ち駒を追加します");
+        [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
+        NSLog(@"pieceID : %@, object : %@", piece.pieceId, [NSString stringWithFormat:@"%ld", capturedPieceCount]);
+        NSLog(@"追加後の数 : %ld", [self.thisSideCapturedPieces count]);
+    } else {
+        NSLog(@"相手の持ち駒を追加します");
+        [self.counterSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
+        NSLog(@"追加後の数 : %ld", [self.counterSideCapturedPieces count]);
+    }
+//    [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
+//    [capturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
+}
+
 - (void)capture:(KFPiece *)piece {
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]]];
+//    UIImageView *capturedPieceView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]]];
+//    UIButton *capturedPieceButton = [[UIButton alloc] init];
+    KFSquareButton *capturedPieceButton = [[KFSquareButton alloc] init];
+    [capturedPieceButton addTarget:self action:@selector(selectCapturedPiece:) forControlEvents:UIControlEventTouchDown];
+
+    capturedPieceButton.locatedPiece = piece;
+    
+    //持ち駒の属性を持ち駒を取った駒と同じにする
+    capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
+
+    [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
     
     if (self.selectedPiece.side == THIS_SIDE) {
-        imageView.frame = CGRectMake(4, 4, 32, 35);
-        [self.thisSideStandView addSubview:imageView];
+        //TODO:持ち駒０のときは普通に表示、同じ駒を追加した場合は数を表示、異なる駒の場合は位置をずらして表示
+        if ([self.thisSideCapturedPieces count] == 0) {
+            NSLog(@"初めての持ち駒☆");
+//            capturedPieceView.frame = CGRectMake(4, 4, 32, 35);
+            capturedPieceButton.frame = CGRectMake(4, 4, 32, 35);
+        } else if ([self.thisSideCapturedPieces objectForKey:piece.pieceId] != nil) {
+            NSLog(@"同じ持ち駒を追加！");
+            
+        } else {
+            NSLog(@"異なる持ち駒を追加！");
+            //既にある異種の持ち駒の数×offsetの位置に配置
+            NSInteger capturedPiecesValueCount = [[self.thisSideCapturedPieces allKeys] count];
+            NSInteger x = 4 + 32 * capturedPiecesValueCount;
+            
+//            capturedPieceView.frame = CGRectMake(x, 4, 32, 35);
+            capturedPieceButton.frame = CGRectMake(x, 4, 32, 35);
+        }
+        
+//        capturedPieceView.frame = CGRectMake(4, 4, 32, 35);
+
+                   
+        // Add to captured pieces
+//        [self addCapturedPieces:self.thisSideCapturedPieces piece:piece];
+//        [self addCapturedPiece:piece side:self.selectedPiece.side];
+        
+                   
+//        [self.thisSideStandView addSubview:capturedPieceView];
+        [self.thisSideStandView addSubview:capturedPieceButton];
     } else if (self.selectedPiece.side == COUNTER_SIDE) {
-        imageView.frame = CGRectMake(4, 4, 32, 35);
-        [self.counterSideStandView addSubview:imageView];
+        // Add to captured pieces
+//        [self addCapturedPieces:self.counterSideCapturedPieces piece:piece];
+//        [self addCapturedPiece:piece side:self.selectedPiece.side];
+        
+//        capturedPieceView.frame = CGRectMake(4, 4, 32, 35);
+        capturedPieceButton.frame = CGRectMake(4, 4, 32, 35);
+//        [self.counterSideStandView addSubview:capturedPieceView];
+        [self.counterSideStandView addSubview:capturedPieceButton];
     }
+
+
+    // Add to captured pieces
+    [self addCapturedPiece:piece side:self.selectedPiece.side];
 
 }
 
-- (void)selectSquare:(id)sender {
-    if (self.isPieceSelected) { // 移動先のマスを選択した場合
-        NSLog(@"駒の移動先が選択されました");
+- (void)selectCapturedPiece:(id)sender {
+    //TODO:持ち駒を盤上に打った場合はデータを消す、向きを調節
+    KFSquareButton *selectedSquare = sender;
+    
+    // タップされたボタンに持ち駒がない場合は何もしない
+    if (selectedSquare.locatedPiece == nil) {
+        return;
+    }
+    
+    self.selectedSquare = selectedSquare;
+    self.selectedPiece = selectedSquare.locatedPiece;
+    
+    NSLog(@"持ち駒が選択されました : %@ : %@", self.selectedSquare, self.selectedPiece);
+    
+    // 選択されたマスの背景色を変える
+    [self.selectedSquare setBackgroundColor:[UIColor grayColor]];
+    
+//    self.isLocatedPieceSelected = YES;
+    self.isCapturedPieceSelected = YES;
+}
 
-        // 移動元の駒の画像と背景色を消す
-        [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
-        [self.selectedSquare setImage:nil forState:UIControlStateNormal];
+- (void)selectSquare:(id)sender {
+//    if (self.isLocatedPieceSelected) { // 移動先のマスを選択した場合
+    if (self.isLocatedPieceSelected || self.isCapturedPieceSelected) { // 移動先のマスを選択した場合
+        NSLog(@"駒の移動先が選択されました");
         
         //移動先の駒を表示する
         KFSquareButton *targetSquare = sender;
         [targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
-
-        // 移動先に駒があった場合、駒を取る TODO:敵味方の区別
-        if (targetSquare.locatedPiece) {
-            [self capture:targetSquare.locatedPiece];
-
-            /*
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[targetSquare.locatedPiece getImageNameWithSide:self.selectedPiece.side]]];
-            
-            if (self.selectedPiece.side == THIS_SIDE) {
-                imageView.frame = CGRectMake(4, 4, 32, 35);
-                [self.thisSideStandView addSubview:imageView];
-            } else if (self.selectedPiece.side == COUNTER_SIDE) {
-                imageView.frame = CGRectMake(4, 4, 32, 35);
-                [self.counterSideStandView addSubview:imageView];
-            }
-             */
-        }
         
+        if (self.isLocatedPieceSelected) {
+            if (targetSquare.locatedPiece) {
+                // 移動先に駒があれば駒を取る
+                [self capture:targetSquare.locatedPiece];
+            }
+        } else if (self.isCapturedPieceSelected) {
+            if (targetSquare.locatedPiece) {
+                // 打つ先に駒があれば何もしない
+                return;
+            }
+            
+            //TODO:駒を打った場合は持ち駒をデータから消去する
+            
+        }
+
+        /*
+        // 移動先に駒があった場合、指す場合は駒を取る、打つ場合は何もしない TODO:敵味方の区別
+        if (targetSquare.locatedPiece) {
+//        if (self.isLocatedPieceSelected && targetSquare.locatedPiece) {
+            if (self.isLocatedPieceSelected) {
+                [self capture:targetSquare.locatedPiece];
+            } else if (self.isCapturedPieceSelected) {
+                //持ち駒を打つ場合は何もしない
+                return;
+            }
+        }*/
 
         // 移動先のマスの駒を更新する
         targetSquare.locatedPiece = self.selectedPiece;
         
+        // 移動元の駒、画像、背景色を消す
+        self.selectedSquare.locatedPiece = nil;
+        [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
+        [self.selectedSquare setImage:nil forState:UIControlStateNormal];
         
-        self.isPieceSelected = NO;
+        self.isLocatedPieceSelected = NO;
+        self.isCapturedPieceSelected = NO;
     } else { // 移動元の駒を選択した場合
         KFSquareButton *selectedSquare = sender;
         
@@ -124,17 +220,20 @@
 
         NSLog(@"移動する駒が選択されました : %@ : %@", self.selectedSquare, self.selectedPiece);
         
-        // 選択されたマスの背景を赤くする
+        // 選択されたマスの背景色を変える
         [self.selectedSquare setBackgroundColor:[UIColor grayColor]];
         
-        self.isPieceSelected = YES;
+        self.isLocatedPieceSelected = YES;
     }
 }
 
 - (void)initializeBoard {
-    self.isPieceSelected = NO;
+    self.isLocatedPieceSelected = NO;
+    self.isCapturedPieceSelected = NO;
     
     // Captured pieces (持ち駒)
+    self.thisSideCapturedPieces = [NSMutableDictionary dictionary];
+    self.counterSideCapturedPieces = [NSMutableDictionary dictionary];
     
     
     // Stand (駒台)

@@ -30,4 +30,9 @@
     }
 }
 
+//- (NSInteger)pieceId {
+- (NSString *)pieceId {
+    return PIECE_ID_KIN;
+}
+
 @end

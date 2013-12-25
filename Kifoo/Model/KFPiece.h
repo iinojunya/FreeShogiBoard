@@ -26,6 +26,9 @@ enum {
 
 //@property NSInteger moveOrder;
 @property NSInteger side;
+//@property NSInteger pieceId;
+@property NSString *pieceId;
+//@property long pieceId;
 //@property (weak, nonatomic) id<KFPieceDelegate> delegate;
 
 - (NSString *)getImageName;

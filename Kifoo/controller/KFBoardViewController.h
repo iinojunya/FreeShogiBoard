@@ -15,10 +15,19 @@
 
 @property (strong, nonatomic) KFSquareButton *selectedSquare;
 @property (strong, nonatomic) KFPiece *selectedPiece;
+
 @property (strong, nonatomic) NSMutableDictionary *thisSideCapturedPieces;
 @property (strong, nonatomic) NSMutableDictionary *counterSideCapturedPieces;
+/*
+@property (strong, nonatomic) NSMutableDictionary *selfCapturedPieces;
+@property (strong, nonatomic) NSMutableDictionary *counterCapturedPieces;
 
-@property BOOL isPieceSelected;
+@property (strong, nonatomic) NSMutableDictionary *capturedPiecesT;
+@property (strong, nonatomic) NSMutableDictionary *capturedPiecesC;
+ */
+
+@property BOOL isLocatedPieceSelected;
+@property BOOL isCapturedPieceSelected;
 
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 @property (weak, nonatomic) IBOutlet UIView *thisSideStandView;

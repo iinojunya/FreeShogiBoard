@@ -8,6 +8,7 @@
 
 #import "KFBoardViewController.h"
 #import "KFSquareButton.h"
+#import "KFCapturedPieceButton.h"
 #import "KFPiece.h"
 #import "KFFu.h"
 #import "KFKyosya.h"
@@ -72,7 +73,8 @@
     //ボタンをひとつずつ配置に付ける
     int count = 0;
     if (side == THIS_SIDE) {
-        for (KFSquareButton *button in [self.thisSideCapturedPieceButtons allValues]) {
+//        for (KFSquareButton *button in [self.thisSideCapturedPieceButtons allValues]) {
+        for (KFCapturedPieceButton *button in [self.thisSideCapturedPieceButtons allValues]) {
             button.frame = CGRectMake(4 + 32 * count, 4, 32, 35);
             count++;
         }
@@ -82,7 +84,8 @@
 }
 
 - (void)capture:(KFPiece *)piece {
-    KFSquareButton *capturedPieceButton = [[KFSquareButton alloc] init];
+//    KFSquareButton *capturedPieceButton = [[KFSquareButton alloc] init];
+    KFCapturedPieceButton *capturedPieceButton = [[KFCapturedPieceButton alloc] init];
     [capturedPieceButton addTarget:self action:@selector(selectCapturedPiece:) forControlEvents:UIControlEventTouchDown];
     capturedPieceButton.locatedPiece = piece;
     
@@ -90,6 +93,10 @@
     capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
 
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
+    
+    // Add to captured pieces
+//    [self addCapturedPiece:piece side:self.selectedPiece.side];
+    
     
     if (self.selectedPiece.side == THIS_SIDE) {
         //TODO:持ち駒０のときは普通に表示、同じ駒を追加した場合は数を表示、異なる駒の場合は位置をずらして表示
@@ -103,6 +110,25 @@
             [self locateCapturedPieceButtons:self.selectedPiece.side];
         } else if ([self.thisSideCapturedPieces objectForKey:piece.pieceId] != nil) {
             NSLog(@"同じ持ち駒を追加！");
+            
+            //ボタンのオブジェクトを取得
+            KFCapturedPieceButton *existingCapturedPiecebutton = [self.thisSideCapturedPieceButtons objectForKey:piece.pieceId];
+            
+            NSInteger capturedPieceCount = [[self.thisSideCapturedPieces objectForKey:piece.pieceId] integerValue];
+//            capturedPieceCount++;
+//            capturedPieceButton.titleLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount++];
+//            /*
+//            UILabel *label = [[UILabel alloc] init];
+
+//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(28, 10, 32, 35)];
+//            label.text = [NSString stringWithFormat:@"%ld", capturedPieceCount++];
+            existingCapturedPiecebutton.countLabel.text = [NSString stringWithFormat:@"%ld", ++capturedPieceCount];
+//            capturedPieceButton.countLabel = label;
+//            [capturedPieceButton addSubview:label];
+//            [self.thisSideStandView addSubview:label];
+//             */
+            
+            
         } else {
             NSLog(@"異なる持ち駒を追加！");
             
@@ -128,12 +154,16 @@
 
 - (void)selectCapturedPiece:(id)sender {
     //TODO:持ち駒を盤上に打った場合はデータを消す、向きを調節
-    KFSquareButton *selectedSquare = sender;
+//    KFSquareButton *selectedSquare = sender;
+    KFCapturedPieceButton *selectedSquare = sender;
 
     NSLog(@"持ち駒が選択されました : %@ : %@", selectedSquare, selectedSquare.locatedPiece);
     
     // 同じ持ち駒をタップした場合はキャンセル
     if (selectedSquare.locatedPiece == self.selectedPiece) {
+        NSLog(@"同じ持ち駒なのでキャンセルします (selectedSquare: %@)", selectedSquare);
+        NSLog(@"ちなみにisCapturedPieceSelected : %@", self.isCapturedPieceSelected?@"YES":@"NO");
+
         self.isCapturedPieceSelected = NO;
         
         [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
@@ -145,6 +175,7 @@
     
     // タップされたボタンに持ち駒がない場合は何もしない
     if (selectedSquare.locatedPiece == nil) {
+        NSLog(@"持ち駒に何も入ってないのでキャンセルします");
         return;
     }
     
@@ -156,11 +187,14 @@
     [self.selectedSquare setBackgroundColor:[UIColor grayColor]];
     
     self.isCapturedPieceSelected = YES;
+    NSLog(@"持ち駒選択無事完了。");
 }
 
 - (void)selectSquare:(id)sender {
     if (self.isLocatedPieceSelected || self.isCapturedPieceSelected) { // 移動先のマスを選択した場合
         NSLog(@"駒の移動先が選択されました");
+        
+        BOOL shouldClearSelectedPiece = YES;
         
         //移動先の駒を表示する
         KFSquareButton *targetSquare = sender;
@@ -194,9 +228,28 @@
             //数を１引いて１個以上残っていれば数字を表示、0になればボタンごと削除
             if (self.selectedPiece.side == THIS_SIDE) {
                 NSInteger capturedPieceCount = [[self.thisSideCapturedPieces objectForKey:[self.selectedPiece pieceId]] integerValue];
-                if (--capturedPieceCount > 0) {
-                    [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount--] forKey:[self.selectedPiece pieceId]];
-                } else {
+                if (capturedPieceCount > 1) { //同じ種類の持ち駒が複数あった場合
+                    capturedPieceCount--;
+                    [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:[self.selectedPiece pieceId]];
+                    
+                    //TODO:数を減らした上で表示を更新
+//                    /*
+                    KFCapturedPieceButton *button = (KFCapturedPieceButton *)self.selectedSquare;
+                    
+                    if (capturedPieceCount > 1) {
+                        button.countLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount];
+                    } else {
+                        button.countLabel.text = nil;
+                    }
+
+//                     */
+                    
+                    //TODO:これnilにして平気？元のオブジェクトに影響ないか？
+//                    self.selectedSquare = nil;
+                    
+                    shouldClearSelectedPiece = NO;
+
+                } else { //同じ種類の持ち駒がなくなった場合
                     [self.thisSideCapturedPieces removeObjectForKey:[self.selectedPiece pieceId]];
 
                     //ボタンを消す
@@ -216,13 +269,20 @@
         // 移動先のマスの駒を更新する
         targetSquare.locatedPiece = self.selectedPiece;
         
-        // 移動元の駒、画像、背景色を消す
-        self.selectedSquare.locatedPiece = nil;
+        // 移動元の背景色を消す
         [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
-        [self.selectedSquare setImage:nil forState:UIControlStateNormal];
         
-        //TODO:TEST
+        if (shouldClearSelectedPiece) {
+            // 移動元の駒、画像を消す
+            self.selectedSquare.locatedPiece = nil;
+            [self.selectedSquare setImage:nil forState:UIControlStateNormal];
+        }
+        
+        //TODO:TEST (こいつらnilにして平気？元のオブジェクトに影響ないか？)
         self.selectedSquare = nil;
+        self.selectedPiece = nil;
+        
+//        NSLog(@"この時点での (selectedSquare: %@)", self.selectedSquare);
     } else { // 移動元の駒を選択した場合
         KFSquareButton *selectedSquare = sender;
         

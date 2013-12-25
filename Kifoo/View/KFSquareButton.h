@@ -14,12 +14,6 @@
 
 @property (strong, nonatomic) KFPiece *locatedPiece;
 
-// Self or Counter side
-//@property NSInteger *side;
-
-// Sente or Gote
-//@property NSInteger *order;
-
 - (id)copy;
 
 @end

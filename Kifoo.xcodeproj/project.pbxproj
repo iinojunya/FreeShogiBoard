@@ -17,6 +17,7 @@
 		1512EE291866912F00A9BA0B /* KFKin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE281866912F00A9BA0B /* KFKin.m */; };
 		1512EE2C1866915600A9BA0B /* KFGyoku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE2B1866915600A9BA0B /* KFGyoku.m */; };
 		1512EE2F1866918000A9BA0B /* KFHisha.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE2E1866918000A9BA0B /* KFHisha.m */; };
+		1512EE4E186AE58E00A9BA0B /* KFCapturedPieceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE4D186AE58E00A9BA0B /* KFCapturedPieceButton.m */; };
 		15FE2EC7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EC9184AFBAC00D00F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */; };
 		15FE2ECB184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
@@ -98,6 +99,8 @@
 		1512EE2B1866915600A9BA0B /* KFGyoku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFGyoku.m; path = Model/KFGyoku.m; sourceTree = "<group>"; };
 		1512EE2D1866918000A9BA0B /* KFHisha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFHisha.h; path = Model/KFHisha.h; sourceTree = "<group>"; };
 		1512EE2E1866918000A9BA0B /* KFHisha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFHisha.m; path = Model/KFHisha.m; sourceTree = "<group>"; };
+		1512EE4C186AE58E00A9BA0B /* KFCapturedPieceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFCapturedPieceButton.h; path = View/KFCapturedPieceButton.h; sourceTree = "<group>"; };
+		1512EE4D186AE58E00A9BA0B /* KFCapturedPieceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFCapturedPieceButton.m; path = View/KFCapturedPieceButton.m; sourceTree = "<group>"; };
 		15FE2EC3184AFBAC00D00F92 /* Kifoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kifoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EC6184AFBAC00D00F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -273,6 +276,8 @@
 			children = (
 				1512EE121865A21E00A9BA0B /* KFSquareButton.h */,
 				1512EE131865A21E00A9BA0B /* KFSquareButton.m */,
+				1512EE4C186AE58E00A9BA0B /* KFCapturedPieceButton.h */,
+				1512EE4D186AE58E00A9BA0B /* KFCapturedPieceButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				1512EE23186690C300A9BA0B /* KFKeima.m in Sources */,
 				1512EE2C1866915600A9BA0B /* KFGyoku.m in Sources */,
 				1512EE26186690F300A9BA0B /* KFGin.m in Sources */,
+				1512EE4E186AE58E00A9BA0B /* KFCapturedPieceButton.m in Sources */,
 				1512EE141865A21E00A9BA0B /* KFSquareButton.m in Sources */,
 				1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */,
 			);

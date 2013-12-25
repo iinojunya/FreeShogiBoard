@@ -19,6 +19,14 @@
     return self;
 }
 
+- (id)copy {
+    KFSquareButton *button = [[KFSquareButton alloc] init];
+    
+    button.locatedPiece = self.locatedPiece;
+    
+    return button;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

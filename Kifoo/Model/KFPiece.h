@@ -35,5 +35,6 @@ enum {
 - (NSString *)getImageNameWithSide:(NSInteger)side;
 
 - (id)initWithSide:(NSInteger)side;
+- (id)copy;
 
 @end

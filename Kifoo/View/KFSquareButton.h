@@ -20,6 +20,6 @@
 // Sente or Gote
 //@property NSInteger *order;
 
-
+- (id)copy;
 
 @end

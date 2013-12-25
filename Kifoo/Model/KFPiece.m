@@ -20,6 +20,15 @@
     return self;
 }
 
+- (id)copy {
+    KFPiece *piece = [[KFPiece alloc] init];
+    
+    piece.side = self.side;
+    piece.pieceId = self.pieceId;
+    
+    return piece;
+}
+
 - (NSString *)getImageName {
     // Override this method in sub class
     return nil;

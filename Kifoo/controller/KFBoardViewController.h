@@ -18,21 +18,8 @@
 
 @property (strong, nonatomic) NSMutableDictionary *thisSideCapturedPieces;
 @property (strong, nonatomic) NSMutableDictionary *counterSideCapturedPieces;
-
-/*
-@property (strong, nonatomic) NSMutableArray *thisSideCapturedPieceButtons;
-@property (strong, nonatomic) NSMutableArray *counterSideCapturedPieceButtons;
- */
 @property (strong, nonatomic) NSMutableDictionary *thisSideCapturedPieceButtons;
 @property (strong, nonatomic) NSMutableDictionary *counterSideCapturedPieceButtons;
-
-/*
-@property (strong, nonatomic) NSMutableDictionary *selfCapturedPieces;
-@property (strong, nonatomic) NSMutableDictionary *counterCapturedPieces;
-
-@property (strong, nonatomic) NSMutableDictionary *capturedPiecesT;
-@property (strong, nonatomic) NSMutableDictionary *capturedPiecesC;
- */
 
 @property BOOL isLocatedPieceSelected;
 @property BOOL isCapturedPieceSelected;

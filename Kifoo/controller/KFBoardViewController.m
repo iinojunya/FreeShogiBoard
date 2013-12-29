@@ -138,24 +138,6 @@
     capturedPieceButton.locatedPiece = piece;
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
     
-    
-    /*
-    if (piece.isPromoted) {
-        capturedPieceButton.locatedPiece = [piece getOriginalPiece];
-        [capturedPieceButton setImage:[UIImage imageNamed:[[piece getOriginalPiece] getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
-    } else {
-        capturedPieceButton.locatedPiece = piece;
-        [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
-    }
-     */
-    
-    /*
-    //持ち駒の属性を持ち駒を取った駒と同じにする
-    capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
-
-    [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
-     */
-    
     if (self.selectedPiece.side == THIS_SIDE) {
         [self addCapturedPiecesView:self.thisSideStandView
                          capturedPiece:piece
@@ -397,8 +379,7 @@
             
             self.isLocatedPieceSelected = NO;
             
-            NSLog(@"成り処理終了");        
-            
+            NSLog(@"成り処理終了");
             break;
         case 2:
             //成らず
@@ -431,8 +412,6 @@
             self.isLocatedPieceSelected = NO;
             
             NSLog(@"成らず処理終了");
-            
-           
             break;
     }
 }

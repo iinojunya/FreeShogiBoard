@@ -7,6 +7,7 @@
 //
 
 #import "KFFu.h"
+#import "KFTokin.h"
 
 @implementation KFFu
 
@@ -39,6 +40,23 @@
         return nil;
     }
 }
+
+- (NSString *)getPromotedImageName {
+    if (self.side == THIS_SIDE) {
+        return @"s_to.png";
+    } else if (self.side == COUNTER_SIDE) {
+        return @"g_to.png";
+    } else {
+        return nil;
+    }
+}
+
+- (KFPiece *)getPromotedPiece {
+    KFTokin *promotedPiece = [[KFTokin alloc] initWithSide:self.side];
+
+    return promotedPiece;
+}
+
 
 - (NSString *)pieceId {
     return PIECE_ID_FU;

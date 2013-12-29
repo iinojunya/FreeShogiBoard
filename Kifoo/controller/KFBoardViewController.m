@@ -220,6 +220,29 @@
     }
 }
 
+- (void)showPromotionAlert {
+//    /*
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:@"成りますか？"
+                                                   delegate:self
+                                          cancelButtonTitle:@"キャンセル"
+//                                          cancelButtonTitle:nil
+//                                          otherButtonTitles:nil];
+                                          otherButtonTitles:@"はい", @"いいえ", nil];
+//     */
+
+    /*
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    alert.delegate = self;
+    alert.message = @"成りますか？";
+     */
+//    [alert addButtonWithTitle:@"はい"];
+//    [alert addButtonWithTitle:@"いいえ"];
+//    [alert addButtonWithTitle:@"キャンセル"];
+    
+    [alert show];
+}
+
 
 - (void)selectSquare:(id)sender {
     if (self.isLocatedPieceSelected || self.isCapturedPieceSelected) { // 移動先のマスを選択した場合
@@ -228,10 +251,47 @@
 
 //        BOOL shouldClearSelectedPiece = YES;
         self.shouldClearSelectedPiece = YES;
-        KFSquareButton *targetSquare = sender;
+//        KFSquareButton *targetSquare = sender;
+        self.targetSquare = sender;
         
         if (self.isLocatedPieceSelected) { //盤上の駒を動かした場合
-            if (targetSquare.locatedPiece) { //移動先に駒がある場合
+            //自分の駒を選択した場合は選択状態をキャンセルする
+//            if (self.selectedPiece == targetSquare.locatedPiece) {
+            if (self.selectedPiece == self.targetSquare.locatedPiece) {
+                self.isLocatedPieceSelected = NO;
+                
+                [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
+                self.selectedPiece = nil;
+                self.selectedSquare = nil;
+                
+                return;
+            }
+            
+            // 成り判定
+            NSLog(@"selectedPiece : %@", self.selectedPiece);
+            
+            if (!self.selectedPiece.isPromoted) {
+                NSLog(@"未成駒");
+                
+                if (self.selectedPiece.side == THIS_SIDE) {
+//                    if (targetSquare.y < 4 || self.selectedSquare.y < 4) {
+                    if (self.targetSquare.y < 4 || self.selectedSquare.y < 4) {
+                        NSLog(@"敵陣突入！！");
+                        [self showPromotionAlert];
+                        return;
+                    }
+                } else {
+                    if (self.targetSquare.y > 6 || self.selectedSquare.y > 6) {
+                        NSLog(@"敵陣突入！！");
+                        [self showPromotionAlert];
+                        return;
+                    }
+                }
+            }
+            
+            
+            if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
+                /*
                 //自分の駒を選択した場合は選択状態をキャンセルする
                 if (self.selectedPiece == targetSquare.locatedPiece) {
                     self.isLocatedPieceSelected = NO;
@@ -242,14 +302,15 @@
 
                     return;
                 }
+                */
                 
                 // 移動先に駒があれば駒を取る
-                [self capture:targetSquare.locatedPiece];
+                [self capture:self.targetSquare.locatedPiece];
             }
             
             self.isLocatedPieceSelected = NO;
         } else if (self.isCapturedPieceSelected) { //持ち駒を盤上に打つ場合
-            if (targetSquare.locatedPiece) { //移動先に駒がある場合
+            if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
                 NSLog(@"駒の上に駒は打てません！");
                 // 何もしない
                 return;
@@ -267,10 +328,10 @@
         }
         
         //移動先の駒を表示する
-        [targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
+        [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
 
         // 移動先のマスの駒を更新する
-        targetSquare.locatedPiece = self.selectedPiece;
+        self.targetSquare.locatedPiece = self.selectedPiece;
         
         // 移動元の背景色を消す
         [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
@@ -305,6 +366,84 @@
         [self.selectedSquare setBackgroundColor:[UIColor grayColor]];
         
         self.isLocatedPieceSelected = YES;
+    }
+}
+
+//TODO:MOVE
+# pragma mark - UIAlertViewDelegate method
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            //キャンセル
+            NSLog(@"(Cancel) 1st alert.");
+            
+            break;
+        case 1:
+            //成り
+            NSLog(@"(YES) 2nd alert.");
+            
+            if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
+                [self capture:self.targetSquare.locatedPiece];
+            }
+            
+            //移動先の駒を表示する
+            [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getPromotedImageName]] forState:UIControlStateNormal];
+            
+            // 移動先のマスの駒を更新する
+            self.targetSquare.locatedPiece = [self.selectedPiece getPromotedPiece];
+            
+            // 移動元の背景色を消す
+            [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
+            
+            if (self.shouldClearSelectedPiece) {
+                // 移動元の駒、画像を消す
+                self.selectedSquare.locatedPiece = nil;
+                [self.selectedSquare setImage:nil forState:UIControlStateNormal];
+            }
+            
+            // 選択された駒、マスを初期化
+            self.selectedSquare = nil;
+            self.selectedPiece = nil;
+            
+            self.isLocatedPieceSelected = NO;
+            
+            NSLog(@"成り処理終了");        
+            
+            break;
+        case 2:
+            //成らず
+            NSLog(@"(NO) 3rd alert.");
+            
+            if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
+                [self capture:self.targetSquare.locatedPiece];
+            }
+            
+            //移動先の駒を表示する
+            [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
+            
+            // 移動先のマスの駒を更新する
+            self.targetSquare.locatedPiece = self.selectedPiece;
+            
+            // 移動元の背景色を消す
+            [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
+            
+            //        if (shouldClearSelectedPiece) {
+            if (self.shouldClearSelectedPiece) {
+                // 移動元の駒、画像を消す
+                self.selectedSquare.locatedPiece = nil;
+                [self.selectedSquare setImage:nil forState:UIControlStateNormal];
+            }
+            
+            //TODO:TEST (こいつらnilにして平気？元のオブジェクトに影響ないか？)
+            self.selectedSquare = nil;
+            self.selectedPiece = nil;
+            
+            self.isLocatedPieceSelected = NO;
+            
+            NSLog(@"成らず処理終了");
+            
+           
+            break;
     }
 }
 
@@ -846,5 +985,7 @@
     // Dispose of any resources that can be recreated.
 }
 */
+
+
 
 @end

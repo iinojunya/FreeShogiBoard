@@ -39,4 +39,15 @@
     return nil;
 }
 
+- (NSString *)getPromotedImageName {
+    // Override this method in sub class
+    return nil;
+}
+
+- (KFPiece *)getPromotedPiece {
+    // Override this method in sub class
+    return nil;
+}
+
+
 @end

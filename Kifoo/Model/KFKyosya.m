@@ -7,6 +7,7 @@
 //
 
 #import "KFKyosya.h"
+#import "KFNarikyo.h"
 
 @implementation KFKyosya
 
@@ -30,7 +31,23 @@
     }
 }
 
-//- (NSInteger)pieceId {
+- (NSString *)getPromotedImageName {
+    if (self.side == THIS_SIDE) {
+        return @"s_narikyo.png";
+    } else if (self.side == COUNTER_SIDE) {
+        return @"g_narikyo.png";
+    } else {
+        return nil;
+    }
+}
+
+- (KFPiece *)getPromotedPiece {
+    KFNarikyo *promotedPiece = [[KFNarikyo alloc] initWithSide:self.side];
+    
+    return promotedPiece;
+}
+
+
 - (NSString *)pieceId {
     return PIECE_ID_KYO;
 }

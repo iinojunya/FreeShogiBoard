@@ -11,9 +11,10 @@
 @class KFSquareButton;
 @class KFPiece;
 
-@interface KFBoardViewController : UIViewController
+@interface KFBoardViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) KFSquareButton *selectedSquare;
+@property (strong, nonatomic) KFSquareButton *targetSquare;
 @property (strong, nonatomic) KFPiece *selectedPiece;
 
 @property (strong, nonatomic) NSMutableDictionary *thisSideCapturedPieces;

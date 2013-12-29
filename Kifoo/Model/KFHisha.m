@@ -7,6 +7,7 @@
 //
 
 #import "KFHisha.h"
+#import "KFRyu.h"
 
 @implementation KFHisha
 
@@ -28,6 +29,22 @@
     } else {
         return nil;
     }
+}
+
+- (NSString *)getPromotedImageName {
+    if (self.side == THIS_SIDE) {
+        return @"s_ryu.png";
+    } else if (self.side == COUNTER_SIDE) {
+        return @"g_ryu.png";
+    } else {
+        return nil;
+    }
+}
+
+- (KFPiece *)getPromotedPiece {
+    KFRyu *promotedPiece = [[KFRyu alloc] initWithSide:self.side];
+    
+    return promotedPiece;
 }
 
 //- (NSInteger)pieceId {

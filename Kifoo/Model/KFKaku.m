@@ -7,6 +7,7 @@
 //
 
 #import "KFKaku.h"
+#import "KFKaku.h"
 
 @implementation KFKaku
 
@@ -29,6 +30,24 @@
         return nil;
     }
 }
+
+- (NSString *)getPromotedImageName {
+    if (self.side == THIS_SIDE) {
+        return @"s_kaku.png";
+    } else if (self.side == COUNTER_SIDE) {
+        return @"g_kaku.png";
+    } else {
+        return nil;
+    }
+}
+
+- (KFPiece *)getPromotedPiece {
+    KFKaku *promotedPiece = [[KFKaku alloc] initWithSide:self.side];
+    
+    return promotedPiece;
+}
+
+
 
 //- (NSInteger)pieceId {
 - (NSString *)pieceId {

@@ -8,31 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-/*
-enum {
-    FIRST_MOVE = 0,
-    SECOND_MOVE = 1
-};
- */
-
-/*
-@protocol KFPieceDelegate <NSObject>
-- (NSString *)getImageName;
-@end
- */
-
-//@interface KFPiece : NSObject <KFPieceDelegate>
 @interface KFPiece : NSObject
 
-//@property NSInteger moveOrder;
 @property NSInteger side;
-//@property NSInteger pieceId;
 @property NSString *pieceId;
-//@property long pieceId;
-//@property (weak, nonatomic) id<KFPieceDelegate> delegate;
+
+@property BOOL isPromoted;
 
 - (NSString *)getImageName;
 - (NSString *)getImageNameWithSide:(NSInteger)side;
+- (NSString *)getPromotedImageName;
+
+- (KFPiece *)getPromotedPiece;
 
 - (id)initWithSide:(NSInteger)side;
 - (id)copy;

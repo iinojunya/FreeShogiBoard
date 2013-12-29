@@ -7,6 +7,7 @@
 //
 
 #import "KFKeima.h"
+#import "KFNarikei.h"
 
 @implementation KFKeima
 
@@ -29,6 +30,24 @@
         return nil;
     }
 }
+
+- (NSString *)getPromotedImageName {
+    if (self.side == THIS_SIDE) {
+        return @"s_narikei.png";
+    } else if (self.side == COUNTER_SIDE) {
+        return @"g_narikei.png";
+    } else {
+        return nil;
+    }
+}
+
+- (KFPiece *)getPromotedPiece {
+    KFNarikei *promotedPiece = [[KFNarikei alloc] initWithSide:self.side];
+    
+    return promotedPiece;
+}
+
+
 
 //- (NSInteger)pieceId {
 - (NSString *)pieceId {

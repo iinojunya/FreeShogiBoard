@@ -7,6 +7,7 @@
 //
 
 #import "KFGin.h"
+#import "KFNarigin.h"
 
 @implementation KFGin
 
@@ -29,6 +30,23 @@
         return nil;
     }
 }
+
+- (NSString *)getPromotedImageName {
+    if (self.side == THIS_SIDE) {
+        return @"s_narigin.png";
+    } else if (self.side == COUNTER_SIDE) {
+        return @"g_narigin.png";
+    } else {
+        return nil;
+    }
+}
+
+- (KFPiece *)getPromotedPiece {
+    KFNarigin *promotedPiece = [[KFNarigin alloc] initWithSide:self.side];
+
+    return promotedPiece;
+}
+
 
 //- (NSInteger)pieceId {
 - (NSString *)pieceId {

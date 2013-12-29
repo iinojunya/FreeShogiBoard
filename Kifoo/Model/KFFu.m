@@ -15,7 +15,7 @@
     self = [super initWithSide:side];
     
     if (self) {
-        
+        self.canPromote = YES;
     }
 
     return self;

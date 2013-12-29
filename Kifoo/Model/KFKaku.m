@@ -11,6 +11,16 @@
 
 @implementation KFKaku
 
+- (id)initWithSide:(NSInteger)side {
+    self = [super initWithSide:side];
+    
+    if (self) {
+        self.canPromote = YES;
+    }
+    
+    return self;
+}
+
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
         return @"s_kaku.png";

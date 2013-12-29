@@ -7,6 +7,7 @@
 //
 
 #import "KFNarikei.h"
+#import "KFKeima.h"
 
 @implementation KFNarikei
 
@@ -26,6 +27,7 @@
     
     if (self) {
         self.isPromoted = YES;
+//        self.canPromote = NO;
     }
     
     return self;
@@ -40,6 +42,12 @@
     } else {
         return nil;
     }
+}
+
+- (KFPiece *)getOriginalPiece {
+    KFKeima *originalPiece = [[KFKeima alloc] initWithSide:self.side];
+    
+    return originalPiece;
 }
 
 @end

@@ -49,5 +49,10 @@
     return nil;
 }
 
+- (KFPiece *)getOriginalPiece {
+    // Override this method in sub class
+    return nil;
+}
+
 
 @end

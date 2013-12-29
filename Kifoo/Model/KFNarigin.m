@@ -7,6 +7,7 @@
 //
 
 #import "KFNarigin.h"
+#import "KFGin.h"
 
 @implementation KFNarigin
 
@@ -26,6 +27,7 @@
     
     if (self) {
         self.isPromoted = YES;
+//        self.canPromote = NO;
     }
     
     return self;
@@ -40,6 +42,12 @@
     } else {
         return nil;
     }
+}
+
+- (KFPiece *)getOriginalPiece {
+    KFGin *originalPiece = [[KFGin alloc] initWithSide:self.side];
+    
+    return originalPiece;
 }
 
 @end

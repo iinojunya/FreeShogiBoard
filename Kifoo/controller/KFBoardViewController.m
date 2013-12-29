@@ -11,7 +11,7 @@
 #import "KFCapturedPieceButton.h"
 #import "KFPiece.h"
 #import "KFFu.h"
-#import "KFKyosya.h"
+#import "KFKyosha.h"
 #import "KFKeima.h"
 #import "KFGin.h"
 #import "KFKin.h"
@@ -124,14 +124,37 @@
 }
 
 - (void)capture:(KFPiece *)piece {
-    KFCapturedPieceButton *capturedPieceButton = [[KFCapturedPieceButton alloc] init];
-    [capturedPieceButton addTarget:self action:@selector(selectCapturedPiece:) forControlEvents:UIControlEventTouchDown];
-    capturedPieceButton.locatedPiece = piece;
+    if (piece.isPromoted) {
+        piece = [piece getOriginalPiece];
+    }
     
+    KFCapturedPieceButton *capturedPieceButton = [[KFCapturedPieceButton alloc] init];
+    
+    [capturedPieceButton addTarget:self action:@selector(selectCapturedPiece:) forControlEvents:UIControlEventTouchDown];
+
+    //持ち駒の属性を持ち駒を取った駒と同じにする
+    capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
+    
+    capturedPieceButton.locatedPiece = piece;
+    [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
+    
+    
+    /*
+    if (piece.isPromoted) {
+        capturedPieceButton.locatedPiece = [piece getOriginalPiece];
+        [capturedPieceButton setImage:[UIImage imageNamed:[[piece getOriginalPiece] getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
+    } else {
+        capturedPieceButton.locatedPiece = piece;
+        [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
+    }
+     */
+    
+    /*
     //持ち駒の属性を持ち駒を取った駒と同じにする
     capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
 
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
+     */
     
     if (self.selectedPiece.side == THIS_SIDE) {
         [self addCapturedPiecesView:self.thisSideStandView
@@ -191,7 +214,6 @@
           capturedPieceButtons:(NSMutableDictionary *)capturedPieceButtonsDic {
     //駒を打った場合は持ち駒をデータから消去する
     //数を１引いて１個以上残っていれば数字を表示、0になればボタンごと削除
-    
     NSInteger capturedPieceCount = [[capturedPiecesDic objectForKey:[self.selectedPiece pieceId]] integerValue];
     if (capturedPieceCount > 1) { //同じ種類の持ち駒が複数あった場合
         capturedPieceCount--;
@@ -206,7 +228,6 @@
             button.countLabel.text = nil;
         }
         
-//        shouldClearSelectedPiece = NO;
         self.shouldClearSelectedPiece = NO;
     } else { //同じ種類の持ち駒がなくなった場合
         [capturedPiecesDic removeObjectForKey:[self.selectedPiece pieceId]];
@@ -221,25 +242,12 @@
 }
 
 - (void)showPromotionAlert {
-//    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:@"成りますか？"
                                                    delegate:self
                                           cancelButtonTitle:@"キャンセル"
-//                                          cancelButtonTitle:nil
-//                                          otherButtonTitles:nil];
                                           otherButtonTitles:@"はい", @"いいえ", nil];
-//     */
 
-    /*
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    alert.delegate = self;
-    alert.message = @"成りますか？";
-     */
-//    [alert addButtonWithTitle:@"はい"];
-//    [alert addButtonWithTitle:@"いいえ"];
-//    [alert addButtonWithTitle:@"キャンセル"];
-    
     [alert show];
 }
 
@@ -247,16 +255,12 @@
 - (void)selectSquare:(id)sender {
     if (self.isLocatedPieceSelected || self.isCapturedPieceSelected) { // 移動先のマスを選択した場合
         NSLog(@"駒の移動先が選択されました");
-        
 
-//        BOOL shouldClearSelectedPiece = YES;
         self.shouldClearSelectedPiece = YES;
-//        KFSquareButton *targetSquare = sender;
         self.targetSquare = sender;
         
         if (self.isLocatedPieceSelected) { //盤上の駒を動かした場合
             //自分の駒を選択した場合は選択状態をキャンセルする
-//            if (self.selectedPiece == targetSquare.locatedPiece) {
             if (self.selectedPiece == self.targetSquare.locatedPiece) {
                 self.isLocatedPieceSelected = NO;
                 
@@ -270,11 +274,10 @@
             // 成り判定
             NSLog(@"selectedPiece : %@", self.selectedPiece);
             
-            if (!self.selectedPiece.isPromoted) {
+            if (!self.selectedPiece.isPromoted && self.selectedPiece.canPromote) {
                 NSLog(@"未成駒");
                 
                 if (self.selectedPiece.side == THIS_SIDE) {
-//                    if (targetSquare.y < 4 || self.selectedSquare.y < 4) {
                     if (self.targetSquare.y < 4 || self.selectedSquare.y < 4) {
                         NSLog(@"敵陣突入！！");
                         [self showPromotionAlert];
@@ -289,22 +292,8 @@
                 }
             }
             
-            
             if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
-                /*
-                //自分の駒を選択した場合は選択状態をキャンセルする
-                if (self.selectedPiece == targetSquare.locatedPiece) {
-                    self.isLocatedPieceSelected = NO;
-                    
-                    [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
-                    self.selectedPiece = nil;
-                    self.selectedSquare = nil;
-
-                    return;
-                }
-                */
-                
-                // 移動先に駒があれば駒を取る
+                // 駒を取る
                 [self capture:self.targetSquare.locatedPiece];
             }
             
@@ -327,6 +316,8 @@
             self.isCapturedPieceSelected = NO;
         }
         
+        //TODO:この辺の処理、成り駒処理でも行ってるので共通化できるか？
+        
         //移動先の駒を表示する
         [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
 
@@ -336,7 +327,6 @@
         // 移動元の背景色を消す
         [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
         
-//        if (shouldClearSelectedPiece) {
         if (self.shouldClearSelectedPiece) {
             // 移動元の駒、画像を消す
             self.selectedSquare.locatedPiece = nil;
@@ -434,7 +424,7 @@
                 [self.selectedSquare setImage:nil forState:UIControlStateNormal];
             }
             
-            //TODO:TEST (こいつらnilにして平気？元のオブジェクトに影響ないか？)
+            // 選択された駒、マスを初期化
             self.selectedSquare = nil;
             self.selectedPiece = nil;
             
@@ -469,7 +459,7 @@
     }
     
     // Pieces of counter side
-    self.square11.locatedPiece = [[KFKyosya alloc] initWithSide:COUNTER_SIDE];
+    self.square11.locatedPiece = [[KFKyosha alloc] initWithSide:COUNTER_SIDE];
     self.square21.locatedPiece = [[KFKeima alloc] initWithSide:COUNTER_SIDE];
     self.square31.locatedPiece = [[KFGin alloc] initWithSide:COUNTER_SIDE];
     self.square41.locatedPiece = [[KFKin alloc] initWithSide:COUNTER_SIDE];
@@ -477,7 +467,7 @@
     self.square61.locatedPiece = [[KFKin alloc] initWithSide:COUNTER_SIDE];
     self.square71.locatedPiece = [[KFGin alloc] initWithSide:COUNTER_SIDE];
     self.square81.locatedPiece = [[KFKeima alloc] initWithSide:COUNTER_SIDE];
-    self.square91.locatedPiece = [[KFKyosya alloc] initWithSide:COUNTER_SIDE];
+    self.square91.locatedPiece = [[KFKyosha alloc] initWithSide:COUNTER_SIDE];
     self.square22.locatedPiece = [[KFKaku alloc] initWithSide:COUNTER_SIDE];
     self.square82.locatedPiece = [[KFHisha alloc] initWithSide:COUNTER_SIDE];
     self.square13.locatedPiece = [[KFFu alloc] initWithSide:COUNTER_SIDE];
@@ -513,7 +503,7 @@
     [self.square93 setImage:[UIImage imageNamed:[self.square93.locatedPiece getImageName]] forState:UIControlStateNormal];
     
     // Pieces of this side
-    self.square19.locatedPiece = [[KFKyosya alloc] initWithSide:THIS_SIDE];
+    self.square19.locatedPiece = [[KFKyosha alloc] initWithSide:THIS_SIDE];
     self.square29.locatedPiece = [[KFKeima alloc] initWithSide:THIS_SIDE];
     self.square39.locatedPiece = [[KFGin alloc] initWithSide:THIS_SIDE];
     self.square49.locatedPiece = [[KFKin alloc] initWithSide:THIS_SIDE];
@@ -521,7 +511,7 @@
     self.square69.locatedPiece = [[KFKin alloc] initWithSide:THIS_SIDE];
     self.square79.locatedPiece = [[KFGin alloc] initWithSide:THIS_SIDE];
     self.square89.locatedPiece = [[KFKeima alloc] initWithSide:THIS_SIDE];
-    self.square99.locatedPiece = [[KFKyosya alloc] initWithSide:THIS_SIDE];
+    self.square99.locatedPiece = [[KFKyosha alloc] initWithSide:THIS_SIDE];
     self.square28.locatedPiece = [[KFHisha alloc] initWithSide:THIS_SIDE];
     self.square88.locatedPiece = [[KFKaku alloc] initWithSide:THIS_SIDE];
     self.square17.locatedPiece = [[KFFu alloc] initWithSide:THIS_SIDE];

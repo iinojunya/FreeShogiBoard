@@ -11,7 +11,7 @@
 		1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE161865C5A900A9BA0B /* KFPiece.m */; };
 		1512EE1A1865D2EE00A9BA0B /* KFKaku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE191865D2EE00A9BA0B /* KFKaku.m */; };
 		1512EE1D1865D7ED00A9BA0B /* KFFu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE1C1865D7ED00A9BA0B /* KFFu.m */; };
-		1512EE2018668F4500A9BA0B /* KFKyosya.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE1F18668F4500A9BA0B /* KFKyosya.m */; };
+		1512EE2018668F4500A9BA0B /* KFKyosha.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE1F18668F4500A9BA0B /* KFKyosha.m */; };
 		1512EE23186690C300A9BA0B /* KFKeima.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE22186690C300A9BA0B /* KFKeima.m */; };
 		1512EE26186690F300A9BA0B /* KFGin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE25186690F300A9BA0B /* KFGin.m */; };
 		1512EE291866912F00A9BA0B /* KFKin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE281866912F00A9BA0B /* KFKin.m */; };
@@ -93,8 +93,8 @@
 		1512EE191865D2EE00A9BA0B /* KFKaku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKaku.m; path = Model/KFKaku.m; sourceTree = "<group>"; };
 		1512EE1B1865D7ED00A9BA0B /* KFFu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFFu.h; path = Model/KFFu.h; sourceTree = "<group>"; };
 		1512EE1C1865D7ED00A9BA0B /* KFFu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFFu.m; path = Model/KFFu.m; sourceTree = "<group>"; };
-		1512EE1E18668F4500A9BA0B /* KFKyosya.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKyosya.h; path = Model/KFKyosya.h; sourceTree = "<group>"; };
-		1512EE1F18668F4500A9BA0B /* KFKyosya.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKyosya.m; path = Model/KFKyosya.m; sourceTree = "<group>"; };
+		1512EE1E18668F4500A9BA0B /* KFKyosha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKyosha.h; path = Model/KFKyosha.h; sourceTree = "<group>"; };
+		1512EE1F18668F4500A9BA0B /* KFKyosha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKyosha.m; path = Model/KFKyosha.m; sourceTree = "<group>"; };
 		1512EE21186690C300A9BA0B /* KFKeima.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFKeima.h; path = Model/KFKeima.h; sourceTree = "<group>"; };
 		1512EE22186690C300A9BA0B /* KFKeima.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFKeima.m; path = Model/KFKeima.m; sourceTree = "<group>"; };
 		1512EE24186690F300A9BA0B /* KFGin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFGin.h; path = Model/KFGin.h; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 				1512EE22186690C300A9BA0B /* KFKeima.m */,
 				1512EE271866912F00A9BA0B /* KFKin.h */,
 				1512EE281866912F00A9BA0B /* KFKin.m */,
-				1512EE1E18668F4500A9BA0B /* KFKyosya.h */,
-				1512EE1F18668F4500A9BA0B /* KFKyosya.m */,
+				1512EE1E18668F4500A9BA0B /* KFKyosha.h */,
+				1512EE1F18668F4500A9BA0B /* KFKyosha.m */,
 				1512EE52186FD2F900A9BA0B /* KFNarigin.h */,
 				1512EE53186FD2F900A9BA0B /* KFNarigin.m */,
 				1512EE55186FD30900A9BA0B /* KFNarikei.h */,
@@ -528,7 +528,7 @@
 				1512EE5A186FD31600A9BA0B /* KFNarikyo.m in Sources */,
 				1512EE291866912F00A9BA0B /* KFKin.m in Sources */,
 				1512EE5D186FD32900A9BA0B /* KFUma.m in Sources */,
-				1512EE2018668F4500A9BA0B /* KFKyosya.m in Sources */,
+				1512EE2018668F4500A9BA0B /* KFKyosha.m in Sources */,
 				15FE2EDD184AFBAC00D00F92 /* KFViewController.m in Sources */,
 				1512EE57186FD30900A9BA0B /* KFNarikei.m in Sources */,
 				15FE2ED3184AFBAC00D00F92 /* main.m in Sources */,

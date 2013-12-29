@@ -13,6 +13,7 @@
 @property NSInteger side;
 @property NSString *pieceId;
 
+@property BOOL canPromote;
 @property BOOL isPromoted;
 
 - (NSString *)getImageName;
@@ -20,6 +21,7 @@
 - (NSString *)getPromotedImageName;
 
 - (KFPiece *)getPromotedPiece;
+- (KFPiece *)getOriginalPiece;
 
 - (id)initWithSide:(NSInteger)side;
 - (id)copy;

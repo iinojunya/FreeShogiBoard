@@ -1,15 +1,25 @@
 //
-//  KFKyosya.m
+//  KFKyosha.m
 //  Kifoo
 //
 //  Created by Maeda Kazuya on 2013/12/22.
 //  Copyright (c) 2013年 Kifoo, Inc. All rights reserved.
 //
 
-#import "KFKyosya.h"
+#import "KFKyosha.h"
 #import "KFNarikyo.h"
 
-@implementation KFKyosya
+@implementation KFKyosha
+
+- (id)initWithSide:(NSInteger)side {
+    self = [super initWithSide:side];
+    
+    if (self) {
+        self.canPromote = YES;
+    }
+    
+    return self;
+}
 
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {

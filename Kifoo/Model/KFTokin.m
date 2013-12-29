@@ -7,6 +7,7 @@
 //
 
 #import "KFTokin.h"
+#import "KFFu.h"
 
 @implementation KFTokin
 
@@ -39,6 +40,12 @@
     } else {
         return nil;
     }
+}
+
+- (KFPiece *)getOriginalPiece {
+    KFFu *originalPiece = [[KFFu alloc] initWithSide:self.side];
+    
+    return originalPiece;
 }
 
 @end

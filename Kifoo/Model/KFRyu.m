@@ -7,6 +7,7 @@
 //
 
 #import "KFRyu.h"
+#import "KFHisha.h"
 
 @implementation KFRyu
 
@@ -40,5 +41,12 @@
         return nil;
     }
 }
+
+- (KFPiece *)getOriginalPiece {
+    KFHisha *originalPiece = [[KFHisha alloc] initWithSide:self.side];
+    
+    return originalPiece;
+}
+
 
 @end

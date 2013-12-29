@@ -10,6 +10,16 @@
 
 @implementation KFGyoku
 
+- (id)initWithSide:(NSInteger)side {
+    self = [super initWithSide:side];
+    
+    if (self) {
+        self.canPromote = NO;
+    }
+    
+    return self;
+}
+
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
         return @"s_gyoku.png";

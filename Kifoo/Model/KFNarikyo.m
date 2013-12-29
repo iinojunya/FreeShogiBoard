@@ -7,6 +7,7 @@
 //
 
 #import "KFNarikyo.h"
+#import "KFKyosha.h"
 
 @implementation KFNarikyo
 
@@ -26,6 +27,7 @@
     
     if (self) {
         self.isPromoted = YES;
+//        self.canPromote = NO;
     }
     
     return self;
@@ -41,5 +43,12 @@
         return nil;
     }
 }
+
+- (KFPiece *)getOriginalPiece {
+    KFKyosha *originalPiece = [[KFKyosha alloc] initWithSide:self.side];
+    
+    return originalPiece;
+}
+
 
 @end

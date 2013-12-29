@@ -1,5 +1,5 @@
 //
-//  KFKyosya.h
+//  KFKyosha.h
 //  Kifoo
 //
 //  Created by Maeda Kazuya on 2013/12/22.
@@ -8,6 +8,6 @@
 
 #import "KFPiece.h"
 
-@interface KFKyosya : KFPiece
+@interface KFKyosha : KFPiece
 
 @end

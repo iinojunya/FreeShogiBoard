@@ -7,6 +7,7 @@
 //
 
 #import "KFUma.h"
+#import "KFKaku.h"
 
 @implementation KFUma
 
@@ -40,6 +41,12 @@
     } else {
         return nil;
     }
+}
+
+- (KFPiece *)getOriginalPiece {
+    KFKaku *originalPiece = [[KFKaku alloc] initWithSide:self.side];
+    
+    return originalPiece;
 }
 
 @end

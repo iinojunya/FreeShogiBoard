@@ -25,7 +25,7 @@
     if (self.side == THIS_SIDE) {
         return @"s_hisha.png";
     } else if (self.side == COUNTER_SIDE) {
-        return @"g_hisya.png";
+        return @"g_hisha.png";
     } else {
         return nil;
     }

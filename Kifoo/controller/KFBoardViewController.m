@@ -125,17 +125,24 @@
 
 - (void)capture:(KFPiece *)piece {
     if (piece.isPromoted) {
+        NSLog(@"成り駒を捕獲しました");
         piece = [piece getOriginalPiece];
     }
     
+    NSLog(@"Piece.side : %ld", piece.side);
+    
+    //持ち駒用のボタンを作成
     KFCapturedPieceButton *capturedPieceButton = [[KFCapturedPieceButton alloc] init];
     
     [capturedPieceButton addTarget:self action:@selector(selectCapturedPiece:) forControlEvents:UIControlEventTouchDown];
 
+    // 持ち駒ボタンに駒を登録
+    capturedPieceButton.locatedPiece = piece;
+    
     //持ち駒の属性を持ち駒を取った駒と同じにする
     capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
-    
-    capturedPieceButton.locatedPiece = piece;
+
+    //持ち駒の画像を設定
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
     
     if (self.selectedPiece.side == THIS_SIDE) {
@@ -160,7 +167,7 @@
     //TODO:持ち駒を盤上に打った場合はデータを消す、向きを調節
     KFCapturedPieceButton *selectedSquare = sender;
 
-    NSLog(@"持ち駒が選択されました : %@ : %@", selectedSquare, selectedSquare.locatedPiece);
+    NSLog(@"持ち駒が選択されました : %@ : %@, side : %ld", selectedSquare, selectedSquare.locatedPiece, selectedSquare.locatedPiece.side);
     
     // 同じ持ち駒をタップした場合はキャンセル
     if (selectedSquare.locatedPiece == self.selectedPiece) {
@@ -302,6 +309,7 @@
         
         //移動先の駒を表示する
         [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
+        NSLog(@"selectedPiece.side : %ld", self.selectedPiece.side);
 
         // 移動先のマスの駒を更新する
         self.targetSquare.locatedPiece = self.selectedPiece;
@@ -379,7 +387,7 @@
             
             self.isLocatedPieceSelected = NO;
             
-            NSLog(@"成り処理終了");
+            NSLog(@"成り処理終了, targetSquare.locatedPiece.side : %ld", self.targetSquare.locatedPiece.side);
             break;
         case 2:
             //成らず

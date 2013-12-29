@@ -10,15 +10,34 @@
 
 @implementation KFSquareButton
 
+/*
+- (id)init {
+    self = [super init];
+    
+    if (self) {
+        NSLog(@"[KFSquareButton] init is called!!!");
+    }
+    
+    return self;
+}
+ */
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        NSLog(@"[KFSquareButton] initWithFrame is called!!!");
     }
     return self;
 }
 
+/*
+- (void)awakeFromNib {
+    NSLog(@"[KFSquareButton] AWAKE is called!!!");    
+}
+*/
+ 
 - (id)copy {
     KFSquareButton *button = [[KFSquareButton alloc] init];
     
@@ -27,6 +46,10 @@
     return button;
 }
 
+- (void)setCoordinateX:(int)x Y:(int)y {
+    self.x = x;
+    self.y = y;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

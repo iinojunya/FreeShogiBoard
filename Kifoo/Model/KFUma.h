@@ -1,13 +1,13 @@
 //
-//  KFFu.h
+//  KFUma.h
 //  Kifoo
 //
-//  Created by Maeda Kazuya on 2013/12/21.
+//  Created by Maeda Kazuya on 2013/12/29.
 //  Copyright (c) 2013年 Kifoo, Inc. All rights reserved.
 //
 
 #import "KFPiece.h"
 
-@interface KFFu : KFPiece
+@interface KFUma : KFPiece
 
 @end

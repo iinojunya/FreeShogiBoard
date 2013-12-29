@@ -7,11 +7,7 @@
 //
 
 #import "KFFu.h"
-//#import "KFPiece.h"
 
-//@implementation KFFu<KFPieceDelegate>
-
- 
 @implementation KFFu
 
 - (id)initWithSide:(NSInteger)side {
@@ -44,7 +40,6 @@
     }
 }
 
-//- (NSInteger)pieceId {
 - (NSString *)pieceId {
     return PIECE_ID_FU;
 }

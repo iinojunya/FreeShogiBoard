@@ -39,6 +39,7 @@
     [super viewDidLoad];
     
     [self initializeBoard];
+    [self setCoordinate];
 }
 
 # pragma mark - Private method
@@ -86,11 +87,11 @@
     }
 }
 
-- (void)adjustCapturedPiecesView:(UIView *)standView
-                   capturedPiece:(KFPiece *)capturedPiece
-                  capturedPieces:(NSMutableDictionary *)capturedPiecesDic
-             capturedPieceButton:(KFCapturedPieceButton *)capturedPieceButton
-            capturedPieceButtons:(NSMutableDictionary *)capturedPieceButtonsDic {
+- (void)addCapturedPiecesView:(UIView *)standView
+                capturedPiece:(KFPiece *)capturedPiece
+               capturedPieces:(NSMutableDictionary *)capturedPiecesDic
+          capturedPieceButton:(KFCapturedPieceButton *)capturedPieceButton
+         capturedPieceButtons:(NSMutableDictionary *)capturedPieceButtonsDic {
     // 持ち駒０のときは普通に表示、同じ駒を追加した場合は数を表示、異なる駒の場合は位置をずらして表示
     if ([capturedPiecesDic count] == 0) {
         NSLog(@"ひとつ目の持ち駒。");
@@ -133,13 +134,13 @@
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
     
     if (self.selectedPiece.side == THIS_SIDE) {
-        [self adjustCapturedPiecesView:self.thisSideStandView
+        [self addCapturedPiecesView:self.thisSideStandView
                          capturedPiece:piece
                         capturedPieces:self.thisSideCapturedPieces
                    capturedPieceButton:capturedPieceButton
                   capturedPieceButtons:self.thisSideCapturedPieceButtons];
     } else if (self.selectedPiece.side == COUNTER_SIDE) {
-        [self adjustCapturedPiecesView:self.counterSideStandView
+        [self addCapturedPiecesView:self.counterSideStandView
                          capturedPiece:piece
                         capturedPieces:self.counterSideCapturedPieces
                    capturedPieceButton:capturedPieceButton
@@ -186,14 +187,48 @@
     NSLog(@"持ち駒選択無事完了。");
 }
 
+- (void)subtractCapturedPieces:(NSMutableDictionary *)capturedPiecesDic
+          capturedPieceButtons:(NSMutableDictionary *)capturedPieceButtonsDic {
+    //駒を打った場合は持ち駒をデータから消去する
+    //数を１引いて１個以上残っていれば数字を表示、0になればボタンごと削除
+    
+    NSInteger capturedPieceCount = [[capturedPiecesDic objectForKey:[self.selectedPiece pieceId]] integerValue];
+    if (capturedPieceCount > 1) { //同じ種類の持ち駒が複数あった場合
+        capturedPieceCount--;
+        [capturedPiecesDic setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:[self.selectedPiece pieceId]];
+        
+        //TODO:数を減らした上で表示を更新
+        KFCapturedPieceButton *button = (KFCapturedPieceButton *)self.selectedSquare;
+        
+        if (capturedPieceCount > 1) {
+            button.countLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount];
+        } else {
+            button.countLabel.text = nil;
+        }
+        
+//        shouldClearSelectedPiece = NO;
+        self.shouldClearSelectedPiece = NO;
+    } else { //同じ種類の持ち駒がなくなった場合
+        [capturedPiecesDic removeObjectForKey:[self.selectedPiece pieceId]];
+        
+        //ボタンを消す
+        [[capturedPieceButtonsDic objectForKey:self.selectedPiece.pieceId] removeFromSuperview];
+        [capturedPieceButtonsDic removeObjectForKey:[self.selectedPiece pieceId]];
+        
+        // ボタンを再配置
+        [self locateCapturedPieceButtons:self.selectedPiece.side];
+    }
+}
+
+
 - (void)selectSquare:(id)sender {
     if (self.isLocatedPieceSelected || self.isCapturedPieceSelected) { // 移動先のマスを選択した場合
         NSLog(@"駒の移動先が選択されました");
         
-        BOOL shouldClearSelectedPiece = YES;
-        
+
+//        BOOL shouldClearSelectedPiece = YES;
+        self.shouldClearSelectedPiece = YES;
         KFSquareButton *targetSquare = sender;
-//        [targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
         
         if (self.isLocatedPieceSelected) { //盤上の駒を動かした場合
             if (targetSquare.locatedPiece) { //移動先に駒がある場合
@@ -220,66 +255,12 @@
                 return;
             }
             
-            //TODO:駒を打った場合は持ち駒をデータから消去する
-            //数を１引いて１個以上残っていれば数字を表示、0になればボタンごと削除
             if (self.selectedPiece.side == THIS_SIDE) {
-                NSInteger capturedPieceCount = [[self.thisSideCapturedPieces objectForKey:[self.selectedPiece pieceId]] integerValue];
-                if (capturedPieceCount > 1) { //同じ種類の持ち駒が複数あった場合
-                    capturedPieceCount--;
-                    [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:[self.selectedPiece pieceId]];
-                    
-                    //TODO:数を減らした上で表示を更新
-                    KFCapturedPieceButton *button = (KFCapturedPieceButton *)self.selectedSquare;
-                    
-                    if (capturedPieceCount > 1) {
-                        button.countLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount];
-                    } else {
-                        button.countLabel.text = nil;
-                    }
-
-
-                    //TODO:これnilにして平気？元のオブジェクトに影響ないか？
-//                    self.selectedSquare = nil;
-                    
-                    shouldClearSelectedPiece = NO;
-
-                } else { //同じ種類の持ち駒がなくなった場合
-                    [self.thisSideCapturedPieces removeObjectForKey:[self.selectedPiece pieceId]];
-
-                    //ボタンを消す
-                    [[self.thisSideCapturedPieceButtons objectForKey:self.selectedPiece.pieceId] removeFromSuperview];
-                    [self.thisSideCapturedPieceButtons removeObjectForKey:[self.selectedPiece pieceId]];
-                    
-                    // ボタンを再配置
-                    [self locateCapturedPieceButtons:self.selectedPiece.side];
-                }
+                [self subtractCapturedPieces:self.thisSideCapturedPieces
+                        capturedPieceButtons:self.thisSideCapturedPieceButtons];
             } else {
-                // CounterSide
-                NSInteger capturedPieceCount = [[self.counterSideCapturedPieces objectForKey:[self.selectedPiece pieceId]] integerValue];
-                if (capturedPieceCount > 1) { //同じ種類の持ち駒が複数あった場合
-                    capturedPieceCount--;
-                    [self.counterSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:[self.selectedPiece pieceId]];
-                    
-                    KFCapturedPieceButton *button = (KFCapturedPieceButton *)self.selectedSquare;
-                    
-                    if (capturedPieceCount > 1) {
-                        button.countLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount];
-                    } else {
-                        button.countLabel.text = nil;
-                    }
-                    
-                    shouldClearSelectedPiece = NO;
-                    
-                } else { //同じ種類の持ち駒がなくなった場合
-                    [self.counterSideCapturedPieces removeObjectForKey:[self.selectedPiece pieceId]];
-                    
-                    //ボタンを消す
-                    [[self.counterSideCapturedPieceButtons objectForKey:self.selectedPiece.pieceId] removeFromSuperview];
-                    [self.counterSideCapturedPieceButtons removeObjectForKey:[self.selectedPiece pieceId]];
-                    
-                    // ボタンを再配置
-                    [self locateCapturedPieceButtons:self.selectedPiece.side];
-                }
+                [self subtractCapturedPieces:self.counterSideCapturedPieces
+                        capturedPieceButtons:self.counterSideCapturedPieceButtons];
             }
             
             self.isCapturedPieceSelected = NO;
@@ -294,7 +275,8 @@
         // 移動元の背景色を消す
         [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
         
-        if (shouldClearSelectedPiece) {
+//        if (shouldClearSelectedPiece) {
+        if (self.shouldClearSelectedPiece) {
             // 移動元の駒、画像を消す
             self.selectedSquare.locatedPiece = nil;
             [self.selectedSquare setImage:nil forState:UIControlStateNormal];
@@ -304,7 +286,6 @@
         self.selectedSquare = nil;
         self.selectedPiece = nil;
         
-//        NSLog(@"この時点での (selectedSquare: %@)", self.selectedSquare);
         NSLog(@"移動処理終了");
     } else { // 移動元の駒を選択した場合
         KFSquareButton *selectedSquare = sender;
@@ -521,6 +502,90 @@
     [self.square68 setImage:nil forState:UIControlStateNormal];
     [self.square78 setImage:nil forState:UIControlStateNormal];
     [self.square98 setImage:nil forState:UIControlStateNormal];
+}
+
+- (void)setCoordinate {
+    [self.square11 setCoordinateX:1 Y:1];
+    [self.square21 setCoordinateX:2 Y:1];
+    [self.square31 setCoordinateX:3 Y:1];
+    [self.square41 setCoordinateX:4 Y:1];
+    [self.square51 setCoordinateX:5 Y:1];
+    [self.square61 setCoordinateX:6 Y:1];
+    [self.square71 setCoordinateX:7 Y:1];
+    [self.square81 setCoordinateX:8 Y:1];
+    [self.square91 setCoordinateX:9 Y:1];
+    [self.square12 setCoordinateX:1 Y:2];
+    [self.square22 setCoordinateX:2 Y:2];
+    [self.square32 setCoordinateX:3 Y:2];
+    [self.square42 setCoordinateX:4 Y:2];
+    [self.square52 setCoordinateX:5 Y:2];
+    [self.square62 setCoordinateX:6 Y:2];
+    [self.square72 setCoordinateX:7 Y:2];
+    [self.square82 setCoordinateX:8 Y:2];
+    [self.square92 setCoordinateX:9 Y:2];
+    [self.square13 setCoordinateX:1 Y:3];
+    [self.square23 setCoordinateX:2 Y:3];
+    [self.square33 setCoordinateX:3 Y:3];
+    [self.square43 setCoordinateX:4 Y:3];
+    [self.square53 setCoordinateX:5 Y:3];
+    [self.square63 setCoordinateX:6 Y:3];
+    [self.square73 setCoordinateX:7 Y:3];
+    [self.square83 setCoordinateX:8 Y:3];
+    [self.square93 setCoordinateX:9 Y:3];
+    [self.square14 setCoordinateX:1 Y:4];
+    [self.square24 setCoordinateX:2 Y:4];
+    [self.square34 setCoordinateX:3 Y:4];
+    [self.square44 setCoordinateX:4 Y:4];
+    [self.square54 setCoordinateX:5 Y:4];
+    [self.square64 setCoordinateX:6 Y:4];
+    [self.square74 setCoordinateX:7 Y:4];
+    [self.square84 setCoordinateX:8 Y:4];
+    [self.square94 setCoordinateX:9 Y:4];
+    [self.square15 setCoordinateX:1 Y:5];
+    [self.square25 setCoordinateX:2 Y:5];
+    [self.square35 setCoordinateX:3 Y:5];
+    [self.square45 setCoordinateX:4 Y:5];
+    [self.square55 setCoordinateX:5 Y:5];
+    [self.square65 setCoordinateX:6 Y:5];
+    [self.square75 setCoordinateX:7 Y:5];
+    [self.square85 setCoordinateX:8 Y:5];
+    [self.square95 setCoordinateX:9 Y:5];
+    [self.square16 setCoordinateX:1 Y:6];
+    [self.square26 setCoordinateX:2 Y:6];
+    [self.square36 setCoordinateX:3 Y:6];
+    [self.square46 setCoordinateX:4 Y:6];
+    [self.square56 setCoordinateX:5 Y:6];
+    [self.square66 setCoordinateX:6 Y:6];
+    [self.square76 setCoordinateX:7 Y:6];
+    [self.square86 setCoordinateX:8 Y:6];
+    [self.square96 setCoordinateX:9 Y:6];
+    [self.square17 setCoordinateX:1 Y:7];
+    [self.square27 setCoordinateX:2 Y:7];
+    [self.square37 setCoordinateX:3 Y:7];
+    [self.square47 setCoordinateX:4 Y:7];
+    [self.square57 setCoordinateX:5 Y:7];
+    [self.square67 setCoordinateX:6 Y:7];
+    [self.square77 setCoordinateX:7 Y:7];
+    [self.square87 setCoordinateX:8 Y:7];
+    [self.square97 setCoordinateX:9 Y:7];
+    [self.square18 setCoordinateX:1 Y:8];
+    [self.square28 setCoordinateX:2 Y:8];
+    [self.square38 setCoordinateX:3 Y:8];
+    [self.square48 setCoordinateX:4 Y:8];
+    [self.square58 setCoordinateX:5 Y:8];
+    [self.square68 setCoordinateX:6 Y:8];
+    [self.square78 setCoordinateX:7 Y:8];
+    [self.square88 setCoordinateX:8 Y:8];
+    [self.square98 setCoordinateX:9 Y:8];
+    [self.square19 setCoordinateX:1 Y:9];
+    [self.square29 setCoordinateX:2 Y:9];
+    [self.square39 setCoordinateX:3 Y:9];
+    [self.square49 setCoordinateX:4 Y:9];
+    [self.square59 setCoordinateX:5 Y:9];
+    [self.square69 setCoordinateX:6 Y:9];
+    [self.square79 setCoordinateX:7 Y:9];
+    [self.square89 setCoordinateX:8 Y:9];
+    [self.square99 setCoordinateX:9 Y:9];
 }
 
 

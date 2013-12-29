@@ -23,6 +23,7 @@
 
 @property BOOL isLocatedPieceSelected;
 @property BOOL isCapturedPieceSelected;
+@property BOOL shouldClearSelectedPiece;
 
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 @property (weak, nonatomic) IBOutlet UIView *thisSideStandView;

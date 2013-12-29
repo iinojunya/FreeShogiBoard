@@ -13,7 +13,13 @@
 @interface KFSquareButton : UIButton
 
 @property (strong, nonatomic) KFPiece *locatedPiece;
+@property int X;
+@property int y;
 
+
+//- (id)init;
 - (id)copy;
+
+- (void)setCoordinateX:(int) x Y:(int)y;
 
 @end

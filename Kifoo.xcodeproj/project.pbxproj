@@ -24,6 +24,8 @@
 		1512EE5A186FD31600A9BA0B /* KFNarikyo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE59186FD31600A9BA0B /* KFNarikyo.m */; };
 		1512EE5D186FD32900A9BA0B /* KFUma.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE5C186FD32900A9BA0B /* KFUma.m */; };
 		1512EE60186FD33600A9BA0B /* KFRyu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE5F186FD33500A9BA0B /* KFRyu.m */; };
+		15B46B5A1872578D00FDDD0F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B46B591872578D00FDDD0F /* Icon.png */; };
+		15B46B5C1872584200FDDD0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B46B5B1872584200FDDD0F /* Default-568h@2x.png */; };
 		15FE2EC7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EC9184AFBAC00D00F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */; };
 		15FE2ECB184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
@@ -119,6 +121,8 @@
 		1512EE5C186FD32900A9BA0B /* KFUma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFUma.m; path = Model/KFUma.m; sourceTree = "<group>"; };
 		1512EE5E186FD33500A9BA0B /* KFRyu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFRyu.h; path = Model/KFRyu.h; sourceTree = "<group>"; };
 		1512EE5F186FD33500A9BA0B /* KFRyu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFRyu.m; path = Model/KFRyu.m; sourceTree = "<group>"; };
+		15B46B591872578D00FDDD0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Image/Icon.png; sourceTree = "<group>"; };
+		15B46B5B1872584200FDDD0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Image/Default-568h@2x.png"; sourceTree = "<group>"; };
 		15FE2EC3184AFBAC00D00F92 /* Kifoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kifoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EC6184AFBAC00D00F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,7 +135,7 @@
 		15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFAppDelegate.m; sourceTree = "<group>"; };
 		15FE2EDB184AFBAC00D00F92 /* KFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFViewController.h; sourceTree = "<group>"; };
 		15FE2EDC184AFBAC00D00F92 /* KFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFViewController.m; sourceTree = "<group>"; };
-		15FE2EDE184AFBAC00D00F92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		15FE2EDE184AFBAC00D00F92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
 		15FE2EE4184AFBAC00D00F92 /* KifooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KifooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EE5184AFBAC00D00F92 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		15FE2EED184AFBAC00D00F92 /* KifooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KifooTests-Info.plist"; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 		15FE2F08184B028300D00F92 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				15B46B5B1872584200FDDD0F /* Default-568h@2x.png */,
+				15B46B591872578D00FDDD0F /* Icon.png */,
 				15FE2F0C184B05F900D00F92 /* Board */,
 				15FE2F0B184B05D500D00F92 /* Piece */,
 			);
@@ -439,6 +445,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Kifoo, Inc";
 				TargetAttributes = {
+					15FE2EC2184AFBAC00D00F92 = {
+						DevelopmentTeam = 6ED2NMHHUU;
+					};
 					15FE2EE3184AFBAC00D00F92 = {
 						TestTargetID = 15FE2EC2184AFBAC00D00F92;
 					};
@@ -468,8 +477,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B46B5A1872578D00FDDD0F /* Icon.png in Resources */,
 				15FE2F02184AFD3900D00F92 /* KFTitleViewController.xib in Resources */,
 				15FE2F44184B088E00D00F92 /* s_narikyo.png in Resources */,
+				15B46B5C1872584200FDDD0F /* Default-568h@2x.png in Resources */,
 				15FE2EDF184AFBAC00D00F92 /* Images.xcassets in Resources */,
 				15FE2F35184B088E00D00F92 /* g_narikyo.png in Resources */,
 				15FE2F4A184B209600D00F92 /* g_hisha.png in Resources */,
@@ -661,11 +672,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Maeda (6ED2NMHHUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
 				INFOPLIST_FILE = "Kifoo/Kifoo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -675,11 +689,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Maeda (6ED2NMHHUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
 				INFOPLIST_FILE = "Kifoo/Kifoo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

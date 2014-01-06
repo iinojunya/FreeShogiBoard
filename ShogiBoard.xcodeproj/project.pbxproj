@@ -123,22 +123,22 @@
 		1512EE5F186FD33500A9BA0B /* KFRyu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFRyu.m; path = Model/KFRyu.m; sourceTree = "<group>"; };
 		15B46B591872578D00FDDD0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Image/Icon.png; sourceTree = "<group>"; };
 		15B46B5B1872584200FDDD0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Image/Default-568h@2x.png"; sourceTree = "<group>"; };
-		15FE2EC3184AFBAC00D00F92 /* Kifoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kifoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15FE2EC3184AFBAC00D00F92 /* ShogiBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShogiBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EC6184AFBAC00D00F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		15FE2ECA184AFBAC00D00F92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		15FE2ECE184AFBAC00D00F92 /* Kifoo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kifoo-Info.plist"; sourceTree = "<group>"; };
+		15FE2ECE184AFBAC00D00F92 /* ShogiBoard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShogiBoard-Info.plist"; sourceTree = "<group>"; };
 		15FE2ED0184AFBAC00D00F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15FE2ED2184AFBAC00D00F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		15FE2ED4184AFBAC00D00F92 /* Kifoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kifoo-Prefix.pch"; sourceTree = "<group>"; };
+		15FE2ED4184AFBAC00D00F92 /* ShogiBoard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShogiBoard-Prefix.pch"; sourceTree = "<group>"; };
 		15FE2ED5184AFBAC00D00F92 /* KFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFAppDelegate.h; sourceTree = "<group>"; };
 		15FE2ED6184AFBAC00D00F92 /* KFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFAppDelegate.m; sourceTree = "<group>"; };
 		15FE2EDB184AFBAC00D00F92 /* KFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFViewController.h; sourceTree = "<group>"; };
 		15FE2EDC184AFBAC00D00F92 /* KFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFViewController.m; sourceTree = "<group>"; };
 		15FE2EDE184AFBAC00D00F92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
-		15FE2EE4184AFBAC00D00F92 /* KifooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KifooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15FE2EE4184AFBAC00D00F92 /* ShogiBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShogiBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EE5184AFBAC00D00F92 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		15FE2EED184AFBAC00D00F92 /* KifooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KifooTests-Info.plist"; sourceTree = "<group>"; };
+		15FE2EED184AFBAC00D00F92 /* ShogiBoardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShogiBoardTests-Info.plist"; sourceTree = "<group>"; };
 		15FE2EEF184AFBAC00D00F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15FE2EF1184AFBAC00D00F92 /* KifooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KifooTests.m; sourceTree = "<group>"; };
 		15FE2EFE184AFD3900D00F92 /* KFTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFTitleViewController.h; path = controller/KFTitleViewController.h; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 		15FE2EBA184AFBAC00D00F92 = {
 			isa = PBXGroup;
 			children = (
-				15FE2ECC184AFBAC00D00F92 /* Kifoo */,
-				15FE2EEB184AFBAC00D00F92 /* KifooTests */,
+				15FE2ECC184AFBAC00D00F92 /* ShogiBoard */,
+				15FE2EEB184AFBAC00D00F92 /* ShogiBoardTests */,
 				15FE2EC5184AFBAC00D00F92 /* Frameworks */,
 				15FE2EC4184AFBAC00D00F92 /* Products */,
 			);
@@ -217,8 +217,8 @@
 		15FE2EC4184AFBAC00D00F92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15FE2EC3184AFBAC00D00F92 /* Kifoo.app */,
-				15FE2EE4184AFBAC00D00F92 /* KifooTests.xctest */,
+				15FE2EC3184AFBAC00D00F92 /* ShogiBoard.app */,
+				15FE2EE4184AFBAC00D00F92 /* ShogiBoardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		15FE2ECC184AFBAC00D00F92 /* Kifoo */ = {
+		15FE2ECC184AFBAC00D00F92 /* ShogiBoard */ = {
 			isa = PBXGroup;
 			children = (
 				15FE2EFB184AFBF800D00F92 /* Controller */,
@@ -248,33 +248,35 @@
 				15FE2F08184B028300D00F92 /* Resources */,
 				15FE2ECD184AFBAC00D00F92 /* Supporting Files */,
 			);
+			name = ShogiBoard;
 			path = Kifoo;
 			sourceTree = "<group>";
 		};
 		15FE2ECD184AFBAC00D00F92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				15FE2ECE184AFBAC00D00F92 /* Kifoo-Info.plist */,
+				15FE2ECE184AFBAC00D00F92 /* ShogiBoard-Info.plist */,
 				15FE2ECF184AFBAC00D00F92 /* InfoPlist.strings */,
 				15FE2ED2184AFBAC00D00F92 /* main.m */,
-				15FE2ED4184AFBAC00D00F92 /* Kifoo-Prefix.pch */,
+				15FE2ED4184AFBAC00D00F92 /* ShogiBoard-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		15FE2EEB184AFBAC00D00F92 /* KifooTests */ = {
+		15FE2EEB184AFBAC00D00F92 /* ShogiBoardTests */ = {
 			isa = PBXGroup;
 			children = (
 				15FE2EF1184AFBAC00D00F92 /* KifooTests.m */,
 				15FE2EEC184AFBAC00D00F92 /* Supporting Files */,
 			);
+			name = ShogiBoardTests;
 			path = KifooTests;
 			sourceTree = "<group>";
 		};
 		15FE2EEC184AFBAC00D00F92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				15FE2EED184AFBAC00D00F92 /* KifooTests-Info.plist */,
+				15FE2EED184AFBAC00D00F92 /* ShogiBoardTests-Info.plist */,
 				15FE2EEE184AFBAC00D00F92 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -400,9 +402,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15FE2EC2184AFBAC00D00F92 /* Kifoo */ = {
+		15FE2EC2184AFBAC00D00F92 /* ShogiBoard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15FE2EF5184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "Kifoo" */;
+			buildConfigurationList = 15FE2EF5184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "ShogiBoard" */;
 			buildPhases = (
 				15FE2EBF184AFBAC00D00F92 /* Sources */,
 				15FE2EC0184AFBAC00D00F92 /* Frameworks */,
@@ -412,14 +414,14 @@
 			);
 			dependencies = (
 			);
-			name = Kifoo;
+			name = ShogiBoard;
 			productName = Kifoo;
-			productReference = 15FE2EC3184AFBAC00D00F92 /* Kifoo.app */;
+			productReference = 15FE2EC3184AFBAC00D00F92 /* ShogiBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
-		15FE2EE3184AFBAC00D00F92 /* KifooTests */ = {
+		15FE2EE3184AFBAC00D00F92 /* ShogiBoardTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15FE2EF8184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "KifooTests" */;
+			buildConfigurationList = 15FE2EF8184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "ShogiBoardTests" */;
 			buildPhases = (
 				15FE2EE0184AFBAC00D00F92 /* Sources */,
 				15FE2EE1184AFBAC00D00F92 /* Frameworks */,
@@ -430,9 +432,9 @@
 			dependencies = (
 				15FE2EEA184AFBAC00D00F92 /* PBXTargetDependency */,
 			);
-			name = KifooTests;
+			name = ShogiBoardTests;
 			productName = KifooTests;
-			productReference = 15FE2EE4184AFBAC00D00F92 /* KifooTests.xctest */;
+			productReference = 15FE2EE4184AFBAC00D00F92 /* ShogiBoardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -453,7 +455,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 15FE2EBE184AFBAC00D00F92 /* Build configuration list for PBXProject "Kifoo" */;
+			buildConfigurationList = 15FE2EBE184AFBAC00D00F92 /* Build configuration list for PBXProject "ShogiBoard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -466,8 +468,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15FE2EC2184AFBAC00D00F92 /* Kifoo */,
-				15FE2EE3184AFBAC00D00F92 /* KifooTests */,
+				15FE2EC2184AFBAC00D00F92 /* ShogiBoard */,
+				15FE2EE3184AFBAC00D00F92 /* ShogiBoardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -570,7 +572,7 @@
 /* Begin PBXTargetDependency section */
 		15FE2EEA184AFBAC00D00F92 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 15FE2EC2184AFBAC00D00F92 /* Kifoo */;
+			target = 15FE2EC2184AFBAC00D00F92 /* ShogiBoard */;
 			targetProxy = 15FE2EE9184AFBAC00D00F92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -675,10 +677,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Maeda (6ED2NMHHUU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
-				INFOPLIST_FILE = "Kifoo/Kifoo-Info.plist";
+				GCC_PREFIX_HEADER = "Kifoo/ShogiBoard-Prefix.pch";
+				INFOPLIST_FILE = "Kifoo/ShogiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShogiBoard;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -692,10 +694,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Maeda (6ED2NMHHUU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
-				INFOPLIST_FILE = "Kifoo/Kifoo-Info.plist";
+				GCC_PREFIX_HEADER = "Kifoo/ShogiBoard-Prefix.pch";
+				INFOPLIST_FILE = "Kifoo/ShogiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShogiBoard;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -717,8 +719,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "KifooTests/KifooTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "KifooTests/ShogiBoardTests-Info.plist";
+				PRODUCT_NAME = ShogiBoardTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -736,8 +738,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kifoo/Kifoo-Prefix.pch";
-				INFOPLIST_FILE = "KifooTests/KifooTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "KifooTests/ShogiBoardTests-Info.plist";
+				PRODUCT_NAME = ShogiBoardTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -746,7 +748,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15FE2EBE184AFBAC00D00F92 /* Build configuration list for PBXProject "Kifoo" */ = {
+		15FE2EBE184AFBAC00D00F92 /* Build configuration list for PBXProject "ShogiBoard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15FE2EF3184AFBAC00D00F92 /* Debug */,
@@ -755,7 +757,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15FE2EF5184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "Kifoo" */ = {
+		15FE2EF5184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "ShogiBoard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15FE2EF6184AFBAC00D00F92 /* Debug */,
@@ -764,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15FE2EF8184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "KifooTests" */ = {
+		15FE2EF8184AFBAC00D00F92 /* Build configuration list for PBXNativeTarget "ShogiBoardTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15FE2EF9184AFBAC00D00F92 /* Debug */,

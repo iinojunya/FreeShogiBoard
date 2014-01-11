@@ -38,7 +38,7 @@
 		15FE2EE7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EE8184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
 		15FE2EF0184AFBAC00D00F92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2EEE184AFBAC00D00F92 /* InfoPlist.strings */; };
-		15FE2EF2184AFBAC00D00F92 /* KifooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2EF1184AFBAC00D00F92 /* KifooTests.m */; };
+		15FE2EF2184AFBAC00D00F92 /* ShogiBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2EF1184AFBAC00D00F92 /* ShogiBoardTests.m */; };
 		15FE2F01184AFD3900D00F92 /* KFTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2EFF184AFD3900D00F92 /* KFTitleViewController.m */; };
 		15FE2F02184AFD3900D00F92 /* KFTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FE2F00184AFD3900D00F92 /* KFTitleViewController.xib */; };
 		15FE2F06184B011A00D00F92 /* KFBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FE2F04184B011A00D00F92 /* KFBoardViewController.m */; };
@@ -140,7 +140,7 @@
 		15FE2EE5184AFBAC00D00F92 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		15FE2EED184AFBAC00D00F92 /* ShogiBoardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShogiBoardTests-Info.plist"; sourceTree = "<group>"; };
 		15FE2EEF184AFBAC00D00F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		15FE2EF1184AFBAC00D00F92 /* KifooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KifooTests.m; sourceTree = "<group>"; };
+		15FE2EF1184AFBAC00D00F92 /* ShogiBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShogiBoardTests.m; sourceTree = "<group>"; };
 		15FE2EFE184AFD3900D00F92 /* KFTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFTitleViewController.h; path = controller/KFTitleViewController.h; sourceTree = "<group>"; };
 		15FE2EFF184AFD3900D00F92 /* KFTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFTitleViewController.m; path = controller/KFTitleViewController.m; sourceTree = "<group>"; };
 		15FE2F00184AFD3900D00F92 /* KFTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KFTitleViewController.xib; path = controller/KFTitleViewController.xib; sourceTree = "<group>"; };
@@ -248,8 +248,7 @@
 				15FE2F08184B028300D00F92 /* Resources */,
 				15FE2ECD184AFBAC00D00F92 /* Supporting Files */,
 			);
-			name = ShogiBoard;
-			path = Kifoo;
+			path = ShogiBoard;
 			sourceTree = "<group>";
 		};
 		15FE2ECD184AFBAC00D00F92 /* Supporting Files */ = {
@@ -266,11 +265,10 @@
 		15FE2EEB184AFBAC00D00F92 /* ShogiBoardTests */ = {
 			isa = PBXGroup;
 			children = (
-				15FE2EF1184AFBAC00D00F92 /* KifooTests.m */,
+				15FE2EF1184AFBAC00D00F92 /* ShogiBoardTests.m */,
 				15FE2EEC184AFBAC00D00F92 /* Supporting Files */,
 			);
-			name = ShogiBoardTests;
-			path = KifooTests;
+			path = ShogiBoardTests;
 			sourceTree = "<group>";
 		};
 		15FE2EEC184AFBAC00D00F92 /* Supporting Files */ = {
@@ -563,7 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15FE2EF2184AFBAC00D00F92 /* KifooTests.m in Sources */,
+				15FE2EF2184AFBAC00D00F92 /* ShogiBoardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

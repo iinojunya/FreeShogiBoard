@@ -15,6 +15,7 @@
     
     if (self) {
         self.countLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 10, 32, 35)];
+        self.countLabel.backgroundColor = [UIColor clearColor];
         self.countLabel.textColor = [UIColor whiteColor];
         [self addSubview:self.countLabel];
     }

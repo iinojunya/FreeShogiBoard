@@ -26,6 +26,7 @@
 		1512EE60186FD33600A9BA0B /* KFRyu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE5F186FD33500A9BA0B /* KFRyu.m */; };
 		15B46B5A1872578D00FDDD0F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B46B591872578D00FDDD0F /* Icon.png */; };
 		15B46B5C1872584200FDDD0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B46B5B1872584200FDDD0F /* Default-568h@2x.png */; };
+		15EB85621880DAC700675C17 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15EB85611880DAC700675C17 /* Icon@2x.png */; };
 		15FE2EC7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EC9184AFBAC00D00F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */; };
 		15FE2ECB184AFBAC00D00F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2ECA184AFBAC00D00F92 /* UIKit.framework */; };
@@ -123,6 +124,7 @@
 		1512EE5F186FD33500A9BA0B /* KFRyu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFRyu.m; path = Model/KFRyu.m; sourceTree = "<group>"; };
 		15B46B591872578D00FDDD0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Image/Icon.png; sourceTree = "<group>"; };
 		15B46B5B1872584200FDDD0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Image/Default-568h@2x.png"; sourceTree = "<group>"; };
+		15EB85611880DAC700675C17 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../master/ShogiBoard/Kifoo/Resources/Image/Icon@2x.png"; sourceTree = "<group>"; };
 		15FE2EC3184AFBAC00D00F92 /* ShogiBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShogiBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FE2EC6184AFBAC00D00F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -346,6 +348,7 @@
 			children = (
 				15B46B5B1872584200FDDD0F /* Default-568h@2x.png */,
 				15B46B591872578D00FDDD0F /* Icon.png */,
+				15EB85611880DAC700675C17 /* Icon@2x.png */,
 				15FE2F0C184B05F900D00F92 /* Board */,
 				15FE2F0B184B05D500D00F92 /* Piece */,
 			);
@@ -492,6 +495,7 @@
 				15FE2F3E184B088E00D00F92 /* s_kaku.png in Resources */,
 				15FE2F43184B088E00D00F92 /* s_narikei.png in Resources */,
 				15FE2F46184B088E00D00F92 /* s_ryu.png in Resources */,
+				15EB85621880DAC700675C17 /* Icon@2x.png in Resources */,
 				15FE2F3C184B088E00D00F92 /* s_gyoku.png in Resources */,
 				15FE2F32184B088E00D00F92 /* g_kyo.png in Resources */,
 				15FE2F31184B088E00D00F92 /* g_kin.png in Resources */,
@@ -675,8 +679,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Maeda (6ED2NMHHUU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kifoo/ShogiBoard-Prefix.pch";
-				INFOPLIST_FILE = "Kifoo/ShogiBoard-Info.plist";
+				GCC_PREFIX_HEADER = "ShogiBoard/ShogiBoard-Prefix.pch";
+				INFOPLIST_FILE = "ShogiBoard/ShogiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = ShogiBoard;
 				PROVISIONING_PROFILE = "";
@@ -692,8 +696,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuya Maeda (6ED2NMHHUU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kifoo/ShogiBoard-Prefix.pch";
-				INFOPLIST_FILE = "Kifoo/ShogiBoard-Info.plist";
+				GCC_PREFIX_HEADER = "ShogiBoard/ShogiBoard-Prefix.pch";
+				INFOPLIST_FILE = "ShogiBoard/ShogiBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = ShogiBoard;
 				PROVISIONING_PROFILE = "";

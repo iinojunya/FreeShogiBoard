@@ -92,6 +92,7 @@
                 <outlet property="square99" destination="abr-Yy-fd8" id="O9d-Dc-VoZ"/>
                 <outlet property="thisSideStandView" destination="so8-OA-htR" id="e6y-dx-eGW"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outlet property="waitButton" destination="RdF-6k-eE3" id="iNa-nN-hnE"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -100,7 +101,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0M-sR-mOi" userLabel="Board View">
-                    <rect key="frame" x="0.0" y="76" width="320" height="440"/>
+                    <rect key="frame" x="0.0" y="89" width="320" height="440"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="japanese-chess-b02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dnT-Vs-W8I">
@@ -930,7 +931,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-DH-5Dp">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-DH-5Dp" userLabel="Reset Button">
                     <rect key="frame" x="241" y="0.0" width="79" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -943,10 +944,23 @@
                         <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="TC6-ab-KuG"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdF-6k-eE3" userLabel="Wait Button">
+                    <rect key="frame" x="0.0" y="0.0" width="79" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="待った">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="waitButtonTapped:" destination="-1" eventType="touchUpInside" id="0Gf-Iy-wuo"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="D0M-sR-mOi" secondAttribute="centerY" constant="-25" id="FZL-hP-g9U"/>
                 <constraint firstItem="U5C-DH-5Dp" firstAttribute="top" secondItem="1" secondAttribute="top" id="J9x-i9-kdF"/>
-                <constraint firstAttribute="centerY" secondItem="D0M-sR-mOi" secondAttribute="centerY" id="dwR-da-JuS"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

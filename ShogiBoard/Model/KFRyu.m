@@ -48,5 +48,8 @@
     return originalPiece;
 }
 
+- (NSString *)pieceId {
+    return PIECE_ID_HISHA;
+}
 
 @end

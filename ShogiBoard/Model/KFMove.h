@@ -10,6 +10,7 @@
 
 @class KFPiece;
 @class KFSquareButton;
+@class KFCapturedPieceButton;
 
 @interface KFMove : NSObject
 
@@ -25,14 +26,13 @@
 @property NSInteger currentX;
 @property NSInteger currentY;
  */
-@property KFSquareButton *previousSquare;
-@property KFSquareButton *currentSquare;
+@property (strong, nonatomic) KFSquareButton *previousSquare;
+@property (strong, nonatomic) KFSquareButton *currentSquare;
+@property (strong, nonatomic) KFCapturedPieceButton *capturedPieceButton;
 
+@property (strong, nonatomic) KFPiece *movedPiece;
+@property (strong, nonatomic) KFPiece *capturedPiece;
 @property NSInteger side;
-//@property int *side;
-@property KFPiece *movedPiece;
-@property KFPiece *capturedPiece;
-
 
 //@property BOOL isPromoted;
 @property BOOL didPromote;

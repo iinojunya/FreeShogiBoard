@@ -50,5 +50,8 @@
     return originalPiece;
 }
 
+- (NSString *)pieceId {
+    return PIECE_ID_KYO;
+}
 
 @end

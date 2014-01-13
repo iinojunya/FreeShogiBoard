@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KFPiece : NSObject
+//@interface KFPiece : NSObject
+@interface KFPiece : NSObject<NSCopying>
 
 @property NSInteger side;
 @property NSString *pieceId;
@@ -24,6 +25,6 @@
 - (KFPiece *)getOriginalPiece;
 
 - (id)initWithSide:(NSInteger)side;
-- (id)copy;
+//- (id)copy;
 
 @end

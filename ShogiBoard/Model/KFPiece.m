@@ -20,6 +20,20 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    KFPiece *piece = [[[self class] alloc] init];
+    
+    if (piece) {
+        piece.side = self.side;
+        piece.pieceId = self.pieceId;
+        piece.canPromote = self.canPromote;
+        piece.isPromoted = self.isPromoted;
+    }
+    
+    return piece;
+}
+
+/*
 - (id)copy {
     KFPiece *piece = [[KFPiece alloc] init];
     
@@ -28,6 +42,7 @@
     
     return piece;
 }
+ */
 
 - (NSString *)getImageName {
     // Override this method in sub class

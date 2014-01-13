@@ -49,4 +49,8 @@
     return originalPiece;
 }
 
+- (NSString *)pieceId {
+    return PIECE_ID_KAKU;
+}
+
 @end

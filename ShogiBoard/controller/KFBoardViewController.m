@@ -54,7 +54,7 @@
         
         if (self.isLocatedPieceSelected) { //盤上の駒を動かす場合
             //同じ駒を再度選択した場合は選択状態をキャンセルする
-            if (self.selectedPiece == self.targetSquare.locatedPiece) {
+            if (self.selectedPiece == self.targetSquare.locatedPiece && self.selectedSquare.x == self.targetSquare.x && self.selectedSquare.y == self.targetSquare.y) {
                 self.isLocatedPieceSelected = NO;
                 
                 [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
@@ -79,10 +79,6 @@
                 }
             }
             
-            // 指し手を保存
-//            [self saveMoveWithPromotion:NO];
-            
-            
             if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
                 // 駒を取る
                 [self capture:self.targetSquare.locatedPiece by:self.selectedPiece.side];
@@ -94,9 +90,6 @@
                 // 何もしない
                 return;
             }
-            
-            // 指し手を保存
-//            [self saveMoveWithPromotion:NO];
             
             if (self.selectedPiece.side == THIS_SIDE) {
                 [self subtractCapturedPiece:self.selectedPiece
@@ -142,15 +135,6 @@
 
 // 盤面を更新
 - (void)updateSquareViewWithPromotion:(BOOL)didPromote {
-    /*
-    NSLog(@"何が起きてるか暫定確認");
-    NSLog(@"###### BEFORE #######");
-    NSLog(@"Previous square : %@", ((KFMove *)[self.moveArray lastObject]).previousSquare);
-    NSLog(@"self.square77.locatedPiece : %@", self.square77.locatedPiece);
-    NSLog(@"self.square76.locatedPiece : %@", self.square76.locatedPiece);
-    NSLog(@"movedPiece : %@", ((KFMove *)[self.moveArray lastObject]).previousSquare.locatedPiece);
-    */
-    
     // 移動先のマスの駒の表示, objectを更新する
     if (didPromote) {
         [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getPromotedImageName]] forState:UIControlStateNormal];
@@ -172,17 +156,6 @@
     // 選択された駒、マスを初期化
     self.selectedSquare = nil;
     self.selectedPiece = nil;
-    
-
-    /*
-    NSLog(@"###### ATER #######");
-    NSLog(@"Previous square : %@", ((KFMove *)[self.moveArray lastObject]).previousSquare);
-    
-    NSLog(@"self.square77.locatedPiece : %@", self.square77.locatedPiece);
-    NSLog(@"self.square76.locatedPiece : %@", self.square76.locatedPiece);
-    
-    NSLog(@"movedPiece : %@", ((KFMove *)[self.moveArray lastObject]).previousSquare.locatedPiece);
-     */
 }
 
 // 指し手を保存
@@ -216,106 +189,6 @@
     [self.moveArray addObject:move];
 }
 
-//TODO:MOVE
-// 待った
-- (IBAction)waitButtonTapped:(id)sender {
-    NSLog(@"######### 待った!! ##########");
-    // 駒が選択されている状態の時は何もしない
-    if (self.isLocatedPieceSelected || self.isCapturedPieceSelected) {
-        return;
-    }
-    
-    KFMove *lastMove = [self.moveArray lastObject];
-    
-    NSLog(@"side : %ld", lastMove.side);
-    NSLog(@"movedPiece : %@", lastMove.movedPiece);
-    NSLog(@"capturedPiece : %@", lastMove.capturedPiece);
-    NSLog(@"movedPiece.side : %ld", lastMove.movedPiece.side);
-    NSLog(@"capturedPiece.side : %ld", lastMove.capturedPiece.side);
-    
-    if (lastMove.didDrop) { // 駒を打った場合
-        // 打った駒を駒台に復元する
-        [self capture:lastMove.movedPiece by:lastMove.side];
-        /*
-        if (lastMove.movedPiece.side == THIS_SIDE) {
-            [self addCapturedPiecesView:self.thisSideStandView
-                          capturedPiece:lastMove.movedPiece
-                         capturedPieces:self.thisSideCapturedPieces
-                    capturedPieceButton:lastMove.capturedPieceButton
-                   capturedPieceButtons:self.thisSideCapturedPieceButtons];
-        } else if (lastMove.movedPiece.side == COUNTER_SIDE) {
-            [self addCapturedPiecesView:self.counterSideStandView
-                          capturedPiece:lastMove.movedPiece
-                         capturedPieces:self.counterSideCapturedPieces
-                    capturedPieceButton:lastMove.capturedPieceButton
-                   capturedPieceButtons:self.counterSideCapturedPieceButtons];
-        }
-         */
-        
-        
-        // 打った場所の駒を消す
-        lastMove.currentSquare.locatedPiece = nil;
-        [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
-    } else { // 駒を動かした場合
-        // 元の場所に駒を復元する
-        if ([lastMove didPromote]) {
-            [lastMove.previousSquare setImage:[UIImage imageNamed:[[lastMove.currentSquare.locatedPiece getOriginalPiece] getImageName]] forState:UIControlStateNormal];
-            lastMove.previousSquare.locatedPiece = [lastMove.currentSquare.locatedPiece getOriginalPiece];
-        } else {
-            [lastMove.previousSquare setImage:[UIImage imageNamed:[lastMove.currentSquare.locatedPiece getImageName]] forState:UIControlStateNormal];
-            lastMove.previousSquare.locatedPiece = lastMove.currentSquare.locatedPiece;
-        }
-
-        if (lastMove.capturedPiece) { // 駒を取った場合は元々そこにあった駒に戻す
-            lastMove.currentSquare.locatedPiece = lastMove.capturedPiece;
-            NSInteger capturedPieceSide = lastMove.capturedPiece.side;
-            
-            [lastMove.currentSquare setImage:[UIImage imageNamed:[lastMove.capturedPiece getImageNameWithSide:capturedPieceSide]]
-                                    forState:UIControlStateNormal];
-            
-            // 取った駒を駒台から除去する
-            [self subtractCapturedPiece:lastMove.capturedPiece
-                                 button:lastMove.capturedPieceButton
-                                   side:lastMove.side];
-        } else { // 何もない場所に動かした場合
-            lastMove.currentSquare.locatedPiece = nil;
-            [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
-        }
-        
-    }
-    
-    /*
-    // 元の場所に駒を復元する
-    if ([lastMove didPromote]) {
-        [lastMove.previousSquare setImage:[UIImage imageNamed:[[lastMove.currentSquare.locatedPiece getOriginalPiece] getImageName]] forState:UIControlStateNormal];
-        lastMove.previousSquare.locatedPiece = [lastMove.currentSquare.locatedPiece getOriginalPiece];
-    } else {
-        [lastMove.previousSquare setImage:[UIImage imageNamed:[lastMove.currentSquare.locatedPiece getImageName]] forState:UIControlStateNormal];
-        lastMove.previousSquare.locatedPiece = lastMove.currentSquare.locatedPiece;
-    }
-
-
-    if (lastMove.capturedPiece) { //（駒を取った場合は元々そこにあった駒に戻す）
-        lastMove.currentSquare.locatedPiece = lastMove.capturedPiece;
-        NSInteger capturedPieceSide = lastMove.capturedPiece.side;
-        
-        [lastMove.currentSquare setImage:[UIImage imageNamed:[lastMove.capturedPiece getImageNameWithSide:capturedPieceSide]]
-                                forState:UIControlStateNormal];
-
-        // 駒台の駒を元に戻す (駒台の駒を打った場合も考慮する（持ち駒が増えるように戻す））
-        [self subtractCapturedPiece:lastMove.capturedPiece
-                             button:lastMove.capturedPieceButton
-                               side:lastMove.side];
-    } else {
-        lastMove.currentSquare.locatedPiece = nil;
-        [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
-    }
-     */
-    
-    // 直前の指し手を消去
-    [self.moveArray removeLastObject];
-}
-
 - (NSInteger)getOppositeSide:(NSInteger)side {
     if (side == THIS_SIDE) {
         return COUNTER_SIDE;
@@ -341,15 +214,9 @@
     }
     
     if (side == THIS_SIDE) {
-        NSLog(@"手前の持ち駒を追加します");
-        [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
-        NSLog(@"pieceID : %@, object : %@", piece.pieceId, [NSString stringWithFormat:@"%ld", capturedPieceCount]);
-        NSLog(@"追加後の数 : %ld", [self.thisSideCapturedPieces count]);
+        [self.thisSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", (long)capturedPieceCount] forKey:piece.pieceId];
     } else {
-        NSLog(@"相手の持ち駒を追加します");
-        [self.counterSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
-        NSLog(@"pieceID : %@, object : %@", piece.pieceId, [NSString stringWithFormat:@"%ld", capturedPieceCount]);
-        NSLog(@"追加後の数 : %ld", [self.counterSideCapturedPieces count]);
+        [self.counterSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", (long)capturedPieceCount] forKey:piece.pieceId];
     }
 }
 
@@ -371,23 +238,7 @@
     }
 }
 
-/*
-if (side == THIS_SIDE) {
-    [self addCapturedPiecesView:self.thisSideStandView
-                  capturedPiece:piece
-                 capturedPieces:self.thisSideCapturedPieces
-            capturedPieceButton:capturedPieceButton
-           capturedPieceButtons:self.thisSideCapturedPieceButtons];
-} else {
-    [self addCapturedPiecesView:self.counterSideStandView
-                  capturedPiece:piece
-                 capturedPieces:self.counterSideCapturedPieces
-            capturedPieceButton:capturedPieceButton
-           capturedPieceButtons:self.counterSideCapturedPieceButtons];
-}
- */
-
-// 持ち駒種別判定
+// 持ち駒Buttonを追加
 - (void)addCapturedPiece:(KFPiece *)capturedPiece
                   button:(KFSquareButton *)capturedPieceButton
                     side:(NSInteger)side {
@@ -407,71 +258,25 @@ if (side == THIS_SIDE) {
 
     // 持ち駒０のときは普通に表示、同じ駒を追加した場合は数を表示、異なる駒の場合は位置をずらして表示
     if ([capturedPiecesDic count] == 0) {
-        NSLog(@"ひとつ目の持ち駒。");
         // ボタンリストに追加
-        NSLog(@"元々のボタンの数は:%ld", [capturedPieceButtonsDic count]);
         [capturedPieceButtonsDic setObject:capturedPieceButton forKey:capturedPiece.pieceId];
-        NSLog(@"ボタンの数が増えました:%ld, id : %@", [capturedPieceButtonsDic count], capturedPiece.pieceId);
         
         [self locateCapturedPieceButtons:side];
     } else if ([capturedPiecesDic objectForKey:capturedPiece.pieceId] != nil) {
-        NSLog(@"同じ持ち駒を追加！");
-        
         //ボタンのオブジェクトを取得
         KFCapturedPieceButton *existingCapturedPiecebutton = [capturedPieceButtonsDic objectForKey:capturedPiece.pieceId];
         
         NSInteger capturedPieceCount = [[capturedPiecesDic objectForKey:capturedPiece.pieceId] integerValue];
         existingCapturedPiecebutton.countLabel.text = [NSString stringWithFormat:@"%ld", ++capturedPieceCount];
     } else {
-        NSLog(@"異なる持ち駒を追加！");
-        
         // ボタンリストに追加
-        NSLog(@"元々のボタンの数は:%ld, ", [capturedPieceButtonsDic count]);
         [capturedPieceButtonsDic setObject:capturedPieceButton forKey:capturedPiece.pieceId];
-        NSLog(@"ボタンの数が増えました:%ld, id : %@", [capturedPieceButtonsDic count], capturedPiece.pieceId);
         
         [self locateCapturedPieceButtons:side];
     }
     
     [standView addSubview:capturedPieceButton];
 }
-/*
-- (void)addCapturedPiecesView:(UIView *)standView
-                capturedPiece:(KFPiece *)capturedPiece
-               capturedPieces:(NSMutableDictionary *)capturedPiecesDic
-          capturedPieceButton:(KFCapturedPieceButton *)capturedPieceButton
-         capturedPieceButtons:(NSMutableDictionary *)capturedPieceButtonsDic {
-    // 持ち駒０のときは普通に表示、同じ駒を追加した場合は数を表示、異なる駒の場合は位置をずらして表示
-    if ([capturedPiecesDic count] == 0) {
-        NSLog(@"ひとつ目の持ち駒。");
-        // ボタンリストに追加
-        NSLog(@"元々のボタンの数は:%ld", [capturedPieceButtonsDic count]);
-        [capturedPieceButtonsDic setObject:capturedPieceButton forKey:capturedPiece.pieceId];
-        NSLog(@"ボタンの数が増えました:%ld, id : %@", [capturedPieceButtonsDic count], capturedPiece.pieceId);
-        
-        [self locateCapturedPieceButtons:self.selectedPiece.side];
-    } else if ([capturedPiecesDic objectForKey:capturedPiece.pieceId] != nil) {
-        NSLog(@"同じ持ち駒を追加！");
-        
-        //ボタンのオブジェクトを取得
-        KFCapturedPieceButton *existingCapturedPiecebutton = [capturedPieceButtonsDic objectForKey:capturedPiece.pieceId];
-        
-        NSInteger capturedPieceCount = [[capturedPiecesDic objectForKey:capturedPiece.pieceId] integerValue];
-        existingCapturedPiecebutton.countLabel.text = [NSString stringWithFormat:@"%ld", ++capturedPieceCount];
-    } else {
-        NSLog(@"異なる持ち駒を追加！");
-        
-        // ボタンリストに追加
-        NSLog(@"元々のボタンの数は:%ld, ", [capturedPieceButtonsDic count]);
-        [capturedPieceButtonsDic setObject:capturedPieceButton forKey:capturedPiece.pieceId];
-        NSLog(@"ボタンの数が増えました:%ld, id : %@", [capturedPieceButtonsDic count], capturedPiece.pieceId);
-        
-        [self locateCapturedPieceButtons:self.selectedPiece.side];
-    }
-    
-    [standView addSubview:capturedPieceButton];
-}
- */
 
 // 駒を取る
 - (void)capture:(KFPiece *)piece by:(NSInteger)side {
@@ -487,41 +292,26 @@ if (side == THIS_SIDE) {
     capturedPieceButton.locatedPiece = [piece copy];
     
     //持ち駒の属性を持ち駒を取った駒と同じにする
-//    capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
     capturedPieceButton.locatedPiece.side = side;
 
     //持ち駒の画像を設定
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:side]] forState:UIControlStateNormal];
-    
-    /*
-    if (side == THIS_SIDE) {
-        [self addCapturedPiecesView:self.thisSideStandView
-                         capturedPiece:piece
-                        capturedPieces:self.thisSideCapturedPieces
-                   capturedPieceButton:capturedPieceButton
-                  capturedPieceButtons:self.thisSideCapturedPieceButtons];
-    } else {
-        [self addCapturedPiecesView:self.counterSideStandView
-                         capturedPiece:piece
-                        capturedPieces:self.counterSideCapturedPieces
-                   capturedPieceButton:capturedPieceButton
-                  capturedPieceButtons:self.counterSideCapturedPieceButtons];
-    }
-     */
+
     [self addCapturedPiece:piece button:capturedPieceButton side:side];
 
     // Add to captured pieces
-//    [self addCapturedPiece:piece side:self.selectedPiece.side];
     [self addCapturedPiece:piece side:side];
 }
 
 // 持ち駒を選択
 - (void)selectCapturedPiece:(id)sender {
-    //TODO:持ち駒を盤上に打った場合はデータを消す、向きを調節
+    // 盤上の駒が選択されている場合は何もしない
+    if (self.isLocatedPieceSelected) {
+        return;
+    }
+    
     KFCapturedPieceButton *selectedSquare = sender;
 
-    NSLog(@"持ち駒が選択されました : %@ : %@, side : %ld", selectedSquare, selectedSquare.locatedPiece, selectedSquare.locatedPiece.side);
-    
     // 同じ持ち駒をタップした場合はキャンセル
     if (selectedSquare.locatedPiece == self.selectedPiece) {
         NSLog(@"同じ持ち駒なのでキャンセルします (selectedSquare: %@)", selectedSquare);
@@ -552,7 +342,6 @@ if (side == THIS_SIDE) {
     NSLog(@"持ち駒選択無事完了。");
 }
 
-
 // 持ち駒を駒台から減らす
 - (void)subtractCapturedPiece:(KFPiece *)piece
                        button:(KFCapturedPieceButton *)button
@@ -574,10 +363,6 @@ if (side == THIS_SIDE) {
         } else {
             [self.counterSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:[piece pieceId]];
         }
-        
-
-        
-//        KFCapturedPieceButton *button = (KFCapturedPieceButton *)self.selectedSquare;
         
         if (capturedPieceCount > 1) {
             button.countLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount];
@@ -608,38 +393,6 @@ if (side == THIS_SIDE) {
         [self locateCapturedPieceButtons:piece.side];
     }
 }
-/*
-- (void)subtractCapturedPieces:(NSMutableDictionary *)capturedPiecesDic
-          capturedPieceButtons:(NSMutableDictionary *)capturedPieceButtonsDic {
-    //駒を打った場合は持ち駒をデータから消去する
-    //数を１引いて１個以上残っていれば数字を表示、0になればボタンごと削除
-    NSInteger capturedPieceCount = [[capturedPiecesDic objectForKey:[self.selectedPiece pieceId]] integerValue];
-    if (capturedPieceCount > 1) { //同じ種類の持ち駒が複数あった場合
-        capturedPieceCount--;
-        [capturedPiecesDic setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:[self.selectedPiece pieceId]];
-        
-        //TODO:数を減らした上で表示を更新
-        KFCapturedPieceButton *button = (KFCapturedPieceButton *)self.selectedSquare;
-        
-        if (capturedPieceCount > 1) {
-            button.countLabel.text = [NSString stringWithFormat:@"%ld", capturedPieceCount];
-        } else {
-            button.countLabel.text = nil;
-        }
-        
-        self.shouldClearSelectedPiece = NO;
-    } else { //同じ種類の持ち駒がなくなった場合
-        [capturedPiecesDic removeObjectForKey:[self.selectedPiece pieceId]];
-        
-        //ボタンを消す
-        [[capturedPieceButtonsDic objectForKey:self.selectedPiece.pieceId] removeFromSuperview];
-        [capturedPieceButtonsDic removeObjectForKey:[self.selectedPiece pieceId]];
-        
-        // ボタンを再配置
-        [self locateCapturedPieceButtons:self.selectedPiece.side];
-    }
-}
- */
 
 // 成り駒確認Alert表示
 - (void)showPromotionAlert {
@@ -957,34 +710,12 @@ if (side == THIS_SIDE) {
                 // 盤面を更新
                 [self updateSquareViewWithPromotion:YES];
                 
-                /*
-                //移動先の駒を表示する
-                [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getPromotedImageName]] forState:UIControlStateNormal];
-                
-                // 移動先のマスの駒を更新する
-                self.targetSquare.locatedPiece = [self.selectedPiece getPromotedPiece];
-                
-                // 移動元の背景色を消す
-                [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
-                
-                if (self.shouldClearSelectedPiece) {
-                    // 移動元の駒、画像を消す
-                    self.selectedSquare.locatedPiece = nil;
-                    [self.selectedSquare setImage:nil forState:UIControlStateNormal];
-                }
-
-                // 選択された駒、マスを初期化
-                self.selectedSquare = nil;
-                self.selectedPiece = nil;
-                 */
-                
                 self.isLocatedPieceSelected = NO;
                 
                 NSLog(@"成り処理終了, targetSquare.locatedPiece.side : %ld", self.targetSquare.locatedPiece.side);
                 break;
             case 2: //成らず
                 if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
-//                    NSLog(@"（敵陣で）駒を取る。サイドは？targetSquare.side : %ld", self.targetSquare.locatedPiece.side);
                     [self capture:self.targetSquare.locatedPiece by:self.selectedPiece.side];
                 }
                 
@@ -993,27 +724,7 @@ if (side == THIS_SIDE) {
 
                 // 盤面を更新
                 [self updateSquareViewWithPromotion:NO];
-                /*
-                //移動先の駒を表示する
-                [self.targetSquare setImage:[UIImage imageNamed:[self.selectedPiece getImageName]] forState:UIControlStateNormal];
-                
-                // 移動先のマスの駒を更新する
-                self.targetSquare.locatedPiece = self.selectedPiece;
-                
-                // 移動元の背景色を消す
-                [self.selectedSquare setBackgroundColor:[UIColor clearColor]];
-                
-                if (self.shouldClearSelectedPiece) {
-                    // 移動元の駒、画像を消す
-                    self.selectedSquare.locatedPiece = nil;
-                    [self.selectedSquare setImage:nil forState:UIControlStateNormal];
-                }
-                
-                // 選択された駒、マスを初期化
-                self.selectedSquare = nil;
-                self.selectedPiece = nil;
-                 */
-                
+
                 self.isLocatedPieceSelected = NO;
                 
                 NSLog(@"成らず処理終了");
@@ -1023,7 +734,6 @@ if (side == THIS_SIDE) {
 }
 
 # pragma mark - Action method
-/*
 // 待った
 - (IBAction)waitButtonTapped:(id)sender {
     // 駒が選択されている状態の時は何もしない
@@ -1033,12 +743,44 @@ if (side == THIS_SIDE) {
     
     KFMove *lastMove = [self.moveArray lastObject];
     
-//    lastMove.previousSquare
-//    self.squ
- 
+    if (lastMove.didDrop) { // 駒を打った場合
+        // 打った駒を駒台に復元する
+        [self capture:lastMove.movedPiece by:lastMove.side];
+        
+        // 打った場所の駒を消す
+        lastMove.currentSquare.locatedPiece = nil;
+        [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
+    } else { // 駒を動かした場合
+        // 元の場所に駒を復元する
+        if ([lastMove didPromote]) {
+            [lastMove.previousSquare setImage:[UIImage imageNamed:[[lastMove.currentSquare.locatedPiece getOriginalPiece] getImageName]] forState:UIControlStateNormal];
+            lastMove.previousSquare.locatedPiece = [lastMove.currentSquare.locatedPiece getOriginalPiece];
+        } else {
+            [lastMove.previousSquare setImage:[UIImage imageNamed:[lastMove.currentSquare.locatedPiece getImageName]] forState:UIControlStateNormal];
+            lastMove.previousSquare.locatedPiece = lastMove.currentSquare.locatedPiece;
+        }
+        
+        if (lastMove.capturedPiece) { // 駒を取った場合は元々そこにあった駒に戻す
+            lastMove.currentSquare.locatedPiece = lastMove.capturedPiece;
+            NSInteger capturedPieceSide = lastMove.capturedPiece.side;
+            
+            [lastMove.currentSquare setImage:[UIImage imageNamed:[lastMove.capturedPiece getImageNameWithSide:capturedPieceSide]]
+                                    forState:UIControlStateNormal];
+            
+            // 取った駒を駒台から除去する
+            [self subtractCapturedPiece:lastMove.capturedPiece
+                                 button:lastMove.capturedPieceButton
+                                   side:lastMove.side];
+        } else { // 何もない場所に動かした場合
+            lastMove.currentSquare.locatedPiece = nil;
+            [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
+        }
+        
+    }
+    
+    // 直前の指し手を消去
     [self.moveArray removeLastObject];
 }
- */
 
 // 盤面を初期化
 - (IBAction)resetButtonTapped:(id)sender {

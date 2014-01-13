@@ -27,7 +27,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        NSLog(@"[KFSquareButton] initWithFrame is called!!!");
     }
     return self;
 }

@@ -227,6 +227,7 @@
     
     KFMove *lastMove = [self.moveArray lastObject];
     
+    NSLog(@"side : %ld", lastMove.side);
     NSLog(@"movedPiece : %@", lastMove.movedPiece);
     NSLog(@"capturedPiece : %@", lastMove.capturedPiece);
     NSLog(@"movedPiece.side : %ld", lastMove.movedPiece.side);
@@ -347,6 +348,7 @@
     } else {
         NSLog(@"相手の持ち駒を追加します");
         [self.counterSideCapturedPieces setObject:[NSString stringWithFormat:@"%ld", capturedPieceCount] forKey:piece.pieceId];
+        NSLog(@"pieceID : %@, object : %@", piece.pieceId, [NSString stringWithFormat:@"%ld", capturedPieceCount]);
         NSLog(@"追加後の数 : %ld", [self.counterSideCapturedPieces count]);
     }
 }
@@ -369,7 +371,71 @@
     }
 }
 
+/*
+if (side == THIS_SIDE) {
+    [self addCapturedPiecesView:self.thisSideStandView
+                  capturedPiece:piece
+                 capturedPieces:self.thisSideCapturedPieces
+            capturedPieceButton:capturedPieceButton
+           capturedPieceButtons:self.thisSideCapturedPieceButtons];
+} else {
+    [self addCapturedPiecesView:self.counterSideStandView
+                  capturedPiece:piece
+                 capturedPieces:self.counterSideCapturedPieces
+            capturedPieceButton:capturedPieceButton
+           capturedPieceButtons:self.counterSideCapturedPieceButtons];
+}
+ */
+
 // 持ち駒種別判定
+- (void)addCapturedPiece:(KFPiece *)capturedPiece
+                  button:(KFSquareButton *)capturedPieceButton
+                    side:(NSInteger)side {
+    UIView *standView;
+    NSMutableDictionary *capturedPiecesDic;
+    NSMutableDictionary * capturedPieceButtonsDic;
+    
+    if (side == THIS_SIDE) {
+        standView = self.thisSideStandView;
+        capturedPiecesDic = self.thisSideCapturedPieces;
+        capturedPieceButtonsDic = self.thisSideCapturedPieceButtons;
+    } else {
+        standView = self.counterSideStandView;
+        capturedPiecesDic = self.counterSideCapturedPieces;
+        capturedPieceButtonsDic = self.counterSideCapturedPieceButtons;
+    }
+
+    // 持ち駒０のときは普通に表示、同じ駒を追加した場合は数を表示、異なる駒の場合は位置をずらして表示
+    if ([capturedPiecesDic count] == 0) {
+        NSLog(@"ひとつ目の持ち駒。");
+        // ボタンリストに追加
+        NSLog(@"元々のボタンの数は:%ld", [capturedPieceButtonsDic count]);
+        [capturedPieceButtonsDic setObject:capturedPieceButton forKey:capturedPiece.pieceId];
+        NSLog(@"ボタンの数が増えました:%ld, id : %@", [capturedPieceButtonsDic count], capturedPiece.pieceId);
+        
+        [self locateCapturedPieceButtons:side];
+    } else if ([capturedPiecesDic objectForKey:capturedPiece.pieceId] != nil) {
+        NSLog(@"同じ持ち駒を追加！");
+        
+        //ボタンのオブジェクトを取得
+        KFCapturedPieceButton *existingCapturedPiecebutton = [capturedPieceButtonsDic objectForKey:capturedPiece.pieceId];
+        
+        NSInteger capturedPieceCount = [[capturedPiecesDic objectForKey:capturedPiece.pieceId] integerValue];
+        existingCapturedPiecebutton.countLabel.text = [NSString stringWithFormat:@"%ld", ++capturedPieceCount];
+    } else {
+        NSLog(@"異なる持ち駒を追加！");
+        
+        // ボタンリストに追加
+        NSLog(@"元々のボタンの数は:%ld, ", [capturedPieceButtonsDic count]);
+        [capturedPieceButtonsDic setObject:capturedPieceButton forKey:capturedPiece.pieceId];
+        NSLog(@"ボタンの数が増えました:%ld, id : %@", [capturedPieceButtonsDic count], capturedPiece.pieceId);
+        
+        [self locateCapturedPieceButtons:side];
+    }
+    
+    [standView addSubview:capturedPieceButton];
+}
+/*
 - (void)addCapturedPiecesView:(UIView *)standView
                 capturedPiece:(KFPiece *)capturedPiece
                capturedPieces:(NSMutableDictionary *)capturedPiecesDic
@@ -405,6 +471,7 @@
     
     [standView addSubview:capturedPieceButton];
 }
+ */
 
 // 駒を取る
 - (void)capture:(KFPiece *)piece by:(NSInteger)side {
@@ -424,22 +491,24 @@
     capturedPieceButton.locatedPiece.side = side;
 
     //持ち駒の画像を設定
-    [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
+    [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:side]] forState:UIControlStateNormal];
     
-//    if (self.selectedPiece.side == THIS_SIDE) {
+    /*
     if (side == THIS_SIDE) {
         [self addCapturedPiecesView:self.thisSideStandView
                          capturedPiece:piece
                         capturedPieces:self.thisSideCapturedPieces
                    capturedPieceButton:capturedPieceButton
                   capturedPieceButtons:self.thisSideCapturedPieceButtons];
-    } else if (self.selectedPiece.side == COUNTER_SIDE) {
+    } else {
         [self addCapturedPiecesView:self.counterSideStandView
                          capturedPiece:piece
                         capturedPieces:self.counterSideCapturedPieces
                    capturedPieceButton:capturedPieceButton
                   capturedPieceButtons:self.counterSideCapturedPieceButtons];
     }
+     */
+    [self addCapturedPiece:piece button:capturedPieceButton side:side];
 
     // Add to captured pieces
 //    [self addCapturedPiece:piece side:self.selectedPiece.side];

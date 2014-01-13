@@ -43,6 +43,16 @@
     }
 }
 
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_uma.png";
+    } else if (side == COUNTER_SIDE) {
+        return @"g_uma.png";
+    } else {
+        return nil;
+    }
+}
+
 - (KFPiece *)getOriginalPiece {
     KFKaku *originalPiece = [[KFKaku alloc] initWithSide:self.side];
     

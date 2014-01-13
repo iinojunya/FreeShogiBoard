@@ -700,7 +700,6 @@
                 break;
             case 1: //成り
                 if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
-                    NSLog(@"（敵陣で）駒を取る。サイドは？targetSquare.side : %ld", self.targetSquare.locatedPiece.side);
                     [self capture:self.targetSquare.locatedPiece by:self.selectedPiece.side];
                 }
 
@@ -712,7 +711,7 @@
                 
                 self.isLocatedPieceSelected = NO;
                 
-                NSLog(@"成り処理終了, targetSquare.locatedPiece.side : %ld", self.targetSquare.locatedPiece.side);
+//                NSLog(@"成り処理終了, targetSquare.locatedPiece.side : %ld", self.targetSquare.locatedPiece.side);
                 break;
             case 2: //成らず
                 if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
@@ -775,7 +774,6 @@
             lastMove.currentSquare.locatedPiece = nil;
             [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
         }
-        
     }
     
     // 直前の指し手を消去

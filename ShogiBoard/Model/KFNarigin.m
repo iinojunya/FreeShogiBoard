@@ -44,6 +44,16 @@
     }
 }
 
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_narigin.png";
+    } else if (side == COUNTER_SIDE) {
+        return @"g_narigin.png";
+    } else {
+        return nil;
+    }
+}
+
 - (KFPiece *)getOriginalPiece {
     KFGin *originalPiece = [[KFGin alloc] initWithSide:self.side];
     

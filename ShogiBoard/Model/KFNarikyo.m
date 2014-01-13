@@ -27,17 +27,25 @@
     
     if (self) {
         self.isPromoted = YES;
-//        self.canPromote = NO;
     }
     
     return self;
 }
 
-
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
         return @"s_narikyo.png";
     } else if (self.side == COUNTER_SIDE) {
+        return @"g_narikyo.png";
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_narikyo.png";
+    } else if (side == COUNTER_SIDE) {
         return @"g_narikyo.png";
     } else {
         return nil;

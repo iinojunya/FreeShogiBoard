@@ -11,17 +11,6 @@
 
 @implementation KFRyu
 
-/*
-- (id)init {
-    self = [super init];
-    
-    if (self) {
-        self.isPromoted = YES;
-    }
-    
-    return self;
-}
- */
 - (id)initWithSide:(NSInteger)side {
     self = [super initWithSide:side];
     
@@ -36,6 +25,16 @@
     if (self.side == THIS_SIDE) {
         return @"s_ryu.png";
     } else if (self.side == COUNTER_SIDE) {
+        return @"g_ryu.png";
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_ryu.png";
+    } else if (side == COUNTER_SIDE) {
         return @"g_ryu.png";
     } else {
         return nil;

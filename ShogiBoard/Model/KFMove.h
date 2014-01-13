@@ -34,7 +34,8 @@
 @property (strong, nonatomic) KFPiece *capturedPiece;
 @property NSInteger side;
 
-//@property BOOL isPromoted;
+@property BOOL didDrop;
 @property BOOL didPromote;
+
 
 @end

@@ -64,21 +64,15 @@
                 return;
             }
             
-//            NSLog(@"selectedPiece : %@", self.selectedPiece);
-            
             // 成り駒判定
             if (!self.selectedPiece.isPromoted && self.selectedPiece.canPromote) {
-//                NSLog(@"未成駒");
-                
                 if (self.selectedPiece.side == THIS_SIDE) {
                     if (self.targetSquare.y < 4 || self.selectedSquare.y < 4) {
-//                        NSLog(@"敵陣突入！！");
                         [self showPromotionAlert];
                         return;
                     }
                 } else {
                     if (self.targetSquare.y > 6 || self.selectedSquare.y > 6) {
-//                        NSLog(@"敵陣突入！！");
                         [self showPromotionAlert];
                         return;
                     }
@@ -91,14 +85,12 @@
             
             if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
                 // 駒を取る
-//                NSLog(@"駒を取る。サイドは？targetSquare.side : %ld", self.targetSquare.locatedPiece.side);
-                [self capture:self.targetSquare.locatedPiece];
+                [self capture:self.targetSquare.locatedPiece by:self.selectedPiece.side];
             }
   
             self.isLocatedPieceSelected = NO;
         } else if (self.isCapturedPieceSelected) { //持ち駒を盤上に打つ場合
             if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
-//                NSLog(@"駒の上に駒は打てません！");
                 // 何もしない
                 return;
             }
@@ -200,6 +192,12 @@
     move.previousSquare = self.selectedSquare;
     move.previousSquare.locatedPiece = self.selectedSquare.locatedPiece;
     
+    if ([move.previousSquare isKindOfClass:[KFCapturedPieceButton class]]) {
+        move.didDrop = YES; // 駒を打った場合
+    } else {
+        move.didDrop = NO; // 駒を動かした場合
+    }
+    
     move.currentSquare = self.targetSquare;
     move.side = self.selectedPiece.side;
     move.didPromote = didPromote;
@@ -234,6 +232,58 @@
     NSLog(@"movedPiece.side : %ld", lastMove.movedPiece.side);
     NSLog(@"capturedPiece.side : %ld", lastMove.capturedPiece.side);
     
+    if (lastMove.didDrop) { // 駒を打った場合
+        // 打った駒を駒台に復元する
+        [self capture:lastMove.movedPiece by:lastMove.side];
+        /*
+        if (lastMove.movedPiece.side == THIS_SIDE) {
+            [self addCapturedPiecesView:self.thisSideStandView
+                          capturedPiece:lastMove.movedPiece
+                         capturedPieces:self.thisSideCapturedPieces
+                    capturedPieceButton:lastMove.capturedPieceButton
+                   capturedPieceButtons:self.thisSideCapturedPieceButtons];
+        } else if (lastMove.movedPiece.side == COUNTER_SIDE) {
+            [self addCapturedPiecesView:self.counterSideStandView
+                          capturedPiece:lastMove.movedPiece
+                         capturedPieces:self.counterSideCapturedPieces
+                    capturedPieceButton:lastMove.capturedPieceButton
+                   capturedPieceButtons:self.counterSideCapturedPieceButtons];
+        }
+         */
+        
+        
+        // 打った場所の駒を消す
+        lastMove.currentSquare.locatedPiece = nil;
+        [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
+    } else { // 駒を動かした場合
+        // 元の場所に駒を復元する
+        if ([lastMove didPromote]) {
+            [lastMove.previousSquare setImage:[UIImage imageNamed:[[lastMove.currentSquare.locatedPiece getOriginalPiece] getImageName]] forState:UIControlStateNormal];
+            lastMove.previousSquare.locatedPiece = [lastMove.currentSquare.locatedPiece getOriginalPiece];
+        } else {
+            [lastMove.previousSquare setImage:[UIImage imageNamed:[lastMove.currentSquare.locatedPiece getImageName]] forState:UIControlStateNormal];
+            lastMove.previousSquare.locatedPiece = lastMove.currentSquare.locatedPiece;
+        }
+
+        if (lastMove.capturedPiece) { // 駒を取った場合は元々そこにあった駒に戻す
+            lastMove.currentSquare.locatedPiece = lastMove.capturedPiece;
+            NSInteger capturedPieceSide = lastMove.capturedPiece.side;
+            
+            [lastMove.currentSquare setImage:[UIImage imageNamed:[lastMove.capturedPiece getImageNameWithSide:capturedPieceSide]]
+                                    forState:UIControlStateNormal];
+            
+            // 取った駒を駒台から除去する
+            [self subtractCapturedPiece:lastMove.capturedPiece
+                                 button:lastMove.capturedPieceButton
+                                   side:lastMove.side];
+        } else { // 何もない場所に動かした場合
+            lastMove.currentSquare.locatedPiece = nil;
+            [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
+        }
+        
+    }
+    
+    /*
     // 元の場所に駒を復元する
     if ([lastMove didPromote]) {
         [lastMove.previousSquare setImage:[UIImage imageNamed:[[lastMove.currentSquare.locatedPiece getOriginalPiece] getImageName]] forState:UIControlStateNormal];
@@ -246,7 +296,6 @@
 
     if (lastMove.capturedPiece) { //（駒を取った場合は元々そこにあった駒に戻す）
         lastMove.currentSquare.locatedPiece = lastMove.capturedPiece;
-//        NSInteger capturedPieceSide = [self getOppositeSide:lastMove.capturedPiece.side];
         NSInteger capturedPieceSide = lastMove.capturedPiece.side;
         
         [lastMove.currentSquare setImage:[UIImage imageNamed:[lastMove.capturedPiece getImageNameWithSide:capturedPieceSide]]
@@ -256,14 +305,13 @@
         [self subtractCapturedPiece:lastMove.capturedPiece
                              button:lastMove.capturedPieceButton
                                side:lastMove.side];
-        
-
-        
     } else {
         lastMove.currentSquare.locatedPiece = nil;
         [lastMove.currentSquare setImage:nil forState:UIControlStateNormal];
     }
+     */
     
+    // 直前の指し手を消去
     [self.moveArray removeLastObject];
 }
 
@@ -359,32 +407,27 @@
 }
 
 // 駒を取る
-- (void)capture:(KFPiece *)piece {
-//    NSLog(@"駒を取る！！");
+- (void)capture:(KFPiece *)piece by:(NSInteger)side {
     if (piece.isPromoted) {
-//        NSLog(@"成り駒を捕獲しました");
         piece = [piece getOriginalPiece];
     }
     
-//    NSLog(@"Piece.side : %ld", piece.side);
-    
     //持ち駒用のボタンを作成
     KFCapturedPieceButton *capturedPieceButton = [[KFCapturedPieceButton alloc] init];
-    
     [capturedPieceButton addTarget:self action:@selector(selectCapturedPiece:) forControlEvents:UIControlEventTouchDown];
 
     // 持ち駒ボタンに駒を登録
-    // コピーした方がいい？
-//    capturedPieceButton.locatedPiece = piece;
     capturedPieceButton.locatedPiece = [piece copy];
     
     //持ち駒の属性を持ち駒を取った駒と同じにする
-    capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
+//    capturedPieceButton.locatedPiece.side = self.selectedPiece.side;
+    capturedPieceButton.locatedPiece.side = side;
 
     //持ち駒の画像を設定
     [capturedPieceButton setImage:[UIImage imageNamed:[piece getImageNameWithSide:self.selectedPiece.side]] forState:UIControlStateNormal];
     
-    if (self.selectedPiece.side == THIS_SIDE) {
+//    if (self.selectedPiece.side == THIS_SIDE) {
+    if (side == THIS_SIDE) {
         [self addCapturedPiecesView:self.thisSideStandView
                          capturedPiece:piece
                         capturedPieces:self.thisSideCapturedPieces
@@ -399,9 +442,8 @@
     }
 
     // Add to captured pieces
-    [self addCapturedPiece:piece side:self.selectedPiece.side];
-
-//    NSLog(@"(駒取得処理終了時)Piece.side : %ld", piece.side);
+//    [self addCapturedPiece:piece side:self.selectedPiece.side];
+    [self addCapturedPiece:piece side:side];
 }
 
 // 持ち駒を選択
@@ -837,7 +879,7 @@
             case 1: //成り
                 if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
                     NSLog(@"（敵陣で）駒を取る。サイドは？targetSquare.side : %ld", self.targetSquare.locatedPiece.side);
-                    [self capture:self.targetSquare.locatedPiece];
+                    [self capture:self.targetSquare.locatedPiece by:self.selectedPiece.side];
                 }
 
                 // 指し手を保存
@@ -873,8 +915,8 @@
                 break;
             case 2: //成らず
                 if (self.targetSquare.locatedPiece) { //移動先に駒がある場合
-                    NSLog(@"（敵陣で）駒を取る。サイドは？targetSquare.side : %ld", self.targetSquare.locatedPiece.side);
-                    [self capture:self.targetSquare.locatedPiece];
+//                    NSLog(@"（敵陣で）駒を取る。サイドは？targetSquare.side : %ld", self.targetSquare.locatedPiece.side);
+                    [self capture:self.targetSquare.locatedPiece by:self.selectedPiece.side];
                 }
                 
                 // 指し手を保存

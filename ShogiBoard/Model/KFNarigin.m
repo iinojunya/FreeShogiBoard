@@ -1,15 +1,15 @@
 //
-//  KFNarikyo.m
+//  KFNarigin.m
 //  Kifoo
 //
 //  Created by Maeda Kazuya on 2013/12/29.
 //  Copyright (c) 2013年 Kifoo, Inc. All rights reserved.
 //
 
-#import "KFNarikyo.h"
-#import "KFKyosha.h"
+#import "KFNarigin.h"
+#import "KFGin.h"
 
-@implementation KFNarikyo
+@implementation KFNarigin
 
 /*
 - (id)init {
@@ -36,19 +36,32 @@
 
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
-        return @"s_narikyo.png";
+        return @"s_narigin.png";
     } else if (self.side == COUNTER_SIDE) {
-        return @"g_narikyo.png";
+        return @"g_narigin.png";
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_narigin.png";
+    } else if (side == COUNTER_SIDE) {
+        return @"g_narigin.png";
     } else {
         return nil;
     }
 }
 
 - (KFPiece *)getOriginalPiece {
-    KFKyosha *originalPiece = [[KFKyosha alloc] initWithSide:self.side];
+    KFGin *originalPiece = [[KFGin alloc] initWithSide:self.side];
     
     return originalPiece;
 }
 
+- (NSString *)pieceId {
+    return PIECE_ID_GIN;
+}
 
 @end

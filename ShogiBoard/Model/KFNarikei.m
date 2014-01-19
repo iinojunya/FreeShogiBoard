@@ -27,12 +27,10 @@
     
     if (self) {
         self.isPromoted = YES;
-//        self.canPromote = NO;
     }
     
     return self;
 }
-
 
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
@@ -44,10 +42,24 @@
     }
 }
 
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_narikei.png";
+    } else if (side == COUNTER_SIDE) {
+        return @"g_narikei.png";
+    } else {
+        return nil;
+    }
+}
+
 - (KFPiece *)getOriginalPiece {
     KFKeima *originalPiece = [[KFKeima alloc] initWithSide:self.side];
     
     return originalPiece;
+}
+
+- (NSString *)pieceId {
+    return PIECE_ID_KEI;
 }
 
 @end

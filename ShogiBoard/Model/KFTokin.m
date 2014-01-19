@@ -1,15 +1,15 @@
 //
-//  KFRyu.m
+//  KFTokin.m
 //  Kifoo
 //
 //  Created by Maeda Kazuya on 2013/12/29.
 //  Copyright (c) 2013年 Kifoo, Inc. All rights reserved.
 //
 
-#import "KFRyu.h"
-#import "KFHisha.h"
+#import "KFTokin.h"
+#import "KFFu.h"
 
-@implementation KFRyu
+@implementation KFTokin
 
 /*
 - (id)init {
@@ -21,7 +21,7 @@
     
     return self;
 }
- */
+*/
 - (id)initWithSide:(NSInteger)side {
     self = [super initWithSide:side];
     
@@ -34,19 +34,32 @@
 
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
-        return @"s_ryu.png";
+        return @"s_to.png";
     } else if (self.side == COUNTER_SIDE) {
-        return @"g_ryu.png";
+        return @"g_to.png";
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)getImageNameWithSide:(NSInteger)side {
+    if (side == THIS_SIDE) {
+        return @"s_to.png";
+    } else if (side == COUNTER_SIDE) {
+        return @"g_to.png";
     } else {
         return nil;
     }
 }
 
 - (KFPiece *)getOriginalPiece {
-    KFHisha *originalPiece = [[KFHisha alloc] initWithSide:self.side];
+    KFFu *originalPiece = [[KFFu alloc] initWithSide:self.side];
     
     return originalPiece;
 }
 
+- (NSString *)pieceId {
+    return PIECE_ID_FU;
+}
 
 @end

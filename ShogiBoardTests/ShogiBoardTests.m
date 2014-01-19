@@ -1,6 +1,6 @@
 //
-//  KifooTests.m
-//  KifooTests
+//  ShogiBoardTests.m
+//  ShogiBoardTests
 //
 //  Created by Maeda Kazuya on 2013/12/01.
 //  Copyright (c) 2013年 Kifoo, Inc. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface KifooTests : XCTestCase
+@interface ShogiBoardTests : XCTestCase
 
 @end
 
-@implementation KifooTests
+@implementation ShogiBoardTests
 
 - (void)setUp
 {

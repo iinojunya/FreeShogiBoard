@@ -11,6 +11,11 @@
 @class KFSquareButton;
 @class KFPiece;
 
+enum {
+    MENU_ALERT_TAG = 0,
+    PROMOTION_ALERT_TAG = 1
+};
+
 @interface KFBoardViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) KFSquareButton *selectedSquare;
@@ -21,11 +26,13 @@
 @property (strong, nonatomic) NSMutableDictionary *counterSideCapturedPieces;
 @property (strong, nonatomic) NSMutableDictionary *thisSideCapturedPieceButtons;
 @property (strong, nonatomic) NSMutableDictionary *counterSideCapturedPieceButtons;
+@property (strong, nonatomic) NSMutableArray *moveArray;
 
 @property BOOL isLocatedPieceSelected;
 @property BOOL isCapturedPieceSelected;
 @property BOOL shouldClearSelectedPiece;
 
+@property (weak, nonatomic) IBOutlet UIButton *waitButton;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 @property (weak, nonatomic) IBOutlet UIView *thisSideStandView;
 @property (weak, nonatomic) IBOutlet UIView *counterSideStandView;
@@ -112,8 +119,8 @@
 @property (weak, nonatomic) IBOutlet KFSquareButton *square98;
 @property (weak, nonatomic) IBOutlet KFSquareButton *square99;
 
-
 - (IBAction)resetButtonTapped:(id)sender;
+- (IBAction)waitButtonTapped:(id)sender;
 
 - (IBAction)square11tapped:(id)sender;
 - (IBAction)square12tapped:(id)sender;
@@ -196,12 +203,5 @@
 - (IBAction)square97tapped:(id)sender;
 - (IBAction)square98tapped:(id)sender;
 - (IBAction)square99tapped:(id)sender;
-
-
-
-
-
-
-
 
 @end

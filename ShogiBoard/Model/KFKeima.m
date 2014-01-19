@@ -1,15 +1,15 @@
 //
-//  KFKaku.m
+//  KFKeima.m
 //  Kifoo
 //
-//  Created by Maeda Kazuya on 2013/12/21.
+//  Created by Maeda Kazuya on 2013/12/22.
 //  Copyright (c) 2013年 Kifoo, Inc. All rights reserved.
 //
 
-#import "KFKaku.h"
-#import "KFUma.h"
+#import "KFKeima.h"
+#import "KFNarikei.h"
 
-@implementation KFKaku
+@implementation KFKeima
 
 - (id)initWithSide:(NSInteger)side {
     self = [super initWithSide:side];
@@ -23,9 +23,9 @@
 
 - (NSString *)getImageName {
     if (self.side == THIS_SIDE) {
-        return @"s_kaku.png";
+        return @"s_kei.png";
     } else if (self.side == COUNTER_SIDE) {
-        return @"g_kaku.png";
+        return @"g_kei.png";
     } else {
         return nil;
     }
@@ -33,9 +33,9 @@
 
 - (NSString *)getImageNameWithSide:(NSInteger)side {
     if (side == THIS_SIDE) {
-        return @"s_kaku.png";
+        return @"s_kei.png";
     } else if (side == COUNTER_SIDE) {
-        return @"g_kaku.png";
+        return @"g_kei.png";
     } else {
         return nil;
     }
@@ -43,25 +43,22 @@
 
 - (NSString *)getPromotedImageName {
     if (self.side == THIS_SIDE) {
-        return @"s_uma.png";
+        return @"s_narikei.png";
     } else if (self.side == COUNTER_SIDE) {
-        return @"g_uma.png";
+        return @"g_narikei.png";
     } else {
         return nil;
     }
 }
 
 - (KFPiece *)getPromotedPiece {
-    KFUma *promotedPiece = [[KFUma alloc] initWithSide:self.side];
+    KFNarikei *promotedPiece = [[KFNarikei alloc] initWithSide:self.side];
     
     return promotedPiece;
 }
 
-
-
-//- (NSInteger)pieceId {
 - (NSString *)pieceId {
-    return PIECE_ID_KAKU;
+    return PIECE_ID_KEI;
 }
 
 @end

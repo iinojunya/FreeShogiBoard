@@ -21,10 +21,17 @@
     self.titleViewController = [[KFTitleViewController alloc] init];
     self.window.rootViewController = self.titleViewController;
      */
-//    /*
+
+    //    /*
     self.boardViewController = [[KFBoardViewController alloc] init];
     self.window.rootViewController = self.boardViewController;
 //     */
+
+    /*
+    self.boardViewController = [[KFBoardViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.boardViewController];
+    self.window.rootViewController = navController;
+     */
     
     [self.window makeKeyAndVisible];
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		150031E6188BC14C003DF2EF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 150031E5188BC14C003DF2EF /* Icon@2x.png */; };
+		150031EA188C1BEB003DF2EF /* mokume3.png in Resources */ = {isa = PBXBuildFile; fileRef = 150031E9188C1BEB003DF2EF /* mokume3.png */; };
 		1512EE141865A21E00A9BA0B /* KFSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE131865A21E00A9BA0B /* KFSquareButton.m */; };
 		1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE161865C5A900A9BA0B /* KFPiece.m */; };
 		1512EE1A1865D2EE00A9BA0B /* KFKaku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE191865D2EE00A9BA0B /* KFKaku.m */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		150031E5188BC14C003DF2EF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Image/Icon@2x.png"; sourceTree = "<group>"; };
+		150031E9188C1BEB003DF2EF /* mokume3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mokume3.png; path = Resources/Image/mokume3.png; sourceTree = "<group>"; };
 		1512EE121865A21E00A9BA0B /* KFSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFSquareButton.h; path = View/KFSquareButton.h; sourceTree = "<group>"; };
 		1512EE131865A21E00A9BA0B /* KFSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFSquareButton.m; path = View/KFSquareButton.m; sourceTree = "<group>"; };
 		1512EE151865C5A900A9BA0B /* KFPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFPiece.h; path = Model/KFPiece.h; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		15FE2ECD184AFBAC00D00F92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				150031E9188C1BEB003DF2EF /* mokume3.png */,
 				15FE2ECE184AFBAC00D00F92 /* ShogiBoard-Info.plist */,
 				15FE2ECF184AFBAC00D00F92 /* InfoPlist.strings */,
 				15FE2ED2184AFBAC00D00F92 /* main.m */,
@@ -508,6 +511,7 @@
 				15B46B5C1872584200FDDD0F /* Default-568h@2x.png in Resources */,
 				15FE2EDF184AFBAC00D00F92 /* Images.xcassets in Resources */,
 				15FE2F35184B088E00D00F92 /* g_narikyo.png in Resources */,
+				150031EA188C1BEB003DF2EF /* mokume3.png in Resources */,
 				15FE2F4A184B209600D00F92 /* g_hisha.png in Resources */,
 				15FE2F3B184B088E00D00F92 /* s_gin.png in Resources */,
 				15FE2F48184B088E00D00F92 /* s_uma.png in Resources */,

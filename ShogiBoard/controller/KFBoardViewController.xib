@@ -100,6 +100,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mokume3.png" translatesAutoresizingMaskIntoConstraints="NO" id="alM-oV-eYM">
+                    <rect key="frame" x="0.0" y="0.0" width="327" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0M-sR-mOi" userLabel="Board View">
                     <rect key="frame" x="0.0" y="89" width="320" height="440"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -111,12 +115,12 @@
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="so8-OA-htR" userLabel="This side stand View">
                             <rect key="frame" x="80" y="390" width="240" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQy-FR-F46" userLabel="Counter side standView">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQk-Sh-UgV" userLabel="Button - 11" customClass="KFSquareButton">
                             <rect key="frame" x="272" y="56" width="32" height="35"/>
@@ -962,10 +966,9 @@
                         <action selector="waitButtonTapped:" destination="-1" eventType="touchUpInside" id="0Gf-Iy-wuo"/>
                     </connections>
                 </button>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86N-FM-BVe">
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="86N-FM-BVe">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
                         <navigationItem id="82P-jf-yaA">
                             <barButtonItem key="leftBarButtonItem" title="リセット" id="ivI-w7-EqH">
@@ -1002,6 +1005,7 @@
         <image name="g_kin.png" width="60" height="64"/>
         <image name="g_kyo.png" width="60" height="64"/>
         <image name="japanese-chess-b02.jpg" width="600" height="640"/>
+        <image name="mokume3.png" width="200" height="304"/>
         <image name="s_fu.png" width="60" height="64"/>
         <image name="s_gin.png" width="60" height="64"/>
         <image name="s_gyoku.png" width="60" height="64"/>

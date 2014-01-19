@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150031E6188BC14C003DF2EF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 150031E5188BC14C003DF2EF /* Icon@2x.png */; };
 		1512EE141865A21E00A9BA0B /* KFSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE131865A21E00A9BA0B /* KFSquareButton.m */; };
 		1512EE171865C5A900A9BA0B /* KFPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE161865C5A900A9BA0B /* KFPiece.m */; };
 		1512EE1A1865D2EE00A9BA0B /* KFKaku.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE191865D2EE00A9BA0B /* KFKaku.m */; };
@@ -26,7 +27,6 @@
 		1512EE60186FD33600A9BA0B /* KFRyu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1512EE5F186FD33500A9BA0B /* KFRyu.m */; };
 		15B46B5A1872578D00FDDD0F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B46B591872578D00FDDD0F /* Icon.png */; };
 		15B46B5C1872584200FDDD0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B46B5B1872584200FDDD0F /* Default-568h@2x.png */; };
-		15EB85621880DAC700675C17 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15EB85611880DAC700675C17 /* Icon@2x.png */; };
 		15EB8567188242C600675C17 /* KFMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EB8566188242C600675C17 /* KFMove.m */; };
 		15FE2EC7184AFBAC00D00F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC6184AFBAC00D00F92 /* Foundation.framework */; };
 		15FE2EC9184AFBAC00D00F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FE2EC8184AFBAC00D00F92 /* CoreGraphics.framework */; };
@@ -89,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		150031E5188BC14C003DF2EF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "ShogiBoard/Resources/Image/Icon@2x.png"; sourceTree = "<group>"; };
 		1512EE121865A21E00A9BA0B /* KFSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFSquareButton.h; path = View/KFSquareButton.h; sourceTree = "<group>"; };
 		1512EE131865A21E00A9BA0B /* KFSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFSquareButton.m; path = View/KFSquareButton.m; sourceTree = "<group>"; };
 		1512EE151865C5A900A9BA0B /* KFPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFPiece.h; path = Model/KFPiece.h; sourceTree = "<group>"; };
@@ -258,6 +259,7 @@
 		15FE2EBA184AFBAC00D00F92 = {
 			isa = PBXGroup;
 			children = (
+				150031E5188BC14C003DF2EF /* Icon@2x.png */,
 				15FE2ECC184AFBAC00D00F92 /* ShogiBoard */,
 				15FE2EEB184AFBAC00D00F92 /* ShogiBoardTests */,
 				15FE2EC5184AFBAC00D00F92 /* Frameworks */,
@@ -501,6 +503,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150031E6188BC14C003DF2EF /* Icon@2x.png in Resources */,
 				15B46B5A1872578D00FDDD0F /* Icon.png in Resources */,
 				15FE2F02184AFD3900D00F92 /* KFTitleViewController.xib in Resources */,
 				15FE2F44184B088E00D00F92 /* s_narikyo.png in Resources */,
@@ -516,7 +519,6 @@
 				15FE2F3E184B088E00D00F92 /* s_kaku.png in Resources */,
 				15FE2F43184B088E00D00F92 /* s_narikei.png in Resources */,
 				15FE2F46184B088E00D00F92 /* s_ryu.png in Resources */,
-				15EB85621880DAC700675C17 /* Icon@2x.png in Resources */,
 				15FE2F3C184B088E00D00F92 /* s_gyoku.png in Resources */,
 				15FE2F32184B088E00D00F92 /* g_kyo.png in Resources */,
 				15FE2F31184B088E00D00F92 /* g_kin.png in Resources */,

@@ -89,7 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		150031E5188BC14C003DF2EF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "ShogiBoard/Resources/Image/Icon@2x.png"; sourceTree = "<group>"; };
+		150031E5188BC14C003DF2EF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Image/Icon@2x.png"; sourceTree = "<group>"; };
 		1512EE121865A21E00A9BA0B /* KFSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFSquareButton.h; path = View/KFSquareButton.h; sourceTree = "<group>"; };
 		1512EE131865A21E00A9BA0B /* KFSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFSquareButton.m; path = View/KFSquareButton.m; sourceTree = "<group>"; };
 		1512EE151865C5A900A9BA0B /* KFPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFPiece.h; path = Model/KFPiece.h; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 		1512EE5F186FD33500A9BA0B /* KFRyu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFRyu.m; path = Model/KFRyu.m; sourceTree = "<group>"; };
 		15B46B591872578D00FDDD0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Image/Icon.png; sourceTree = "<group>"; };
 		15B46B5B1872584200FDDD0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Image/Default-568h@2x.png"; sourceTree = "<group>"; };
-		15EB85611880DAC700675C17 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../master/ShogiBoard/Kifoo/Resources/Image/Icon@2x.png"; sourceTree = "<group>"; };
 		15EB8565188242C600675C17 /* KFMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFMove.h; path = Model/KFMove.h; sourceTree = "<group>"; };
 		15EB8566188242C600675C17 /* KFMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFMove.m; path = Model/KFMove.m; sourceTree = "<group>"; };
 		15FE2EC3184AFBAC00D00F92 /* ShogiBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShogiBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,7 +258,6 @@
 		15FE2EBA184AFBAC00D00F92 = {
 			isa = PBXGroup;
 			children = (
-				150031E5188BC14C003DF2EF /* Icon@2x.png */,
 				15FE2ECC184AFBAC00D00F92 /* ShogiBoard */,
 				15FE2EEB184AFBAC00D00F92 /* ShogiBoardTests */,
 				15FE2EC5184AFBAC00D00F92 /* Frameworks */,
@@ -369,9 +367,9 @@
 		15FE2F08184B028300D00F92 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				150031E5188BC14C003DF2EF /* Icon@2x.png */,
 				15B46B5B1872584200FDDD0F /* Default-568h@2x.png */,
 				15B46B591872578D00FDDD0F /* Icon.png */,
-				15EB85611880DAC700675C17 /* Icon@2x.png */,
 				15FE2F0C184B05F900D00F92 /* Board */,
 				15FE2F0B184B05D500D00F92 /* Piece */,
 			);
